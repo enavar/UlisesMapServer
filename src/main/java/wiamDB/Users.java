@@ -1,10 +1,11 @@
-package ulisesServlet;
+package wiamDB;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /*
- * DAO    
+ * Users    
  *
  * Copyright 2014 local 
  * 
@@ -12,29 +13,25 @@ import java.sql.SQLException;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class DAO {
+public class Users {
 	
-	public Connection con = null;
-	
+	private Connection con;
 	/**
-	 * Method to set database connection
-	 * @param e is a database connection
+	 * Select query of table users
+	 * @return String query result
+	 * @throws SQLException
 	 */
 	
-	public void connect(Connection e) {
-		this.con = e;
-	}
-	
-	/**
-	 * Method to close database conection
-	 */
-	
-	public void close() {
+	public ArrayList<String> clients() throws SQLException {
+		ArrayList<String> users = new ArrayList<String>();
 		try {
-			con.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		return users;
+
 	}
 
 }
