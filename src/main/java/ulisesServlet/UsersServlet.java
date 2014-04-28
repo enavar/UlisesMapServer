@@ -58,20 +58,20 @@ public class UsersServlet extends HttpServlet {
 			response.setContentType("text/html");
 			response.setCharacterEncoding("utf-8");
 			// input client dates
-			String userName = request.getPart("user").toString();
+			/*String userName = request.getPart("user").toString();
 			String pass = request.getPart("password").toString();
-			System.out.println("" + userName + ":" + pass);
+			System.out.println("" + userName + ":" + pass);*/
 			// check if user exists in db
 			boolean exist = false;
 			try {
-				exist = u.selectUserByName(userName,pass);
+				exist = u.selectUserByName("admin","admin");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			if (exist) {
 				// accio depenent de comment o valoration
 			} else {
-				u.insertUser(userName,pass);
+				u.insertUser("admin","admin");
 			}
 			// output data
 			PrintWriter out = response.getWriter();
