@@ -1,6 +1,7 @@
 package ulisesServlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -9,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.RequestWrapper;
 
+import net.sf.json.JSONObject;
 import wiamDB.Users;
 
 /*
@@ -58,8 +61,8 @@ public class UsersServlet extends HttpServlet {
 			response.setContentType("text/html");
 			response.setCharacterEncoding("utf-8");
 			// input client dates
-			String userName = "";
-			String pass = "";
+			String userName = request.getPart("user").toString();
+			String pass = request.getPart("password").toString();
 			// check if user exists in db
 			boolean exist = false;
 			try {
@@ -72,6 +75,10 @@ public class UsersServlet extends HttpServlet {
 			} else {
 				u.insertUser(userName,pass);
 			}
+			// output data
+			PrintWriter out = response.getWriter();
+			out.print(exist);
+			out.flush();
 		}
 
 }

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import net.sf.json.JSONObject;
+
 /*
  * Points    
  *
@@ -18,31 +20,44 @@ import java.util.ArrayList;
 public class Points {
 	
 private Connection con;
+
+/**
+ * Method to set database connection
+ * @param e is a database connection
+ */
+
+public void connect(Connection e) {
+	this.con = e;
+}
 	
 	/**
 	 * Select query of table points
-	 * @return String query result
+	 * @return Array of JSONObject result of query
 	 * @throws SQLException
 	 */
 	
-	public ArrayList<String> points() throws SQLException {
-		ArrayList<String> points = new ArrayList<String>();
+	public ArrayList<JSONObject> selectPoints() throws SQLException {
 		Statement stm;
+		ArrayList <JSONObject> arr = new ArrayList <JSONObject>();
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
-					.executeQuery("Select * from points;");
+					.executeQuery("Select * from points");
 			while (rs.next()) {
-				String c = "" + rs.getInt("pk") + "-" +
-						rs.getString("name") + "-" + rs.getDouble("lat") + "-" + rs.getDouble("lon") + "-" + 
-						rs.getString("text") + "-" + rs.getString("img");
-				points.add(c);
+				JSONObject json = new JSONObject();
+				json.put("pk", rs.getInt("def"));
+				json.put("name", rs.getString("name"));
+				json.put("lat", rs.getDouble("lat"));
+				json.put("lon", rs.getDouble("lon"));
+				json.put("text", rs.getString("text"));
+				json.put("img",rs.getString("img"));
+				arr.add(json);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return points;
+		return arr;
 	}
 
 }

@@ -3,13 +3,15 @@ package ulisesServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import wiamDB.Users;
+import wiamDB.Points;
 import net.sf.json.JSONObject;
 
 /*
@@ -44,20 +46,23 @@ public class PointsServlet {
 	    }
 
 	    /**
-		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+		 * @throws SQLException 
+	     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+			Points p = new Points();
+			p.connect(con);
 			// type of response dates
 			response.setContentType("application/json");
 			response.setCharacterEncoding("utf-8");
 			// input client dates
-			int id;
+			
 			// output server dates
+			ArrayList<JSONObject> points = p.selectPoints();
 			PrintWriter out = response.getWriter();
-			JSONObject json = new JSONObject();
-			//json = u.selectPoint(id);
-			out.print(json);
+			for (int i = 0; i < points.size(); i++) {
+				out.print(points.get(i));
+			}
 			out.flush();
 		}
 
