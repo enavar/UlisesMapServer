@@ -13,7 +13,7 @@ import wiamDB.Users;
 import net.sf.json.JSONObject;
 
 /*
- * PointServlet    
+ * PointsServlet    
  *
  * Copyright 2014 local 
  * 
@@ -21,13 +21,13 @@ import net.sf.json.JSONObject;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class PointServlet {
+public class PointsServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private Connection con;
 	private DAOconection databaseDAO = new DAOconection();
 		
-	public PointServlet() {
+	public PointsServlet() {
 		      super();
 		    }
 		/**

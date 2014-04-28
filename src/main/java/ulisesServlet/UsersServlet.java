@@ -28,7 +28,7 @@ import wiamDB.Users;
 public class UsersServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private Connection con;
+	public Connection con;
 	private DAOconection databaseDAO = new DAOconection();
 		
 	public UsersServlet() {
