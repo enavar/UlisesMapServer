@@ -18,40 +18,48 @@ import java.util.ArrayList;
 
 public class Users {
 	
-	private Connection con;
+private Connection con;
+	
+	/**
+	 * Method to set database connection
+	 * @param e is a database connection
+	 */
+	
+	public void connect(Connection e) {
+		this.con = e;
+	}
 	
 	/**
 	 * Select query of table users
-	 * @return String query result
+	 * @param name the user name
+	 * @param pass the user password
+	 * @return true if user exists, false oterwhise
 	 * @throws SQLException
 	 */
 	
-	public ArrayList<String> users() throws SQLException {
-		ArrayList<String> users = new ArrayList<String>();
+	public boolean selectUserByName(String name,String pass) throws SQLException {
 		Statement stm;
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
-					.executeQuery("Select * from users;");
+					.executeQuery("Select * from users where name=" + name + " and password=" + pass + ";");
 			while (rs.next()) {
-				String c = "" + rs.getInt("pk") + "-" +
-						rs.getString("name") + "-" + rs.getString("password");
-				users.add(c);
+				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return users;
+		return false;
 	}
 	
-	public void insertUser(String insert) {
-		PreparedStatement preparedStatement;
+	public void insertUser(String name,String password) {
+		Statement stm;
+		String insert = "insert into users values ('" + name + "','" + password + "')";
 		try {
-			preparedStatement = con.prepareStatement(insert);
-			preparedStatement .executeUpdate();
+			stm = con.createStatement();
+			stm.executeUpdate(insert);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

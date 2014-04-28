@@ -2,12 +2,15 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import wiamDB.Users;
 
 /*
  * UsersServlet    
@@ -44,16 +47,31 @@ public class UsersServlet extends HttpServlet {
 			con = databaseDAO.getCon();	
 	    }
 
-		/**
+	    /**
 		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 		 */
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// database conection 
+			Users u = new Users();
+			u.connect(this.con);
 			// type of response dates
 			response.setContentType("text/html");
+			response.setCharacterEncoding("utf-8");
 			// input client dates
-			String user;
-			String password;
-			
+			String userName = "";
+			String pass = "";
+			// check if user exists in db
+			boolean exist = false;
+			try {
+				exist = u.selectUserByName(userName,pass);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if (exist) {
+				// accio depenent de comment o valoration
+			} else {
+				u.insertUser(userName,pass);
+			}
 		}
 
 }

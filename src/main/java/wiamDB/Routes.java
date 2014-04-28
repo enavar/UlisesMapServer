@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import net.sf.json.JSONObject;
+
 /*
  * Routes    
  *
@@ -19,28 +21,37 @@ public class Routes {
 
 private Connection con;
 	
-	/**
-	 * Select query of table routes
-	 * @return String query result
-	 * @throws SQLException
-	 */
-	
-	public ArrayList<String> routes() throws SQLException {
-		ArrayList<String> routes = new ArrayList<String>();
-		Statement stm;
-		try {
-			stm = con.createStatement();
-			ResultSet rs = stm
-					.executeQuery("Select * from routes;");
-			while (rs.next()) {
-				String c = "" + rs.getString("name") + "-" +
-						rs.getString("description");
-				routes.add(c);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+/**
+ * Method to set database connection
+ * @param e is a database connection
+ */
+
+public void connect(Connection e) {
+	this.con = e;
+}
+
+/**
+ * Select query of table routes
+ * @param routeName the name of selected route
+ * @return JSONObject result of query
+ * @throws SQLException
+ */
+
+public JSONObject selectRoutesInfo(String routeName) throws SQLException {
+	Statement stm;
+	JSONObject json = new JSONObject();
+	try {
+		stm = con.createStatement();
+		ResultSet rs = stm
+				.executeQuery("Select * from routes where name=" + routeName + ";");
+		while (rs.next()) {
+			 json.put("value", rs.getString("name"));
+			 json.put("user",rs.getString("description"));
 		}
-		
-		return routes;
+	} catch (SQLException e) {
+		e.printStackTrace();
 	}
+	
+	return json;
+}
 }

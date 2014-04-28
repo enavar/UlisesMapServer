@@ -5,15 +5,13 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import wiamDB.Users;
 import net.sf.json.JSONObject;
 
 /*
- * PointServlet    
+ * RoutesServlet    
  *
  * Copyright 2014 local 
  * 
@@ -21,13 +19,13 @@ import net.sf.json.JSONObject;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class PointServlet {
+public class RoutesServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private Connection con;
 	private DAOconection databaseDAO = new DAOconection();
 		
-	public PointServlet() {
+	public RoutesServlet() {
 		      super();
 		    }
 		/**
@@ -42,25 +40,22 @@ public class PointServlet {
 			}
 			con = databaseDAO.getCon();	
 	    }
-
-	    /**
-		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-			// type of response dates
-			response.setContentType("application/json");
-			response.setCharacterEncoding("utf-8");
-			// input client dates
-			int id;
-			// output server dates
-			PrintWriter out = response.getWriter();
-			JSONObject json = new JSONObject();
-			//json = u.selectPoint(id);
-			out.print(json);
-			out.flush();
-		}
-
-
+	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// type of response dates
+		response.setContentType("application/json");
+		response.setCharacterEncoding("utf-8");
+		// input client dates
+		int id;
+		// output server dates
+		PrintWriter out = response.getWriter();
+		JSONObject json = new JSONObject();
+		
+		out.print(json);
+		out.flush();
+	}
 
 }
