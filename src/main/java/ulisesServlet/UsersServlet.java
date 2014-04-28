@@ -63,6 +63,7 @@ public class UsersServlet extends HttpServlet {
 			// input client dates
 			String userName = request.getPart("user").toString();
 			String pass = request.getPart("password").toString();
+			System.out.println("" + userName + ":" + pass);
 			// check if user exists in db
 			boolean exist = false;
 			try {
