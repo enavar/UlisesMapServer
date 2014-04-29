@@ -7,7 +7,7 @@
 <title>UlisesMap</title>
 </head>
 <body>
-	<form method="post" action="UsersServlet">
+	<form action="UsersServlet">
 	<input type="text" >
 	<input type="text">
 	<input type="submit"/>
