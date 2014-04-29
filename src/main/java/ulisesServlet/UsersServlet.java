@@ -2,10 +2,12 @@
 package ulisesServlet;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,18 +58,23 @@ public class UsersServlet extends HttpServlet {
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		}
+		System.out.println("doget");
 		// type of response dates
 		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
+		response.setStatus(HttpServletResponse.SC_OK);
 		// input client dates
-		String user = request.getParameter("user");
-		String pass = request.getParameter("pass");
-		/*
-		 * String userName = request.getPart("user").toString(); String pass =
-		 * request.getPart("password").toString(); System.out.println("" +
-		 * userName + ":" + pass);
-		 */
-		System.out.println("Get: " + user + ":" + pass);
+		int length = request.getContentLength();
+        byte[] input = new byte[length];
+        ServletInputStream sin = request.getInputStream();
+        int c, count = 0 ;
+        while ((c = sin.read(input, count, input.length-count)) != -1) {
+            count +=c;
+        }
+        sin.close();
+
+        String recievedString = new String(input);
+		System.out.println(recievedString);	
+		/**
 		// check if user exists in db
 		boolean exist = false;
 		try {
@@ -83,7 +90,7 @@ public class UsersServlet extends HttpServlet {
 		// output data
 		PrintWriter out = response.getWriter();
 		out.print(exist);
-		out.flush();
+		out.flush(); */
 	}
 	
 	/**
@@ -93,44 +100,45 @@ public class UsersServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException {
 		// database conection
-		Users u = new Users();
-		try {
-			u.connect();
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		// type of response dates
-		response.setContentType("application/json");
-		response.setCharacterEncoding("utf-8");
-		// input client dates
-		JSONObject jObj = null;
-		String user = "";
-		String pass = "";
-		try {
-			jObj = new JSONObject(request.getParameter("mydata"));
-			user = jObj.getString("user");
-			pass = jObj.getString("password");
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		System.out.println("Post: " + user + ":" + pass + ":" + jObj.toString());
-		// check if user exists in db
-		boolean exist = false;
-		try {
-			exist = u.selectUserByName(user, pass);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if (exist) {
-			// accio depenent de comment o valoration
-		} else {
-			u.insertUser(user, pass);
-		}
-		// output data
-		PrintWriter out = response.getWriter();
-		out.print(exist);
-		out.flush();
+				Users u = new Users();
+				try {
+					u.connect();
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+				System.out.println("dopost");
+				// type of response dates
+				response.setContentType("text/html");
+				response.setStatus(HttpServletResponse.SC_OK);
+				// input client dates
+				int length = request.getContentLength();
+		        byte[] input = new byte[length];
+		        ServletInputStream sin = request.getInputStream();
+		        int c, count = 0 ;
+		        while ((c = sin.read(input, count, input.length-count)) != -1) {
+		            count +=c;
+		        }
+		        sin.close();
+
+		        String recievedString = new String(input);
+				System.out.println(recievedString);	
+				/**
+				// check if user exists in db
+				boolean exist = false;
+				try {
+					exist = u.selectUserByName(user, pass);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				if (exist) {
+					// accio depenent de comment o valoration
+				} else {
+					u.insertUser(user, pass);
+				}
+				// output data
+				PrintWriter out = response.getWriter();
+				out.print(exist);
+				out.flush(); */
 	}
 	
 }
