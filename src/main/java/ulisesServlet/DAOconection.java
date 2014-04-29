@@ -16,6 +16,12 @@ import java.sql.SQLException;
 public class DAOconection {
 	
 	private Connection con = null;
+	public static final String USERNAME = System.getenv("OPENSHIFT_POSTGRESQL_DB_USERNAME");
+	public static final String PASSWORD = System.getenv("OPENSHIFT_POSTGRESQL_DB_PASSWORD");
+	public static final String HOST = System.getenv("OPENSHIFT_POSTGRESQL_DB_HOST");
+	public static final String PORT = System.getenv("OPENSHIFT_POSTGRESQL_DB_PORT");
+	public static final String DBNAME = System.getenv("OPENSHIFT_APP_NAME");
+	
 	
 	/**
 	 * @return the conexion
@@ -31,10 +37,11 @@ public class DAOconection {
 	 */
 	
 	public void connect() throws ClassNotFoundException {
+		String url = "jdbc:postgresql://" + HOST + ":" + PORT + "/" + DBNAME;
 		try {
 			Class.forName("org.postgresql.Driver");
 			con = DriverManager.getConnection(
-					"postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT", "admint9aazjs", "uBs7mUXIGbGU"); // ("base de datos","usuario","pasword")
+					url, USERNAME, PASSWORD); // ("base de datos","usuario","pasword")
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import ulisesServlet.DAOconection;
+
 /*
  * Users
  * 
@@ -15,7 +17,7 @@ import java.sql.Statement;
  * http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class Users {
+public class Users extends DAOconection {
 	
 	private Connection con;
 	
@@ -24,10 +26,13 @@ public class Users {
 	 * 
 	 * @param e
 	 *            is a database connection
+	 * @throws ClassNotFoundException 
 	 */
 	
-	public void connect(Connection e) {
-		this.con = e;
+	public void connect() throws ClassNotFoundException {
+		DAOconection databaseDAO = new DAOconection();
+		databaseDAO.connect();
+		con = databaseDAO.getCon();
 	}
 	
 	/**

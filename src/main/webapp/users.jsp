@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action="UsersServlet">
-	<input type="text" >
-	<input type="text">
+	<input id="user" type="text" >
+	<input id="pass" type="text">
 	<input type="submit"/>
 	</form>
 </body>

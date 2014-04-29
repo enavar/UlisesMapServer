@@ -30,8 +30,6 @@ import wiamDB.Users;
 public class UsersServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	public Connection con;
-	private DAOconection databaseDAO = new DAOconection();
 	
 	public UsersServlet() {
 		super();
@@ -42,12 +40,6 @@ public class UsersServlet extends HttpServlet {
 	 */
 	public void init() {
 		
-		try {
-			databaseDAO.connect();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		con = databaseDAO.getCon();
 	}
 	
 	/**
@@ -57,11 +49,17 @@ public class UsersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// database conection
 		Users u = new Users();
-		u.connect(this.con);
+		try {
+			u.connect();
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
 		// type of response dates
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 		// input client dates
+		String user = request.getParameter("user");
+		String pass = request.getParameter("pass");
 		/*
 		 * String userName = request.getPart("user").toString(); String pass =
 		 * request.getPart("password").toString(); System.out.println("" +
@@ -70,14 +68,14 @@ public class UsersServlet extends HttpServlet {
 		// check if user exists in db
 		boolean exist = false;
 		try {
-			exist = u.selectUserByName("admin", "admin");
+			exist = u.selectUserByName(user,pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if (exist) {
 			// accio depenent de comment o valoration
 		} else {
-			u.insertUser("admin", "admin");
+			u.insertUser(user,pass);
 		}
 		// output data
 		PrintWriter out = response.getWriter();
@@ -85,38 +83,6 @@ public class UsersServlet extends HttpServlet {
 		out.flush();
 	}
 	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-			IOException {
-		// database conection
-		Users u = new Users();
-		u.connect(this.con);
-		// type of response dates
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		// input client dates
-		String userName = request.getPart("user").toString();
-		String pass = request.getPart("password").toString();
-		System.out.println("" + userName + ":" + pass);
-		// check if user exists in db
-		boolean exist = false;
-		try {
-			exist = u.selectUserByName(userName, pass);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if (exist) {
-			// accio depenent de comment o valoration
-		} else {
-			u.insertUser(userName, pass);
-		}
-		// output data
-		PrintWriter out = response.getWriter();
-		out.print(exist);
-		out.flush();
-	}
+	
 	
 }
