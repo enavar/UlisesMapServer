@@ -1,4 +1,4 @@
-package ulisesServlet;
+package wiamDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
