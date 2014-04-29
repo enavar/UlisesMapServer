@@ -95,11 +95,11 @@ public class UsersServlet extends HttpServlet {
 					e1.printStackTrace();
 				}
 				// type of response dates
-				response.setContentType("text/html");
+				response.setContentType("application/json");
 				response.setCharacterEncoding("utf-8");
 				// input client dates
-				String user = request.getParameter("user");
-				String pass = request.getParameter("pass");
+				String user = request.getPart("user").toString();
+				String pass = request.getPart("password").toString();
 				/*
 				 * String userName = request.getPart("user").toString(); String pass =
 				 * request.getPart("password").toString(); System.out.println("" +
