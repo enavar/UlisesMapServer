@@ -87,7 +87,40 @@ public class UsersServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+			// database conection
+				Users u = new Users();
+				try {
+					u.connect();
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+				// type of response dates
+				response.setContentType("text/html");
+				response.setCharacterEncoding("utf-8");
+				// input client dates
+				String user = request.getParameter("user");
+				String pass = request.getParameter("pass");
+				/*
+				 * String userName = request.getPart("user").toString(); String pass =
+				 * request.getPart("password").toString(); System.out.println("" +
+				 * userName + ":" + pass);
+				 */
+				// check if user exists in db
+				boolean exist = false;
+				try {
+					exist = u.selectUserByName(user,pass);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				if (exist) {
+					// accio depenent de comment o valoration
+				} else {
+					u.insertUser(user,pass);
+				}
+				// output data
+				PrintWriter out = response.getWriter();
+				out.print(exist);
+				out.flush();
 	}
 	
 }

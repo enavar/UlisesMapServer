@@ -21,10 +21,9 @@ import wiamDB.Users;
 public class UsersTest {
 
 	@Test
-	public void test() throws SQLException {
-		UsersServlet us = new UsersServlet();
+	public void test() throws SQLException, ClassNotFoundException {
 		Users u = new Users();
-		u.connect(us.con);
+		u.connect();
 		String userName = "admin";
 		String pass = "admin";
 		u.insertUser(userName,pass);	
