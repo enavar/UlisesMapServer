@@ -16,7 +16,9 @@ import ulisesServlet.DAOconection;
 /*
  * Valoration    
  *
- * Copyright 2014 local 
+ * @Author: Oleksander Dovbysh
+ * 			Elisabet Navarro
+ * 			Sheila Perez
  * 
  * This is free software, licensed under the GNU General Public License v3.
  * See http://www.gnu.org/licenses/gpl.html for more information.
@@ -30,8 +32,6 @@ public class Comments {
 	/**
 	 * Method to set database connection
 	 * 
-	 * @param e
-	 *            is a database connection
 	 * @throws ClassNotFoundException 
 	 */
 	
@@ -68,6 +68,12 @@ public class Comments {
 		return arr;
 	}
 	
+	/**
+	 * Insert comment in database
+	 * @param comment the string comment for insert
+	 * @param user the name of user who inserts the comment
+	 * @param route the name of the route for comment
+	 */
 	public void insertComment(String comment,String user,String route) {
 		Statement stm;
 		String insert = "insert into comments values (" + comment + ",'" + route + "','" + user + "')";
@@ -79,6 +85,13 @@ public class Comments {
 		}
 	}
 	
+	/**
+	 * Check if a user has a comment in determinated route
+	 * @param routeName the string name of route 
+	 * @param userName the user name who inserte the comment
+	 * @return true if comment exists, false otherwish
+	 * @throws SQLException
+	 */
 	public boolean checkComment(String routeName,String userName) throws SQLException {
 		Statement stm;
 		try {

@@ -2,8 +2,6 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +13,9 @@ import org.json.JSONObject;
 /*
  * RoutesServlet    
  *
- * Copyright 2014 local 
+ * @Author: Oleksander Dovbysh
+ * 			Elisabet Navarro
+ * 			Sheila Perez
  * 
  * This is free software, licensed under the GNU General Public License v3.
  * See http://www.gnu.org/licenses/gpl.html for more information.

@@ -1,17 +1,11 @@
 package ulisesServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.JSONObject;
 
 import wiamDB.Points;
 
@@ -19,7 +13,9 @@ import wiamDB.Points;
 /*
  * PointsServlet    
  *
- * Copyright 2014 local 
+ * @Author: Oleksander Dovbysh
+ * 			Elisabet Navarro
+ * 			Sheila Perez
  * 
  * This is free software, licensed under the GNU General Public License v3.
  * See http://www.gnu.org/licenses/gpl.html for more information.

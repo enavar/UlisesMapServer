@@ -16,7 +16,9 @@ import ulisesServlet.DAOconection;
 /*
  * Valoration    
  *
- * Copyright 2014 local 
+ * @Author: Oleksander Dovbysh
+ * 			Elisabet Navarro
+ * 			Sheila Perez
  * 
  * This is free software, licensed under the GNU General Public License v3.
  * See http://www.gnu.org/licenses/gpl.html for more information.
@@ -29,9 +31,6 @@ public class Valoration {
 	
 	/**
 	 * Method to set database connection
-	 * 
-	 * @param e
-	 *            is a database connection
 	 * @throws ClassNotFoundException 
 	 */
 	
@@ -68,6 +67,12 @@ public class Valoration {
 		return arr;
 	}
 	
+	/**
+	 * Insert new valoration in database
+	 * @param valoracio int number of valoration
+	 * @param user String name of user who valorated
+	 * @param route String name of valorated route
+	 */
 	public void insertValoration(int valoracio,String user,String route) {
 		Statement stm;
 		String insert = "insert into valoration values (" + valoracio + ",'" + route + "','" + user + "')";
@@ -79,6 +84,13 @@ public class Valoration {
 		}
 	}
 	
+	/**
+	 * Check if determinated user has valored a determinated route
+	 * @param routeName the string name of a route
+	 * @param userName the string name who valorates
+	 * @return return true if user has valorated the route, false otherwise
+	 * @throws SQLException
+	 */
 	public boolean checkValoration(String routeName,String userName) throws SQLException {
 		Statement stm;
 		try {

@@ -11,7 +11,9 @@ import ulisesServlet.DAOconection;
 /*
  * Users
  * 
- * Copyright 2014 local
+ * @Author: Oleksander Dovbysh
+ * 			Elisabet Navarro
+ * 			Sheila Perez
  * 
  * This is free software, licensed under the GNU General Public License v3. See
  * http://www.gnu.org/licenses/gpl.html for more information.
@@ -25,8 +27,6 @@ public class Users extends DAOconection {
 	/**
 	 * Method to set database connection
 	 * 
-	 * @param e
-	 *            is a database connection
 	 * @throws ClassNotFoundException 
 	 */
 	
@@ -38,10 +38,8 @@ public class Users extends DAOconection {
 	/**
 	 * Select query of table users
 	 * 
-	 * @param name
-	 *            the user name
-	 * @param pass
-	 *            the user password
+	 * @param name the user name
+	 * @param pass the user password
 	 * @return true if user exists, false oterwhise
 	 * @throws SQLException
 	 */
@@ -61,6 +59,11 @@ public class Users extends DAOconection {
 		return false;
 	}
 	
+	/**
+	 * Insert new user in database
+	 * @param name the String name of an user
+	 * @param password the String password for an user
+	 */
 	public void insertUser(String name, String password) {
 		Statement stm;
 		String insert = "insert into users(name,password) values ('" + name + "','" + password + "')";
