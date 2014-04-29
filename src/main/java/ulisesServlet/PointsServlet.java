@@ -28,8 +28,6 @@ import wiamDB.Points;
 public class PointsServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
 		
 	public PointsServlet() {
 		      super();
@@ -39,21 +37,16 @@ public class PointsServlet {
 		 */
 	    public void init() {
 			
-	    	try {
-				databaseDAO.connect();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			con = databaseDAO.getCon();	
 	    }
 
 	    /**
 		 * @throws SQLException 
+	     * @throws ClassNotFoundException 
 	     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
 			Points p = new Points();
-			p.connect(con);
+			p.connect();
 			// type of response dates
 			response.setContentType("application/json");
 			response.setCharacterEncoding("utf-8");

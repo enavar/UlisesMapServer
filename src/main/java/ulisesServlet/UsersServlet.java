@@ -102,7 +102,7 @@ public class UsersServlet extends HttpServlet {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("utf-8");
 				// input client dates
-				JSONObject jObj;
+				JSONObject jObj = null;
 				String user = "";
 				String pass = "";
 				try {
@@ -113,7 +113,7 @@ public class UsersServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+				System.out.println("" + user + ":" + pass + ":" + jObj.toString());
 				// check if user exists in db
 				boolean exist = false;
 				try {

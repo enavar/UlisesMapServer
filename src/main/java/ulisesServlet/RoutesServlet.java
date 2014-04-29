@@ -24,8 +24,6 @@ import org.json.JSONObject;
 public class RoutesServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
 		
 	public RoutesServlet() {
 		      super();
@@ -35,12 +33,6 @@ public class RoutesServlet {
 		 */
 	    public void init() {
 			
-	    	try {
-				databaseDAO.connect();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			con = databaseDAO.getCon();	
 	    }
 	
 	/**
