@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesServlet.DAOconection;
+
 
 
 /*
@@ -22,16 +24,21 @@ import org.json.JSONObject;
 
 public class Points {
 	
-private Connection con;
-
-/**
- * Method to set database connection
- * @param e is a database connection
- */
-
-public void connect(Connection e) {
-	this.con = e;
-}
+	private Connection con;
+	private DAOconection databaseDAO = new DAOconection();
+	
+	/**
+	 * Method to set database connection
+	 * 
+	 * @param e
+	 *            is a database connection
+	 * @throws ClassNotFoundException 
+	 */
+	
+	public void connect() throws ClassNotFoundException {
+		databaseDAO.connect();
+		con = databaseDAO.getCon();
+	}
 	
 	/**
 	 * Select query of table points

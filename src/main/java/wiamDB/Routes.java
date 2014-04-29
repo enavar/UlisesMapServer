@@ -8,6 +8,8 @@ import java.sql.Statement;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesServlet.DAOconection;
+
 
 /*
  * Routes    
@@ -20,16 +22,21 @@ import org.json.JSONObject;
 
 public class Routes {
 
-private Connection con;
+	private Connection con;
+	private DAOconection databaseDAO = new DAOconection();
 	
-/**
- * Method to set database connection
- * @param e is a database connection
- */
-
-public void connect(Connection e) {
-	this.con = e;
-}
+	/**
+	 * Method to set database connection
+	 * 
+	 * @param e
+	 *            is a database connection
+	 * @throws ClassNotFoundException 
+	 */
+	
+	public void connect() throws ClassNotFoundException {
+		databaseDAO.connect();
+		con = databaseDAO.getCon();
+	}
 
 /**
  * Select query of table routes

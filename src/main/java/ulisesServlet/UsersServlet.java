@@ -4,12 +4,16 @@ package ulisesServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import wiamDB.Users;
 
@@ -98,13 +102,18 @@ public class UsersServlet extends HttpServlet {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("utf-8");
 				// input client dates
-				String user = request.getPart("user").toString();
-				String pass = request.getPart("password").toString();
-				/*
-				 * String userName = request.getPart("user").toString(); String pass =
-				 * request.getPart("password").toString(); System.out.println("" +
-				 * userName + ":" + pass);
-				 */
+				JSONObject jObj;
+				String user = "";
+				String pass = "";
+				try {
+					jObj = new JSONObject(request.getParameter("mydata"));
+					user = jObj.getString("user");
+					pass = jObj.getString("password");
+				} catch (JSONException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				// check if user exists in db
 				boolean exist = false;
 				try {

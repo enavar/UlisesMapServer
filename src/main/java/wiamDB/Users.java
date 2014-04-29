@@ -20,6 +20,7 @@ import ulisesServlet.DAOconection;
 public class Users extends DAOconection {
 	
 	private Connection con;
+	private DAOconection databaseDAO = new DAOconection();
 	
 	/**
 	 * Method to set database connection
@@ -30,7 +31,6 @@ public class Users extends DAOconection {
 	 */
 	
 	public void connect() throws ClassNotFoundException {
-		DAOconection databaseDAO = new DAOconection();
 		databaseDAO.connect();
 		con = databaseDAO.getCon();
 	}
