@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -44,9 +43,9 @@ public class Points {
 	 * @throws JSONException 
 	 */
 	
-	public ArrayList<JSONObject> selectPoints() throws SQLException, JSONException {
+	public JSONArray selectPoints() throws SQLException, JSONException {
 		Statement stm;
-		ArrayList <JSONObject> arr = new ArrayList <JSONObject>();
+		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
@@ -59,7 +58,7 @@ public class Points {
 				json.put("lon", rs.getDouble("lon"));
 				json.put("text", rs.getString("text"));
 				json.put("img",rs.getString("img"));
-				arr.add(json);
+				arr.put(json);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
