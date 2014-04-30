@@ -62,7 +62,7 @@ public class Users extends DAOconection {
 	 * @param name the String name of an user
 	 * @param password the String password for an user
 	 */
-	public void insertUser(String name, String password) {
+	public boolean insertUser(String name, String password) {
 		Statement stm;
 		String insert = "insert into users(name,password) values ('" + name + "','" + password + "')";
 		try {
@@ -70,7 +70,9 @@ public class Users extends DAOconection {
 			stm.executeUpdate(insert);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 }

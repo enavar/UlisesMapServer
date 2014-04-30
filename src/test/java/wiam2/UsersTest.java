@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
-import ulisesServlet.UsersServlet;
+import ulisesServlet.ServletCheckUser;
 import wiamDB.Users;
 
 /*

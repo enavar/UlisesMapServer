@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import wiamDB.Users;
 
 /*
- * UsersServlet
+ * ServletCheckUser
  * 
  * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
  * 
@@ -30,12 +30,12 @@ import wiamDB.Users;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/UsersServlet")
-public class UsersServlet extends HttpServlet {
+@WebServlet("/ServletCheckUser")
+public class ServletCheckUser extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public UsersServlet() {
+	public ServletCheckUser() {
 		super();
 	}
 	
@@ -51,46 +51,7 @@ public class UsersServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// database conection
-		Users u = new Users();
-		try {
-			u.connect();
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		System.out.println("doget");
-		// type of response dates
-		response.setContentType("text/html");
-		response.setStatus(HttpServletResponse.SC_OK);
-		// input client dates
-		int length = request.getContentLength();
-        byte[] input = new byte[length];
-        ServletInputStream sin = request.getInputStream();
-        int c, count = 0 ;
-        while ((c = sin.read(input, count, input.length-count)) != -1) {
-            count +=c;
-        }
-        sin.close();
-
-        String recievedString = new String(input);
-		System.out.println(recievedString);	
-		/**
-		// check if user exists in db
-		boolean exist = false;
-		try {
-			exist = u.selectUserByName(user, pass);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if (exist) {
-			// accio depenent de comment o valoration
-		} else {
-			u.insertUser(user, pass);
-		}
-		// output data
-		PrintWriter out = response.getWriter();
-		out.print(exist);
-		out.flush(); */
+		
 	}
 	
 	/**
@@ -119,26 +80,29 @@ public class UsersServlet extends HttpServlet {
 		            count +=c;
 		        }
 		        sin.close();
-
 		        String recievedString = new String(input);
-				System.out.println(recievedString);	
-				/**
-				// check if user exists in db
-				boolean exist = false;
-				try {
-					exist = u.selectUserByName(user, pass);
+				// convert String into JSONObject and recuperate keys
+		        String result = "";
+		        try {
+					JSONObject json = new JSONObject(recievedString);
+					String user = json.getString("user");
+					String pass = json.getString("password");
+					boolean exist = u.selectUserByName(user, pass);
+					if (exist) {
+						result = "Welcome!";
+					} else {
+						result = "Try again";
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				if (exist) {
-					// accio depenent de comment o valoration
-				} else {
-					u.insertUser(user, pass);
-				}
+		        
 				// output data
 				PrintWriter out = response.getWriter();
-				out.print(exist);
-				out.flush(); */
+				out.print(result);
+				out.flush();
 	}
 	
 }
