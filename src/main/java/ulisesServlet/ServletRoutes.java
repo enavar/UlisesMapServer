@@ -2,16 +2,20 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import wiamDB.Routes;
 
 
 
 /*
- * RoutesServlet    
+ * ServletRoutes   
  *
  * @Author: Oleksander Dovbysh
  * 			Elisabet Navarro
@@ -21,11 +25,11 @@ import org.json.JSONObject;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class RoutesServlet {
+public class ServletRoutes {
 	
 	private static final long serialVersionUID = 1L;
 		
-	public RoutesServlet() {
+	public ServletRoutes() {
 		      super();
 		    }
 		/**
@@ -39,17 +43,23 @@ public class RoutesServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	// type of response dates
-		response.setContentType("application/json");
-		response.setCharacterEncoding("utf-8");
-		// input client dates
-		int id;
-		// output server dates
-		PrintWriter out = response.getWriter();
-		JSONObject json = new JSONObject();
 		
-		out.print(json);
-		out.flush();
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException, ClassNotFoundException, SQLException, JSONException {
+		Routes r = new Routes();
+		r.connect();
+		// type of response dates
+		response.setContentType("text/html");
+		// capture all of interest points to db
+		JSONArray arr = r.selectRoutesInfo();
+		String result = arr.toString();
+		// send points converted in string
+		PrintWriter out = response.getWriter();
+		out.print(result);
+		out.flush(); 
+	}
+	
+	
 
 }

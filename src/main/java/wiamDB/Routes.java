@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -44,22 +45,44 @@ public class Routes {
 	 * @throws JSONException
 	 */
 
-	public JSONObject selectRoutesInfo(String routeName) throws SQLException,
-			JSONException {
+	public JSONArray selectRoutesInfo() throws SQLException,JSONException {
 		Statement stm;
-		JSONObject json = new JSONObject();
+		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from routes where name="
-					+ routeName + ";");
+			ResultSet rs = stm.executeQuery("Select * from routes");
 			while (rs.next()) {
-				json.put("value", rs.getString("name"));
-				json.put("user", rs.getString("description"));
+				JSONObject json = new JSONObject();
+				json.put("name", rs.getString("name"));
+				json.put("description", rs.getString("description"));
+				// average
+				arr.put(json);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return json;
+		return arr;
+	}
+	
+	public JSONArray selectPointsDeterminatedRoute(String name) throws SQLException,JSONException {
+		Statement stm;
+		JSONArray arr = new JSONArray();
+		try {
+			stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from" + name + ";");
+			int count = 1;
+			while (rs.next()) {
+				JSONObject json = new JSONObject();
+				json.put("name", rs.getString("fk_name"));
+				json.put("lat", rs.getString("fk_lat"));
+				json.put("lon", rs.getString("fk_lon"));
+				arr.put(json);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return arr;
 	}
 }

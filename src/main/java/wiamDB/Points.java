@@ -66,5 +66,7 @@ public class Points {
 		
 		return arr;
 	}
+	
+	// add a check method
 
 }
