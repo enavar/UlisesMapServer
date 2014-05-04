@@ -71,7 +71,6 @@ public class Routes {
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm.executeQuery("Select * from" + name + ";");
-			int count = 1;
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
 				json.put("name", rs.getString("fk_name"));
