@@ -78,12 +78,15 @@ public class ServletCheckUser extends HttpServlet {
 		        }
 		        sin.close();
 		        String recievedString = new String(input);
+		        System.out.println(recievedString);
 				// convert String into JSONObject and recuperate keys
 		        String result = "";
 		        try {
 					JSONObject json = new JSONObject(recievedString);
 					String user = json.getString("user");
+					System.out.print(user);
 					String pass = json.getString("password");
+					System.out.print(pass);
 					boolean exist = u.selectUserByName(user, pass);
 					if (exist) {
 						result = "Welcome!";
