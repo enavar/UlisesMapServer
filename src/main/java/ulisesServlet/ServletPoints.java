@@ -76,6 +76,7 @@ public class ServletPoints extends HttpServlet {
 			String result = arr.toString();
 			// send points converted in string
 			PrintWriter out = response.getWriter();
+			System.out.println(result);
 			out.print(result);
 			out.flush(); 
 		}
