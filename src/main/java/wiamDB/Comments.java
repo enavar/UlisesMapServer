@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,18 +45,18 @@ public class Comments {
 	 * @throws JSONException 
 	 */
 	
-	public ArrayList <JSONObject> selectComments(String routeName) throws SQLException, JSONException {
+	public JSONArray selectComments(String routeName) throws SQLException, JSONException {
 		Statement stm;
-		ArrayList <JSONObject> arr = new ArrayList <JSONObject>();
+		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
-					.executeQuery("Select * from comments where fk_route=" + routeName + ";");
+					.executeQuery("Select * from comments where fk_route='" + routeName + "';");
 			while (rs.next()) {
-				JSONObject json = new JSONObject();
-				 json.put("value", rs.getString("def"));
-				 json.put("user",rs.getString("fk_user"));
-				 arr.add(json);
+				 JSONObject json = new JSONObject();
+				 json.put("def", rs.getString("def"));
+				 json.put("fk_user",rs.getString("fk_user"));
+				 arr.put(json);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,7 +73,7 @@ public class Comments {
 	 */
 	public void insertComment(String comment,String user,String route) {
 		Statement stm;
-		String insert = "insert into comments values (" + comment + ",'" + route + "','" + user + "')";
+		String insert = "insert into comments values ('" + comment + "','" + route + "','" + user + "');";
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(insert);
@@ -95,7 +94,7 @@ public class Comments {
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
-					.executeQuery("Select * from comments where fk_route=" + routeName + " and fk_user=" + userName + ";");
+					.executeQuery("Select * from comments where fk_route='" + routeName + "' and fk_user='" + userName + "';");
 			while (rs.next()) {
 				return true;
 			}

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import wiamDB.Routes;
+import wiamDB.RelationRP;
 
 
 
 /*
- * ServletRoutes   
+ * ServletRelationRP  
  *
  * @Author: Oleksander Dovbysh
  * 			Elisabet Navarro
@@ -31,12 +32,12 @@ import wiamDB.Routes;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletRoutes")
-public class ServletRoutes extends HttpServlet {
+@WebServlet("/ServletRelationRP")
+public class ServletRelationRP extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 		
-	public ServletRoutes() {
+	public ServletRelationRP() {
 		      super();
 		    }
 		/**
@@ -54,22 +55,31 @@ public class ServletRoutes extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-		Routes r = new Routes();
+		// input client dates
+		int length = request.getContentLength();
+        byte[] input = new byte[length];
+        ServletInputStream sin = request.getInputStream();
+        int c, count = 0 ;
+        while ((c = sin.read(input, count, input.length-count)) != -1) {
+            count +=c;
+        }
+        sin.close();
+        String routeName = new String(input);
+		
+		// response dates
+		RelationRP re = new RelationRP();
 		try {
-			r.connect();
+			re.connect();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// type of response dates
 		response.setContentType("text/html");
-		// capture all of interest points to db
-		JSONArray arr = null;
+		// capture points/comments and valorations
+		JSONArray arrPoints = null;
 		try {
-			arr = r.selectRoutesInfo();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			arrPoints = re.selectRoutePoints(routeName);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,8 +87,8 @@ public class ServletRoutes extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String result = arr.toString();
-		// send points converted in string
+		String result = arrPoints.toString();
+		// send dates converted in string
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

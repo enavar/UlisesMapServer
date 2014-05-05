@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,11 @@ import wiamDB.Points;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class ServletPoints {
+/**
+ * Servlet implementation class Servlet
+ */
+@WebServlet("/ServletPoints")
+public class ServletPoints extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 		
@@ -41,22 +46,33 @@ public class ServletPoints {
 	    }
 
 	    /**
-		 * @throws SQLException 
-	     * @throws ClassNotFoundException 
-	     * @throws JSONException 
-	     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException, JSONException {
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		}
 		
-		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException, ClassNotFoundException, SQLException, JSONException {
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
 			Points p = new Points();
-			p.connect();
+			try {
+				p.connect();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// type of response dates
 			response.setContentType("text/html");
 			// capture all of interest points to db
-			JSONArray arr = p.selectPoints();
+			JSONArray arr = null;
+			try {
+				arr = p.selectPoints();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			String result = arr.toString();
 			// send points converted in string
 			PrintWriter out = response.getWriter();

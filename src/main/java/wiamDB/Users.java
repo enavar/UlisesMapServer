@@ -46,7 +46,7 @@ public class Users extends DAOconection {
 		Statement stm;
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from users where name=" + name + " and password=" + pass + ";");
+			ResultSet rs = stm.executeQuery("Select * from users where name='" + name + "' and password=md5('" + pass + "');");
 			while (rs.next()) {
 				return true;
 			}
@@ -64,7 +64,7 @@ public class Users extends DAOconection {
 	 */
 	public boolean insertUser(String name, String password) {
 		Statement stm;
-		String insert = "insert into users(name,password) values ('" + name + "','" + password + "')";
+		String insert = "insert into users(name,password) values ('" + name + "',md5('" + password + "'))";
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(insert);

@@ -2,6 +2,8 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import wiamDB.Comments;
 import wiamDB.Users;
 
 /*
- * ServletInsertUser
+ * ServletCheckUser
  * 
  * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
  * 
@@ -26,12 +29,12 @@ import wiamDB.Users;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletInsertUser")
-public class ServletInsertUser extends HttpServlet {
+@WebServlet("/ServletCheckComment")
+public class ServletCheckComment extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public ServletInsertUser() {
+	public ServletCheckComment() {
 		super();
 	}
 	
@@ -51,15 +54,14 @@ public class ServletInsertUser extends HttpServlet {
 	}
 	
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException {
 		// database conection
-				Users u = new Users();
+				Comments co = new Comments();
 				try {
-					u.connect();
+					co.connect();
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
@@ -80,15 +82,17 @@ public class ServletInsertUser extends HttpServlet {
 		        String result = "";
 		        try {
 					JSONObject json = new JSONObject(recievedString);
-					String user = json.getString("user");
-					String pass = json.getString("password");
-					boolean exist = u.insertUser(user, pass);
+					String routeName = json.getString("routeName");
+					String userName = json.getString("userName");
+					boolean exist = co.checkComment(routeName,userName);
 					if (exist) {
-						result = "Your user has been added";
+						result = "Welcome!";
 					} else {
-						result = "Try another user name";
+						result = "Try again";
 					}
 				} catch (JSONException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 		        

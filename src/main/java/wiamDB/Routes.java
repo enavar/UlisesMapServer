@@ -24,6 +24,7 @@ public class Routes {
 
 	private Connection con;
 	private DAOconection databaseDAO = new DAOconection();
+	private Valoration val = new Valoration();
 
 	/**
 	 * Method to set database connection
@@ -43,19 +44,22 @@ public class Routes {
 	 * @return JSONObject result of query
 	 * @throws SQLException
 	 * @throws JSONException
+	 * @throws ClassNotFoundException 
 	 */
 
-	public JSONArray selectRoutesInfo() throws SQLException,JSONException {
+	public JSONArray selectRoutesInfo() throws SQLException,JSONException, ClassNotFoundException {
+		val.connect();
 		Statement stm;
 		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from routes");
+			ResultSet rs = stm.executeQuery("Select * from routes;");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
-				json.put("name", rs.getString("name"));
+				String routeName = rs.getString("name");
+				json.put("name", routeName);
 				json.put("description", rs.getString("description"));
-				// average
+				json.put("avg", val.averageValoration(routeName));
 				arr.put(json);
 			}
 		} catch (SQLException e) {
@@ -65,23 +69,4 @@ public class Routes {
 		return arr;
 	}
 	
-	public JSONArray selectPointsDeterminatedRoute(String name) throws SQLException,JSONException {
-		Statement stm;
-		JSONArray arr = new JSONArray();
-		try {
-			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from" + name + ";");
-			while (rs.next()) {
-				JSONObject json = new JSONObject();
-				json.put("name", rs.getString("fk_name"));
-				json.put("lat", rs.getString("fk_lat"));
-				json.put("lon", rs.getString("fk_lon"));
-				arr.put(json);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return arr;
-	}
 }

@@ -2,7 +2,6 @@
 package ulisesServlet;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -55,8 +54,7 @@ public class ServletCheckUser extends HttpServlet {
 	}
 	
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException {
@@ -67,7 +65,6 @@ public class ServletCheckUser extends HttpServlet {
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("dopost");
 				// type of response dates
 				response.setContentType("text/html");
 				response.setStatus(HttpServletResponse.SC_OK);
