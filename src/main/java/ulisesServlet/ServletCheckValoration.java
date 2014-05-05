@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import wiamDB.Comments;
+import wiamDB.Valoration;
 
 /*
  * ServletCheckUser
@@ -28,12 +28,12 @@ import wiamDB.Comments;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletCheckComment")
-public class ServletCheckComment extends HttpServlet {
+@WebServlet("/ServletCheckValoration")
+public class ServletCheckValoration extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public ServletCheckComment() {
+	public ServletCheckValoration() {
 		super();
 	}
 	
@@ -58,9 +58,9 @@ public class ServletCheckComment extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException {
 		// database conection
-				Comments co = new Comments();
+				Valoration val = new Valoration();
 				try {
-					co.connect();
+					val.connect();
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
@@ -83,11 +83,11 @@ public class ServletCheckComment extends HttpServlet {
 					JSONObject json = new JSONObject(recievedString);
 					String routeName = json.getString("routeName");
 					String userName = json.getString("userName");
-					boolean exist = co.checkComment(routeName,userName);
+					boolean exist = val.checkValoration(routeName, userName);
 					if (exist) {
 						result = "ok";
 					} else {
-						result = "This route doesn't accept another comment from" + userName;
+						result = "This route doesn't accept another valoration from" + userName;
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();
