@@ -54,6 +54,7 @@ public class ServletPoints extends HttpServlet {
 		
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
 			Points p = new Points();
+			System.out.print("aviso en 1");
 			try {
 				p.connect();
 			} catch (ClassNotFoundException e) {
@@ -73,10 +74,11 @@ public class ServletPoints extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			System.out.println("aviso 2");
 			String result = arr.toString();
 			// send points converted in string
 			PrintWriter out = response.getWriter();
-			System.out.println(result);
+			System.out.println("hola " + result);
 			out.print(result);
 			out.flush(); 
 		}
