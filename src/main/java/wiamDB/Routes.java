@@ -20,7 +20,7 @@ import org.json.JSONObject;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class Routes {
+public class Routes extends DAOconection {
 
 	private Connection con;
 	private DAOconection databaseDAO = new DAOconection();

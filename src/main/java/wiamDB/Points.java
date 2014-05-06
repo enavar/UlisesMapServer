@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +22,7 @@ import org.json.JSONObject;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
-public class Points {
+public class Points extends DAOconection {
 	
 	private Connection con;
 	private DAOconection databaseDAO = new DAOconection();

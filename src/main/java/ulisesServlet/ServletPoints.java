@@ -63,6 +63,7 @@ public class ServletPoints extends HttpServlet {
 			}
 			// type of response dates
 			response.setContentType("text/html");
+			response.setStatus(HttpServletResponse.SC_OK);
 			// capture all of interest points to db
 			JSONArray arr = null;
 			try {
