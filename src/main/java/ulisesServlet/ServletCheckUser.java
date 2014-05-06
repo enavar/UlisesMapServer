@@ -100,6 +100,7 @@ public class ServletCheckUser extends HttpServlet {
 				}
 		        
 				// output data
+		        System.out.println(result);
 				PrintWriter out = response.getWriter();
 				out.print(result);
 				out.flush();
