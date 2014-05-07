@@ -1,6 +1,5 @@
 package wiamDB;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,19 +21,10 @@ import org.json.JSONObject;
 
 public class Routes extends DAOconection {
 
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
 	private Valoration val = new Valoration();
 
-	/**
-	 * Method to set database connection
-	 * 
-	 * @throws ClassNotFoundException
-	 */
-
-	public void connect() throws ClassNotFoundException {
-		databaseDAO.connect();
-		con = databaseDAO.getCon();
+	public Routes() throws ClassNotFoundException {
+		connect();
 	}
 
 	/**
@@ -48,7 +38,6 @@ public class Routes extends DAOconection {
 	 */
 
 	public JSONArray selectRoutesInfo() throws SQLException,JSONException, ClassNotFoundException {
-		val.connect();
 		Statement stm;
 		JSONArray arr = new JSONArray();
 		try {

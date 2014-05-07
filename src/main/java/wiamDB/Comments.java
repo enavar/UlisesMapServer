@@ -1,6 +1,5 @@
 package wiamDB;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,7 +11,7 @@ import org.json.JSONObject;
 
 
 /*
- * Valoration    
+ * Comments    
  *
  * @Author: Oleksander Dovbysh
  * 			Elisabet Navarro
@@ -24,18 +23,8 @@ import org.json.JSONObject;
 
 public class Comments extends DAOconection {
 	
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
-	
-	/**
-	 * Method to set database connection
-	 * 
-	 * @throws ClassNotFoundException 
-	 */
-	
-	public void connect() throws ClassNotFoundException {
-		databaseDAO.connect();
-		con = databaseDAO.getCon();
+	public Comments() throws ClassNotFoundException {
+		connect();
 	}
 	
 	/**
@@ -72,7 +61,7 @@ public class Comments extends DAOconection {
 	 * @param user the name of user who inserts the comment
 	 * @param route the name of the route for comment
 	 */
-	public void insertComment(String comment,String user,String route) {
+	public boolean insertComment(String comment,String user,String route) {
 		Statement stm;
 		String insert = "insert into comments values ('" + comment + "','" + route + "','" + user + "');";
 		try {
@@ -80,7 +69,9 @@ public class Comments extends DAOconection {
 			stm.executeUpdate(insert);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 	/**

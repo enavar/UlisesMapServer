@@ -54,29 +54,21 @@ public class ServletRoutes extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-		Routes r = new Routes();
-		try {
-			r.connect();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		// type of response dates
 		response.setContentType("text/html");
-		// capture all of interest points to db
+		Routes r = null;
 		JSONArray arr = null;
 		try {
+			r = new Routes();
 			arr = r.selectRoutesInfo();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		String result = arr.toString();
 		// send points converted in string
 		PrintWriter out = response.getWriter();

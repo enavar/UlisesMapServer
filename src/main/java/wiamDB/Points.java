@@ -1,7 +1,6 @@
 
 package wiamDB;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,7 +12,9 @@ import org.json.JSONObject;
 /*
  * Points
  * 
- * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
+ * @Author: Oleksander Dovbysh 
+ * 			Elisabet Navarro 
+ * 			Sheila Perez
  * 
  * This is free software, licensed under the GNU General Public License v3. See
  * http://www.gnu.org/licenses/gpl.html for more information.
@@ -21,19 +22,10 @@ import org.json.JSONObject;
 
 public class Points extends DAOconection {
 	
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
-	
-	/**
-	 * Method to set database connection
-	 * 
-	 * @throws ClassNotFoundException
-	 */
-	
-	public void connect() throws ClassNotFoundException {
-		databaseDAO.connect();
-		con = databaseDAO.getCon();
+	public Points() throws ClassNotFoundException {
+		connect();
 	}
+	
 	
 	/**
 	 * Select query of table points

@@ -1,6 +1,5 @@
 package wiamDB;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,17 +23,8 @@ import org.json.JSONObject;
 
 public class Valoration extends DAOconection {
 	
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
-	
-	/**
-	 * Method to set database connection
-	 * @throws ClassNotFoundException 
-	 */
-	
-	public void connect() throws ClassNotFoundException {
-		databaseDAO.connect();
-		con = databaseDAO.getCon();
+	public Valoration() throws ClassNotFoundException {
+		connect();
 	}
 	
 	/**
@@ -71,7 +61,7 @@ public class Valoration extends DAOconection {
 	 * @param user String name of user who valorated
 	 * @param route String name of valorated route
 	 */
-	public void insertValoration(int valoracio,String user,String route) {
+	public boolean insertValoration(int valoracio,String user,String route) {
 		Statement stm;
 		String insert = "insert into valoration values (" + valoracio + ",'" + route + "','" + user + "');";
 		try {
@@ -79,7 +69,9 @@ public class Valoration extends DAOconection {
 			stm.executeUpdate(insert);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 	/**

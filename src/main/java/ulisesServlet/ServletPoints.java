@@ -53,32 +53,24 @@ public class ServletPoints extends HttpServlet {
 		}
 		
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-			Points p = new Points();
-			System.out.print("aviso en 1");
-			try {
-				p.connect();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			// type of response dates
 			response.setContentType("text/html");
-			// capture all of interest points to db
+			Points p = null;
 			JSONArray arr = null;
 			try {
+				p = new Points();
 				arr = p.selectPoints();
+			} catch (ClassNotFoundException e1) {
+				e1.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("aviso 2");
+			
 			String result = arr.toString();
 			// send points converted in string
 			PrintWriter out = response.getWriter();
-			System.out.println("hola " + result);
 			out.print(result);
 			out.flush(); 
 		}

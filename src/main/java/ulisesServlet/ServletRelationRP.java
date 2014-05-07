@@ -67,26 +67,21 @@ public class ServletRelationRP extends HttpServlet {
         String routeName = new String(input);
 		
 		// response dates
-		RelationRP re = new RelationRP();
-		try {
-			re.connect();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// type of response dates
-		response.setContentType("text/html");
-		// capture points/comments and valorations
+        // type of response dates
+     	response.setContentType("text/html");
+		RelationRP re = null;
 		JSONArray arrPoints = null;
 		try {
+			re = new RelationRP();
 			arrPoints = re.selectRoutePoints(routeName);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		String result = arrPoints.toString();
 		// send dates converted in string
 		PrintWriter out = response.getWriter();

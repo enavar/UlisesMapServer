@@ -56,6 +56,8 @@ public class ServletCommentValoration extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+		// type of response dates
+		response.setContentType("text/html");
 		// input client dates
 		int length = request.getContentLength();
         byte[] input = new byte[length];
@@ -68,35 +70,28 @@ public class ServletCommentValoration extends HttpServlet {
         String routeName = new String(input);
 		
 		// response dates
-		Comments co = new Comments();
-		Valoration va = new Valoration();
-		try {
-			co.connect();
-			va.connect();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// type of response dates
-		response.setContentType("text/html");
-		// capture comments and valorations
+		Comments co = null;
+		Valoration va = null;
 		JSONArray arrComments = null;
 		JSONArray arrValor = null;
 		try {
+			co = new Comments();
+			va = new Valoration();
+			// capture comments and valorations
 			arrComments = co.selectComments(routeName);
 			arrValor = va.selectValoration(routeName);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		// put all the dates in one JSONArray object
 		JSONArray arr = new JSONArray();
 		arr.put(arrComments);
 		arr.put(arrValor);
-		
 		String result = arr.toString();
 		// send dates converted in string
 		PrintWriter out = response.getWriter();

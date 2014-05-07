@@ -1,6 +1,5 @@
 package wiamDB;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,18 +21,8 @@ import org.json.JSONObject;
 
 public class RelationRP extends DAOconection {
 
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
-
-	/**
-	 * Method to set database connection
-	 * 
-	 * @throws ClassNotFoundException
-	 */
-
-	public void connect() throws ClassNotFoundException {
-		databaseDAO.connect();
-		con = databaseDAO.getCon();
+	public RelationRP() throws ClassNotFoundException {
+		connect();
 	}
 	
 	/**

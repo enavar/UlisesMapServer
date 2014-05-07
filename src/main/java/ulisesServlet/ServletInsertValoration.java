@@ -2,7 +2,6 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -14,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import wiamDB.Users;
+import wiamDB.Valoration;
 
 /*
- * ServletCheckUser
+ * ServletInsertValoration
  * 
  * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
  * 
@@ -28,53 +27,52 @@ import wiamDB.Users;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletCheckUser")
-public class ServletCheckUser extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
-
-	public ServletCheckUser() {
+@WebServlet("/ServletInsertValoration")
+public class ServletInsertValoration extends HttpServlet {
+	
+private static final long serialVersionUID = 1L;
+	
+	public ServletInsertValoration() {
 		super();
 	}
-
+	
 	/**
 	 * Iniciar la conexion
 	 */
 	public void init() {
-
+		
 	}
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
-
+	
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+			IOException {
 		// type of response dates
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
-		
-		Users u = null;
+		Valoration va = null;
 		try {
-			u = new Users();
+			va = new Valoration();
 		} catch (ClassNotFoundException e2) {
 			e2.printStackTrace();
-		}
+		}		
 		// input client dates
 		int length = request.getContentLength();
 		byte[] input = new byte[length];
 		ServletInputStream sin = request.getInputStream();
-		int c, count = 0;
-		while ((c = sin.read(input, count, input.length - count)) != -1) {
-			count += c;
+		int c, count = 0 ;
+		while ((c = sin.read(input, count, input.length-count)) != -1) {
+		     count +=c;
 		}
 		sin.close();
 		String recievedString = new String(input);
@@ -82,19 +80,19 @@ public class ServletCheckUser extends HttpServlet {
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			String user = json.getString("user");
-			String pass = json.getString("password");
-			boolean exist = u.selectUserByName(user, pass);
+			int valoracio = json.getInt("def");
+			String route = json.getString("fk_route");
+			String user = json.getString("fk_user");
+			boolean exist = va.insertValoration(valoracio, user, route);
 			if (exist) {
-				result = "Welcome!";
+				result = "Your valoration has been added";
 			} else {
-				result = "Try again";
+				result = "Sorry, your valoration hasn't been added";
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
+		        
 		// output data
 		PrintWriter out = response.getWriter();
 		out.print(result);

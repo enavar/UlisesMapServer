@@ -1,7 +1,6 @@
 
 package wiamDB;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,18 +18,8 @@ import java.sql.Statement;
 
 public class Users extends DAOconection {
 	
-	private Connection con;
-	private DAOconection databaseDAO = new DAOconection();
-	
-	/**
-	 * Method to set database connection
-	 * 
-	 * @throws ClassNotFoundException 
-	 */
-	
-	public void connect() throws ClassNotFoundException {
-		databaseDAO.connect();
-		con = databaseDAO.getCon();
+	public Users() throws ClassNotFoundException {
+		connect();
 	}
 	
 	/**
