@@ -52,10 +52,11 @@ public class Users extends DAOconection {
 	 * Insert new user in database
 	 * @param name the String name of an user
 	 * @param password the String password for an user
+	 * @param email ths String email of an user
 	 */
-	public boolean insertUser(String name, String password) {
+	public boolean insertUser(String name, String password, String email) {
 		Statement stm;
-		String insert = "insert into users(name,password) values ('" + name + "',md5('" + password + "'))";
+		String insert = "insert into users values ('" + name + "',md5('" + password + "'),'" + email + "')";
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(insert);

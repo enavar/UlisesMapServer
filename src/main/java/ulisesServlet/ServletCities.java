@@ -73,7 +73,7 @@ public class ServletCities extends HttpServlet {
 			try {
 				ci = new City();
 				arr = new JSONArray();
-				if (in.equals("")) {
+				if (in.equals("false")) {
 		        	arr = ci.selectCountry();
 		        } else {
 		        	arr = ci.selectCities(in);

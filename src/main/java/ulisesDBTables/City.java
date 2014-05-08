@@ -42,7 +42,7 @@ public class City extends DAOconection {
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
-					.executeQuery("Select country from city;");
+					.executeQuery("Select distinct country from city;");
 			while (rs.next()) {
 				 JSONObject json = new JSONObject();
 				 json.put("country",rs.getString("country"));

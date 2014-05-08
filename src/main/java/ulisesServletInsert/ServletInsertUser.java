@@ -84,7 +84,8 @@ public class ServletInsertUser extends HttpServlet {
 			JSONObject json = new JSONObject(recievedString);
 			String user = json.getString("user");
 			String pass = json.getString("password");
-			boolean exist = u.insertUser(user, pass);
+			String email = json.getString("email");
+			boolean exist = u.insertUser(user, pass,email);
 			if (exist) {
 				result = "true";
 			} else {
