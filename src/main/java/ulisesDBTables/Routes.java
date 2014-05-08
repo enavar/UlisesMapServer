@@ -32,24 +32,25 @@ public class Routes extends DAOconection {
 	/**
 	 * Select query of table routes
 	 * 
-	 * @param routeName the name of selected route
+	 * @param ref the id of selected city 
 	 * @return JSONObject result of query
 	 * @throws SQLException
 	 * @throws JSONException
 	 * @throws ClassNotFoundException 
 	 */
 
-	public JSONArray selectRoutesInfo() throws SQLException,JSONException, ClassNotFoundException {
+	public JSONArray selectRoutesInfo(String ref) throws SQLException,JSONException, ClassNotFoundException {
 		Statement stm;
 		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from routes;");
+			ResultSet rs = stm.executeQuery("Select * from routes where fk_ref='" + ref + "';");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
 				String routeName = rs.getString("name");
 				json.put("name", routeName);
 				json.put("description", rs.getString("description"));
+				json.put("fk_ref", rs.getString("fk_ref"));
 				json.put("avg", val.averageValoration(routeName));
 				arr.put(json);
 			}

@@ -16,7 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ulisesDBTables.Comments;
-import ulisesDBTables.Valoration;
 
 /*
  * ServletCheckComment

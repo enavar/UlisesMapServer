@@ -31,18 +31,18 @@ public class Points extends DAOconection {
 	
 	/**
 	 * Select query of table points
-	 * 
+	 * @param ref the id of selected city 
 	 * @return Array of JSONObject result of query
 	 * @throws SQLException
 	 * @throws JSONException
 	 */
 	
-	public JSONArray selectPoints() throws SQLException, JSONException {
+	public JSONArray selectPoints(String ref) throws SQLException, JSONException {
 		Statement stm;
 		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from points;");
+			ResultSet rs = stm.executeQuery("Select * from points where fk_ref='" + ref + "';");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
 				json.put("name", rs.getString("name"));
@@ -52,6 +52,7 @@ public class Points extends DAOconection {
 				json.put("description", rs.getString("description"));
 				json.put("url", rs.getString("url"));
 				json.put("image", rs.getString("image"));
+				json.put("fk_ref", rs.getString("fk_ref"));
 				arr.put(json);
 			}
 		} catch (SQLException e) {
@@ -60,7 +61,5 @@ public class Points extends DAOconection {
 		
 		return arr;
 	}
-	
-	// add a check method
 	
 }

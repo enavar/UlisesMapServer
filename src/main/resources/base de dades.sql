@@ -33,6 +33,8 @@ insert into users values ('janeGoodall', md5('monos'));
 insert into users values ('margaretAtwood', md5('oryzandcrake'));
 
 insert into city values ('BCNES','Barcelona','Spain');
+insert into city values ('MADES','Madrid','Spain');
+insert into city values ('LONUK','Londres','United Kingdom');
 
 insert into points values (
 	'Museu d’Art Contemporani de Barcelona', 
@@ -202,7 +204,8 @@ insert into points values (
 	'Passeig de Lluís Companys',
 	'The Arc de Triomf is an arch in the manner of a memorial or triumphal arch in Barcelona (Catalonia, Spain). It was built as the main access gate for the 1888 Barcelona World Fair by architect Josep Vilaseca i Casanovas. The arch is built in reddish brickwork in the Neo-Mudéjar style. The front frieze contains the stone sculpture Barcelona rep les nacions (Catalan for "Barcelona welcomes the nations") by Josep Reynés. The opposite frieze contains a stone carving entitled Recompensa (Recompense), a work from Josep Llimona’s the earliest period, representing the granting of awards to the participants in the World Exposition. The friezes along the sides of the arch include allegories of Agriculture and Industry, works by Antoni Vilanova, and of Trade and Art by Torquat Tassó. The arch presides over Passeig de Lluís Companys, a wide promenade leading to the Ciutadella Park. It is located at the top of the promenade, where it meets Passeig de Sant Joan. Similar structures, though with other uses or aims, can be found in Paris (France), London (England), Brooklyn (New York, USA) and Bucharest (Romania), among many others.',
 	'arc.jpg',
-	null);
+	null,
+	'BCNES');
 insert into points values (
 	'Parc de la Ciutadella',
 	41.388916,
@@ -210,7 +213,8 @@ insert into points values (
 	'Passeig de Picasso, 21',
 	'Overflowing with largely centenarian vegetation and very rich in plant species, the Parc de la Ciutadella contains a large diversity of features which make it especially valuable. The monumental waterfall, the buildings constructed in the second half of the nineteenth century and today converted into museums, the lake where visitors can row boats and the paths and numerous sculptures in the park are but a few examples. The Barcelona zoo also stands in the grounds of the Park.'	
 	'Parc_de_la_Ciutadella.jpg',
-	null);
+	null,
+	'BCNES');
 insert into points values (
 	'Hospital de Sant Pau',
 	41.4143085,
@@ -218,7 +222,8 @@ insert into points values (
 	'Carrer de Sant Quintí, 89',
 	'The Hospital de la Santa Creu i Sant Pau came into being in 1401 with the merging of the six hospitals in the city of Barcelona at that time. Santa Creu, the Hospital of the Holy Cross, as it was called in those days, was right in the centre of the city, in what is now the Raval district, in one of the most important examples of Catalan Civil Gothic architecture. By the late nineteenth century, due to the rapid growth of Barcelona’s population and advances in medicine,the hospital became too small, and it was decided to construct a new building. Thanks to the bequest of the Catalan banker Pau Gil, the first stone of the new hospital, designed by Lluís Domènech i Montaner, was laid on 15 January 1902, though the new facilities would not be opened until 1930. After eighty years of healthcare activity in the Modernista complex, in 2009 the Hospital de la Santa Creu i Sant Pau moved to new premises built in the north-east of the precinct, thus commencing a new era for the historic pavilions of Domènech i Montaner.',
 	'Barcelona_Hospital_Sant_Pau.jpg',
-	'http://www.santpaubarcelona.org/');
+	'http://www.santpaubarcelona.org/',
+	'BCNES');
 insert into points values (
 	'Torre Agbar',
 	41.4033333,
@@ -226,7 +231,8 @@ insert into points values (
 	'Avinguda Diagonal, 211',
 	'The Torre Agbar is a 38-story skyscraper / tower located between Avinguda Diagonal and Carrer Badajoz, near Plaça de les Glòries Catalanes, which marks the gateway to the new technological district of Barcelona, Catalonia, Spain. It was designed by French architect Jean Nouvel in association with the Spanish firm b720 Fermin Vazquez Arquitectos and built by Dragados. The Torre Agbar is located in the Poblenou neighbourhood of Barcelona and is named after its owners, the Agbar Group, a holding company whose interests include the Barcelona water company Aigües de Barcelona. The tower measures a total of 50,693 square metres, of which 30,000 are offices, 3,210 technical facilities, 8,132 services, including an auditorium, and 9,132 square metres for parking. It opened in June 2005 and was officially opened by King Juan Carlos I on 16 September 2005 and at a cost of 130 million euro. It is one in a collection of High-tech architecture examples in Barcelona.',
 	'torreAgbar.jpg',
-	'http://www.torreagbar.com/');
+	'http://www.torreagbar.com/',
+	'BCNES');
 insert into points values (
 	'El Parc del Laberint d’Horta',
 	41.4398348,
@@ -234,12 +240,53 @@ insert into points values (
 	'Passeig dels Castanyers, 1',
 	'The Parc del Laberint d’Horta is an historical garden in the Horta-Guinardó district in Barcelona, and the oldest of its kind in the city. Located in the former estate of the Desvalls family, next to the Collserola ridge, the park comprises an 18th-century neoclassical garden and a 19th-century romantic garden.',	
 	'Parc_del_Laberint.jpg',
-	null);
+	null,
+	'BCNES');
+	
+insert into points values (
+	'Puerta del sol',
+	40.4168762,
+	-3.703304600000024,
+	null,
+	'The Puerta del Sol is a place of Madrid (Spain). Here from 1950 is called Kilometre Zero of the Spanish radial road. The oldest building in the Puerta del Sol is the post office and it highlights the clock tower was built and donated in the XIX century by José Rodríguez de Losada, whose chimes of the 12 hours of December 31 mark the traditional eating of the twelve Grapes and the vast majority of Spaniards.',	
+	'sol.jpg',
+	null,
+	'MADES');
+	
+insert into points values (
+	'London tower',
+	51.52147919999999,
+	-0.13869429999999738,
+	null,
+	'Her Majesty Royal Palace and Fortress, more commonly known as the Tower of London, is a historic castle on the north bank of the River Thames in central London. It lies within the London Borough of Tower Hamlets, separated from the eastern edge of the square mile of the City of London by the open space known as Tower Hill.',	
+	'london_tower.jpg',
+	null,
+	'LONUK');
+	
+insert into points values (
+	'Natural history museum',
+	51.49671499999999,
+	-0.17636719999995876,
+	'Exhibition Road',
+	'The museum is home to life and earth science specimens comprising some 70 million items within five main collections: botany, entomology, mineralogy, palaeontology and zoology. The museum is a world-renowned centre of research specialising in taxonomy, identification and conservation. Given the age of the institution, many of the collections have great historical as well as scientific value, such as specimens collected by Charles Darwin.',	
+	'natural_museum.jpg',
+	null,
+	'LONUK');
+	
+insert into points values (
+	'British museum',
+	51.51885679999999,
+	-0.12633440000001883,
+	'Passeig dels Castanyers, 1',
+	'The British Museum is a museum in London dedicated to human history and culture. Its permanent collection, numbering some 8 million works,is among the largest and most comprehensive in existence and originates from all continents, illustrating and documenting the story of human culture from its beginnings to the present.The British Museum was established in 1753, largely based on the collections of the physician and scientist Sir Hans Sloane. ',	
+	'british_museum.jpg',
+	null,
+	'LONUK');
 
 	
-insert into routes values('murder route','a terrifing trip for most famous and espactacular killings in bcn');
-insert into routes values('museum route','instructing trip for most interesting museum in bcn');
-insert into routes values('FC Barcelona route','amazing route for soccer fans');
+insert into routes values('murder route','a terrifing trip for most famous and espactacular killings in bcn','BCNES');
+insert into routes values('museum route','instructing trip for most interesting museum in bcn','BCNES');
+insert into routes values('FC Barcelona route','amazing route for soccer fans','BCNES');
 
 
 insert into valoration values(5,'FC Barcelona route','admin');

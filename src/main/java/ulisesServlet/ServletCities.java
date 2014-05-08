@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import ulisesDBTables.Points;
+import ulisesDBTables.City;
 
 
 /*
- * ServletPoints   
+ * ServletCities   
  *
  * @Author: Oleksander Dovbysh
  * 			Elisabet Navarro
@@ -31,14 +31,14 @@ import ulisesDBTables.Points;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletPoints")
-public class ServletPoints extends HttpServlet {
+@WebServlet("/ServletCities")
+public class ServletCities extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-		
-	public ServletPoints() {
+	
+	public ServletCities() {
 		      super();
-		    }
+	}
 		/**
 		 * Iniciar la conexion
 		 */
@@ -58,22 +58,28 @@ public class ServletPoints extends HttpServlet {
 			response.setContentType("text/html");
 			// input client dates
 			int length = request.getContentLength();
-			byte[] input = new byte[length];
-			ServletInputStream sin = request.getInputStream();
-			int c, count = 0 ;
-			while ((c = sin.read(input, count, input.length-count)) != -1) {
-				 count +=c;
-			}
-			sin.close();
-			String in = new String(input);
-			// output data
-			Points p = null;
-			JSONArray arr = null;
+	        byte[] input = new byte[length];
+	        ServletInputStream sin = request.getInputStream();
+	        int c, count = 0 ;
+	        while ((c = sin.read(input, count, input.length-count)) != -1) {
+	            count +=c;
+	        }
+	        sin.close();
+	        String in = new String(input);
+			
+			// response dates
+	        City ci = null;
+	        JSONArray arr = null;
 			try {
-				p = new Points();
-				arr = p.selectPoints(in);
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
+				ci = new City();
+				arr = new JSONArray();
+				if (in.equals("")) {
+		        	arr = ci.selectCountry();
+		        } else {
+		        	arr = ci.selectCities(in);
+		        }
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (JSONException e) {
@@ -81,10 +87,9 @@ public class ServletPoints extends HttpServlet {
 			}
 			
 			String result = arr.toString();
-			// send points converted in string
+			// send dates converted in string
 			PrintWriter out = response.getWriter();
 			out.print(result);
 			out.flush(); 
 		}
-
 }
