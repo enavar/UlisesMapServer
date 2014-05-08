@@ -66,7 +66,7 @@ public class ServletCities extends HttpServlet {
 	        }
 	        sin.close();
 	        String in = new String(input);
-			
+			System.out.print(in);
 			// response dates
 	        City ci = null;
 	        JSONArray arr = null;
@@ -87,6 +87,7 @@ public class ServletCities extends HttpServlet {
 			}
 			
 			String result = arr.toString();
+			System.out.println(result);
 			// send dates converted in string
 			PrintWriter out = response.getWriter();
 			out.print(result);
