@@ -1,7 +1,8 @@
-package ulisesServlet;
+package ulisesServletCheck;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -13,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import wiamDB.Comments;
+import ulisesDBTables.Valoration;
 
 /*
- * ServletInsertComment
+ * ServletCheckValoration
  * 
  * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
  * 
@@ -27,52 +28,54 @@ import wiamDB.Comments;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletInsertComment")
-public class ServletInsertComment extends HttpServlet {
-	
-private static final long serialVersionUID = 1L;
-	
-	public ServletInsertComment() {
+@WebServlet("/ServletCheckValoration")
+public class ServletCheckValoration extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	public ServletCheckValoration() {
 		super();
 	}
-	
+
 	/**
 	 * Iniciar la conexion
 	 */
 	public void init() {
-		
+
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
 	}
-	
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-			IOException {
+	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		// type of response dates
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
-		Comments co = null;
+		
+		Valoration val = null;
 		try {
-			co = new Comments();
+			val = new Valoration();
 		} catch (ClassNotFoundException e2) {
 			e2.printStackTrace();
-		}		
+		}
+		
 		// input client dates
 		int length = request.getContentLength();
 		byte[] input = new byte[length];
 		ServletInputStream sin = request.getInputStream();
-		int c, count = 0 ;
-		while ((c = sin.read(input, count, input.length-count)) != -1) {
-		     count +=c;
+		int c, count = 0;
+		while ((c = sin.read(input, count, input.length - count)) != -1) {
+			count += c;
 		}
 		sin.close();
 		String recievedString = new String(input);
@@ -80,22 +83,24 @@ private static final long serialVersionUID = 1L;
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			String comment = json.getString("def");
-			String route = json.getString("fk_route");
-			String user = json.getString("fk_user");
-			boolean exist = co.insertComment(comment, user, route);
+			String routeName = json.getString("routeName");
+			String userName = json.getString("userName");
+			boolean exist = val.checkValoration(routeName, userName);
 			if (exist) {
-				result = "Your comment has been added";
+				result = "true";
 			} else {
-				result = "Sorry, your comment hasn't been added";
+				result = "false";
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		        
+
 		// output data
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();
 	}
+
 }

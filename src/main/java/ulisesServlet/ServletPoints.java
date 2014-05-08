@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import wiamDB.Points;
+import ulisesDBTables.Points;
 
 
 /*

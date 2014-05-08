@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import wiamDB.Comments;
-import wiamDB.Valoration;
+import ulisesDBTables.Comments;
+import ulisesDBTables.Valoration;
 
 
 

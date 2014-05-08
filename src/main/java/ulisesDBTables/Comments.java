@@ -1,4 +1,4 @@
-package wiamDB;
+package ulisesDBTables;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +7,8 @@ import java.sql.Statement;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import ulisesDB.DAOconection;
 
 
 

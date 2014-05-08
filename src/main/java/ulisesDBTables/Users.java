@@ -1,9 +1,11 @@
 
-package wiamDB;
+package ulisesDBTables;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import ulisesDB.DAOconection;
 
 /*
  * Users

@@ -1,4 +1,4 @@
-package ulisesServlet;
+package ulisesServletInsert;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import wiamDB.Valoration;
+import ulisesDBTables.Users;
 
 /*
- * ServletInsertValoration
+ * ServletInsertUser
  * 
  * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
  * 
@@ -27,12 +27,12 @@ import wiamDB.Valoration;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletInsertValoration")
-public class ServletInsertValoration extends HttpServlet {
+@WebServlet("/ServletInsertUser")
+public class ServletInsertUser extends HttpServlet {
 	
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
-	public ServletInsertValoration() {
+	public ServletInsertUser() {
 		super();
 	}
 	
@@ -60,12 +60,14 @@ private static final long serialVersionUID = 1L;
 		// type of response dates
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
-		Valoration va = null;
+		Users u = null;
 		try {
-			va = new Valoration();
+			u = new Users();
 		} catch (ClassNotFoundException e2) {
 			e2.printStackTrace();
-		}		
+		}
+				
+				
 		// input client dates
 		int length = request.getContentLength();
 		byte[] input = new byte[length];
@@ -80,14 +82,13 @@ private static final long serialVersionUID = 1L;
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			int valoracio = json.getInt("def");
-			String route = json.getString("fk_route");
-			String user = json.getString("fk_user");
-			boolean exist = va.insertValoration(valoracio, user, route);
+			String user = json.getString("user");
+			String pass = json.getString("password");
+			boolean exist = u.insertUser(user, pass);
 			if (exist) {
-				result = "Your valoration has been added";
+				result = "true";
 			} else {
-				result = "Sorry, your valoration hasn't been added";
+				result = "false";
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -98,5 +99,5 @@ private static final long serialVersionUID = 1L;
 		out.print(result);
 		out.flush();
 	}
-
+	
 }
