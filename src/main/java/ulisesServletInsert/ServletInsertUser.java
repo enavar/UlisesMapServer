@@ -93,6 +93,7 @@ public class ServletInsertUser extends HttpServlet {
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
+			result = "false";
 		}
 		        
 		// output data

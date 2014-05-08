@@ -69,7 +69,7 @@ public class City extends DAOconection {
 		try {
 			stm = con.createStatement();
 			ResultSet rs = stm
-					.executeQuery("Select name from city where country='" + country + "';");
+					.executeQuery("Select * from city where country='" + country + "';");
 			while (rs.next()) {
 				 JSONObject json = new JSONObject();
 				 json.put("ref",rs.getString("ref"));
