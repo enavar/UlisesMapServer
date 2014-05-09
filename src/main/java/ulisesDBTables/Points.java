@@ -32,12 +32,13 @@ public class Points extends DAOconection {
 	/**
 	 * Select query of table points
 	 * @param ref the id of selected city 
+	 * @param imgPath the String path for images in server
 	 * @return Array of JSONObject result of query
 	 * @throws SQLException
 	 * @throws JSONException
 	 */
 	
-	public JSONArray selectPoints(String ref) throws SQLException, JSONException {
+	public JSONArray selectPoints(String ref,String imgPath) throws SQLException, JSONException {
 		Statement stm;
 		JSONArray arr = new JSONArray();
 		try {
@@ -51,7 +52,7 @@ public class Points extends DAOconection {
 				json.put("street", rs.getString("street"));
 				json.put("description", rs.getString("description"));
 				json.put("url", rs.getString("url"));
-				json.put("image", rs.getString("image"));
+				json.put("image", "" + imgPath + rs.getString("image"));
 				json.put("fk_ref", rs.getString("fk_ref"));
 				arr.put(json);
 			}
