@@ -82,5 +82,30 @@ public class City extends DAOconection {
 		
 		return arr;
 	}
+	
+	/**
+	 * Select cities and contry for determinated ref
+	 * @param ref a reference for a city and a country
+	 * @return JSONObject result of query
+	 * @throws SQLException
+	 * @throws JSONException 
+	 */
+	public JSONObject selectCityCountry(String ref) throws SQLException, JSONException {
+		Statement stm;
+		JSONObject json = new JSONObject();
+		try {
+			stm = con.createStatement();
+			ResultSet rs = stm
+					.executeQuery("Select * from city where ref='" + ref + "';");
+			while (rs.next()) {
+				 json.put("name",rs.getString("name"));
+				 json.put("country",rs.getString("country"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return json;
+	}
 
 }

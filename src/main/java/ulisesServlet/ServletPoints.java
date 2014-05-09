@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import ulisesDBTables.City;
 import ulisesDBTables.Points;
 
 
@@ -35,6 +37,7 @@ import ulisesDBTables.Points;
 public class ServletPoints extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	private String imagePath; 
 		
 	public ServletPoints() {
 		      super();
@@ -66,6 +69,20 @@ public class ServletPoints extends HttpServlet {
 			}
 			sin.close();
 			String in = new String(input);
+			// set image path 
+			try {
+				City city = new City();
+				JSONObject json = city.selectCityCountry(in);
+				this.imagePath = "" + json.getString("country");
+				
+			} catch (ClassNotFoundException e2) {
+				e2.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
 			// output data
 			Points p = null;
 			JSONArray arr = null;
