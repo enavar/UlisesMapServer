@@ -37,7 +37,6 @@ import ulisesDBTables.Points;
 public class ServletPoints extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private String imagePath; 
 		
 	public ServletPoints() {
 		      super();
@@ -70,11 +69,11 @@ public class ServletPoints extends HttpServlet {
 			sin.close();
 			String in = new String(input);
 			// set image path 
+			String imagePath = ""; 
 			try {
 				City city = new City();
 				JSONObject json = city.selectCityCountry(in);
-				this.imagePath = "" + json.getString("country");
-				
+				imagePath = "http://ulises-ulisesmap.rhcloud.com/" + json.getString("country") + "/" + json.getString("name") + "/";	
 			} catch (ClassNotFoundException e2) {
 				e2.printStackTrace();
 			} catch (SQLException e) {
@@ -88,7 +87,7 @@ public class ServletPoints extends HttpServlet {
 			JSONArray arr = null;
 			try {
 				p = new Points();
-				arr = p.selectPoints(in);
+				arr = p.selectPoints(in,imagePath);
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (SQLException e) {
