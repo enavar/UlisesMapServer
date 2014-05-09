@@ -56,7 +56,7 @@ public class Users extends DAOconection {
 	 */
 	public boolean insertUser(String name, String password, String email) {
 		Statement stm;
-		String insert = "insert into users values ('" + name + "',md5('" + password + "'),'" + email + "')";
+		String insert = "insert into users values ('" + name + "',md5('" + password + "'),'" + email + "');";
 		try {
 			stm = con.createStatement();
 			stm.executeUpdate(insert);
