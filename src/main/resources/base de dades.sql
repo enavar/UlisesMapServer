@@ -250,7 +250,7 @@ insert into points values (
 	null,
 	'The Puerta del Sol is a place of Madrid (Spain). Here from 1950 is called Kilometre Zero of the Spanish radial road. The oldest building in the Puerta del Sol is the post office and it highlights the clock tower was built and donated in the XIX century by José Rodríguez de Losada, whose chimes of the 12 hours of December 31 mark the traditional eating of the twelve Grapes and the vast majority of Spaniards.',	
 	'sol.jpg',
-	null,
+	' ',
 	'MADES');
 	
 insert into points values (
@@ -260,7 +260,7 @@ insert into points values (
 	null,
 	'Her Majesty Royal Palace and Fortress, more commonly known as the Tower of London, is a historic castle on the north bank of the River Thames in central London. It lies within the London Borough of Tower Hamlets, separated from the eastern edge of the square mile of the City of London by the open space known as Tower Hill.',	
 	'london_tower.jpg',
-	null,
+	' ',
 	'LONUK');
 	
 insert into points values (
@@ -270,7 +270,7 @@ insert into points values (
 	'Exhibition Road',
 	'The museum is home to life and earth science specimens comprising some 70 million items within five main collections: botany, entomology, mineralogy, palaeontology and zoology. The museum is a world-renowned centre of research specialising in taxonomy, identification and conservation. Given the age of the institution, many of the collections have great historical as well as scientific value, such as specimens collected by Charles Darwin.',	
 	'natural_museum.jpg',
-	null,
+	' ',
 	'LONUK');
 	
 insert into points values (
@@ -280,7 +280,7 @@ insert into points values (
 	'Passeig dels Castanyers, 1',
 	'The British Museum is a museum in London dedicated to human history and culture. Its permanent collection, numbering some 8 million works,is among the largest and most comprehensive in existence and originates from all continents, illustrating and documenting the story of human culture from its beginnings to the present.The British Museum was established in 1753, largely based on the collections of the physician and scientist Sir Hans Sloane. ',	
 	'british_museum.jpg',
-	null,
+	' ',
 	'LONUK');
 
 	
