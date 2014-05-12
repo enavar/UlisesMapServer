@@ -34,7 +34,7 @@ insert into users values ('margaretAtwood', md5('oryzandcrake'),null);
 
 insert into city values ('BCNES','Barcelona','Spain');
 insert into city values ('MADES','Madrid','Spain');
-insert into city values ('LONUK','Londres','United Kingdom');
+insert into city values ('LONUK','London','United Kingdom');
 
 insert into points values (
 	'Museu d’Art Contemporani de Barcelona', 

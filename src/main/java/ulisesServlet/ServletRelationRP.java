@@ -55,6 +55,9 @@ public class ServletRelationRP extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+		// type of response dates
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		// input client dates
 		int length = request.getContentLength();
         byte[] input = new byte[length];

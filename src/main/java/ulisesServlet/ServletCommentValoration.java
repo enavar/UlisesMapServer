@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import ulisesDBTables.Comments;
+import ulisesDBTables.Routes;
 import ulisesDBTables.Valoration;
 
 
@@ -57,7 +58,8 @@ public class ServletCommentValoration extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
 		// type of response dates
-		response.setContentType("text/html");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		// input client dates
 		int length = request.getContentLength();
         byte[] input = new byte[length];
@@ -70,32 +72,20 @@ public class ServletCommentValoration extends HttpServlet {
         String routeName = new String(input);
 		
 		// response dates
-		Comments co = null;
-		Valoration va = null;
-		JSONArray arrComments = null;
-		JSONArray arrValor = null;
+		Routes r = null;
+		JSONArray arr = null;
 		try {
-			co = new Comments();
-			va = new Valoration();
+			r = new Routes();
 			// capture comments and valorations
-			arrComments = co.selectComments(routeName);
-			arrValor = va.selectValoration(routeName);
+			arr = r.selectCommentValoration(routeName);
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
-		// put all the dates in one JSONArray object
-		JSONArray arr = new JSONArray();
-		arr.put(arrComments);
-		arr.put(arrValor);
 		String result = arr.toString();
 		// send dates converted in string
-		co.close();
-		va.close();
+		r.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 
