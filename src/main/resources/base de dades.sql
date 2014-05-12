@@ -67,15 +67,16 @@ insert into points values (
 	'Museu de la Xocolata',
 	41.387677000,
 	2.181664900,
+	'Carrer del Comerç, 36',
 	'Museu de la Xocolata is a private museum in Barcelona, Catalonia, Spain, owned by the Gremi de Pastisseria de Barcelona (the city pastry-makers guild).',
-	'Museu_de_la_Xocolata_de_Barcelona.JPG',
+	'Museu_de_la_Xocolata_de_Barcelona.jpg',
 	'http://www.museuxocolata.cat/',
 	'BCNES');
 insert into points values (
 	'Museu del FC Barcelona',
 	41.380842400,
 	2.122879900,
-	'Carrer del Comerç, 36',
+	'Av.Arístides Maillol, s/n',
 	'The FC Barcelona museum was inaugurated on 24 September 1984 under the presidency of Josep Lluís Nuñez. In 2000 the museum was renamed President Nuñez museum under the presidency of his successor, Joan Gaspart. On 15 June 2010 the museum was reopened after a long restructuring. The restructuring saw the museum split in three separate sections with a 3D cinema, audiovisual touch-screen, and information on the history of FC Barcelona. The first section includes a collection of photos, documents and trophies detailing the club’s history on an interactive glass wall, allowing visitors to touch the screens and see information wall. The glass wall, equipped with laser technology, allows the exhibition of video, images and music through user-feedback. The second section is a private art collection on permanent display at the museum which exhibits works by local artists as Dalí, Miró and Tàpies. In the third section is the Futbolart Collection displays various football memorabilia from throughout the history of the club including a trophy-room with every trophy, or a replica thereof, that the club has ever won.',
 	'Trophies_FCBarcelona_museum.jpg',
 	'http://www.fcbarcelona.es/camp-nou/camp-nou-experience',
@@ -86,7 +87,7 @@ insert into points values (
 	2.163795000,
 	'Carrer d’Aragó, 255',
 	'The Fundació Antoni Tàpies is a cultural center and museum, located in Carrer d’Aragó, in Barcelona, Catalonia (Spain), dedicated mainly to the life and works of the painter Antoni Tàpies. The Fundació was created in 1984 by the artist Antoni Tàpies to promote the study and knowledge of modern and contemporary art. It combines the organisation of temporary exhibitions, symposia, lectures and film seasons with a range of publications to go with the activities and periodic shows of Antoni Tàpies’ work. The Fundació owns one of the most complete collections of Tàpies’ work, mostly made up of donations by Antoni and Teresa Tàpies.',
-	'fundacioTapies.JPG',
+	'fundacioTapies.jpg',
 	'http://www.fundaciotapies.org/',
 	'BCNES');
 insert into points values (
@@ -113,7 +114,7 @@ insert into points values (
 	2.180383300,
 	'Carrer de la Barra de Ferro, 5',
 	'The European Museum of Modern Art , MEAM, exhibits the finest Contemporary Figurative Art. It is owned by TheFoundation of Arts and Artists, and the purpose is to promote and diffuse Figurative Art of the 20th and 21st Centuries. The Foundation’s claim is to find a new contemporary language without denying tradition by progressing into the new Century. Moreover, the Foundation of Arts and Artists, organizes each year the Figurativas Painting and Sculpture Awards, and with the wesbiteFigurativas en Red opens a window with the artworks of the Contemporary Figurative artists.',
-	'museu_de_art_modern.jpeg',
+	'museu_de_art_modern.jpg',
 	'http://www.meam.es/',
 	'BCNES');
 insert into points values (
@@ -121,7 +122,7 @@ insert into points values (
 	41.382289800,
 	2.172588600,
 	'La Rambla, 96',
-	'Right in the heart of one of the most beautiful and visited cities in the world, the Erotic Museum of Barcelona is, since its opening in 1997, one of the most emblematic spots of the count city. The museum is located at La Rambla, opposite La Boqueria, one of the most attractive and known markets in the world. The sexy world of the Hindu Kama Sutra, erotic art banned in Japan, the origins of Spanish pornographic cinema, the history of erotic art through the eyes of the great masters of painting and the most astonishing sexual records...'
+	'Right in the heart of one of the most beautiful and visited cities in the world, the Erotic Museum of Barcelona is, since its opening in 1997, one of the most emblematic spots of the count city. The museum is located at La Rambla, opposite La Boqueria, one of the most attractive and known markets in the world. The sexy world of the Hindu Kama Sutra, erotic art banned in Japan, the origins of Spanish pornographic cinema, the history of erotic art through the eyes of the great masters of painting and the most astonishing sexual records...',
 	'museo-erotico-de-barcelona.jpg',
 	'http://www.erotica-museum.com/',
 	'BCNES');
@@ -139,7 +140,7 @@ insert into points values (
 	41.382210400,
 	2.178085500,
 	'Carrer de la Ciutat, 7',
-	'The miba houses a wide variety of content, encompassing the fascinating spectrum of invention and creativity. Each space fulfils a specific role, with the aim of creating an interesting experience for all those involved in the creative and business processes as well as the general public. The miba has three sections: Limitless Society, Reflectionarium, Corner of the Absurd.'
+	'The miba houses a wide variety of content, encompassing the fascinating spectrum of invention and creativity. Each space fulfils a specific role, with the aim of creating an interesting experience for all those involved in the creative and business processes as well as the general public. The miba has three sections: Limitless Society, Reflectionarium, Corner of the Absurd.',
 	'miba.jpg',
 	'http://www.mibamuseum.com/',
 	'BCNES');
@@ -175,7 +176,7 @@ insert into points values (
 	41.391616400,
 	2.165013199,
 	'Passeig de Gràcia, 43',
-	'Casa Batlló, built between 1904 and 1906 in the heart of the city, is the most emblematic work of the brilliant Catalan architect. Gaudí gave Casa Batlló a facade that is original, fantastical and full of imagination. He replaced the original facade with a new composition of stone and glass. He ordered the external walls to be redesigned to give them a wavy shape, which was then plastered with lime mortar and covered with a mosaic of fragments of coloured glass and ceramic discs.'
+	'Casa Batlló, built between 1904 and 1906 in the heart of the city, is the most emblematic work of the brilliant Catalan architect. Gaudí gave Casa Batlló a facade that is original, fantastical and full of imagination. He replaced the original facade with a new composition of stone and glass. He ordered the external walls to be redesigned to give them a wavy shape, which was then plastered with lime mortar and covered with a mosaic of fragments of coloured glass and ceramic discs.',
 	'Gaudi-Batllo.jpg',	
 	'http://www.casabatllo.es/‎',
 	'BCNES');
@@ -211,7 +212,7 @@ insert into points values (
 	41.388916,
 	2.183576,
 	'Passeig de Picasso, 21',
-	'Overflowing with largely centenarian vegetation and very rich in plant species, the Parc de la Ciutadella contains a large diversity of features which make it especially valuable. The monumental waterfall, the buildings constructed in the second half of the nineteenth century and today converted into museums, the lake where visitors can row boats and the paths and numerous sculptures in the park are but a few examples. The Barcelona zoo also stands in the grounds of the Park.'	
+	'Overflowing with largely centenarian vegetation and very rich in plant species, the Parc de la Ciutadella contains a large diversity of features which make it especially valuable. The monumental waterfall, the buildings constructed in the second half of the nineteenth century and today converted into museums, the lake where visitors can row boats and the paths and numerous sculptures in the park are but a few examples. The Barcelona zoo also stands in the grounds of the Park.',
 	'Parc_de_la_Ciutadella.jpg',
 	null,
 	'BCNES');
@@ -247,10 +248,10 @@ insert into points values (
 	'Puerta del sol',
 	40.4168762,
 	-3.703304600000024,
-	null,
+	' ',
 	'The Puerta del Sol is a place of Madrid (Spain). Here from 1950 is called Kilometre Zero of the Spanish radial road. The oldest building in the Puerta del Sol is the post office and it highlights the clock tower was built and donated in the XIX century by José Rodríguez de Losada, whose chimes of the 12 hours of December 31 mark the traditional eating of the twelve Grapes and the vast majority of Spaniards.',	
 	'sol.jpg',
-	' ',
+	null,
 	'MADES');
 	
 insert into points values (
@@ -270,7 +271,7 @@ insert into points values (
 	'Exhibition Road',
 	'The museum is home to life and earth science specimens comprising some 70 million items within five main collections: botany, entomology, mineralogy, palaeontology and zoology. The museum is a world-renowned centre of research specialising in taxonomy, identification and conservation. Given the age of the institution, many of the collections have great historical as well as scientific value, such as specimens collected by Charles Darwin.',	
 	'natural_museum.jpg',
-	' ',
+	null,
 	'LONUK');
 	
 insert into points values (
@@ -280,7 +281,7 @@ insert into points values (
 	'Passeig dels Castanyers, 1',
 	'The British Museum is a museum in London dedicated to human history and culture. Its permanent collection, numbering some 8 million works,is among the largest and most comprehensive in existence and originates from all continents, illustrating and documenting the story of human culture from its beginnings to the present.The British Museum was established in 1753, largely based on the collections of the physician and scientist Sir Hans Sloane. ',	
 	'british_museum.jpg',
-	' ',
+	null,
 	'LONUK');
 
 	
