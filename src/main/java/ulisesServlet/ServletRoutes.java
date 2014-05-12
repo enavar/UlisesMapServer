@@ -83,6 +83,7 @@ public class ServletRoutes extends HttpServlet {
 		
 		String result = arr.toString();
 		// send points converted in string
+		r.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

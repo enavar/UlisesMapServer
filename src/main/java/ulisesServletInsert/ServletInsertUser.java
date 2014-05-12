@@ -97,6 +97,7 @@ public class ServletInsertUser extends HttpServlet {
 		}
 		        
 		// output data
+		u.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();

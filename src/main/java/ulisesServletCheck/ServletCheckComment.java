@@ -99,6 +99,7 @@ public class ServletCheckComment extends HttpServlet {
 		}
 
 		// output data
+		com.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();

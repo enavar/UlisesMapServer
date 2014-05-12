@@ -51,7 +51,6 @@ public class City extends DAOconection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return arr;
 	}
 	
@@ -79,7 +78,6 @@ public class City extends DAOconection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return arr;
 	}
 	

@@ -96,6 +96,7 @@ public class ServletCheckUser extends HttpServlet {
 			e.printStackTrace();
 		}
 		// output data
+		u.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();
