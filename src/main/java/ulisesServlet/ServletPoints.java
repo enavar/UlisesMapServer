@@ -73,7 +73,7 @@ public class ServletPoints extends HttpServlet {
 			try {
 				City city = new City();
 				JSONObject json = city.selectCityCountry(in);
-				imagePath = "http://ulises-ulisesmap.rhcloud.com/" + json.getString("country") + "/" + json.getString("name") + "/";	
+				imagePath = "http://ulises-ulisesmap.rhcloud.com/images/" + json.getString("country") + "/" + json.getString("name") + "/";	
 			} catch (ClassNotFoundException e2) {
 				e2.printStackTrace();
 			} catch (SQLException e) {
@@ -98,6 +98,7 @@ public class ServletPoints extends HttpServlet {
 			
 			String result = arr.toString();
 			// send points converted in string
+			p.close();
 			PrintWriter out = response.getWriter();
 			out.print(result);
 			out.flush(); 

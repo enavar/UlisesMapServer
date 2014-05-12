@@ -94,6 +94,7 @@ private static final long serialVersionUID = 1L;
 		}
 		        
 		// output data
+		va.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();

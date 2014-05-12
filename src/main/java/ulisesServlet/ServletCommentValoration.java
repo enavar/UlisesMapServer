@@ -94,6 +94,8 @@ public class ServletCommentValoration extends HttpServlet {
 		arr.put(arrValor);
 		String result = arr.toString();
 		// send dates converted in string
+		co.close();
+		va.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

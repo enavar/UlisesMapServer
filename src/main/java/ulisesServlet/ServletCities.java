@@ -89,6 +89,7 @@ public class ServletCities extends HttpServlet {
 			String result = arr.toString();
 			System.out.println(result);
 			// send dates converted in string
+			ci.close();
 			PrintWriter out = response.getWriter();
 			out.print(result);
 			out.flush(); 

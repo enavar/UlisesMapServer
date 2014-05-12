@@ -53,7 +53,6 @@ public class Comments extends DAOconection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return arr;
 	}
 	
@@ -95,7 +94,6 @@ public class Comments extends DAOconection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
 

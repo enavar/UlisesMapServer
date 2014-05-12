@@ -84,6 +84,7 @@ public class ServletRelationRP extends HttpServlet {
 		
 		String result = arrPoints.toString();
 		// send dates converted in string
+		re.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 
