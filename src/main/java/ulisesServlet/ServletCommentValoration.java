@@ -2,8 +2,6 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
@@ -14,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import ulisesDBTables.Comments;
 import ulisesDBTables.Routes;
-import ulisesDBTables.Valoration;
 
 
 
@@ -70,7 +66,7 @@ public class ServletCommentValoration extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
-		
+		System.out.print(routeName);
 		// response dates
 		Routes r = null;
 		JSONArray arr = null;
@@ -86,6 +82,7 @@ public class ServletCommentValoration extends HttpServlet {
 		String result = arr.toString();
 		// send dates converted in string
 		r.close();
+		System.out.println(result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 
