@@ -67,8 +67,7 @@ public class Routes extends DAOconection {
 		JSONArray arr = new JSONArray();
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select v.def as valoration,v.fk_user as valuser,c.def as comment,c.fk_user as comuser from (Select * from comments where fk_route = '" + routeName +
-					"') as c full outer join (Select * from valoration where fk_route ='" + routeName + "') as v on c.fk_route=v.fk_route and v.fk_user=c.fk_user;");
+			ResultSet rs = stm.executeQuery("Select v.def as valoration,v.fk_user as valuser,c.def as comment,c.fk_user as comuser from (Select * from comments where fk_route = '" + routeName + "') as c full outer join (Select * from valoration where fk_route ='" + routeName + "') as v on c.fk_route=v.fk_route and v.fk_user=c.fk_user;");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
 				json.put("valoration", rs.getInt("valoration"));
@@ -78,6 +77,7 @@ public class Routes extends DAOconection {
 				} else {
 					json.put("user",rs.getString("comuser"));
 				}
+				arr.put(json);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
