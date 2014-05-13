@@ -71,8 +71,8 @@ public class Routes extends DAOconection {
 					"') as c full outer join (Select * from valoration where fk_route ='" + routeName + "') as v on c.fk_route=v.fk_route and v.fk_user=c.fk_user;");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
-				json.put("valoration", rs.getInt("def"));
-				json.put("comment", rs.getString("def"));
+				json.put("valoration", rs.getInt("valoration"));
+				json.put("comment", rs.getString("comment"));
 				if (rs.getString("valuser") != null) {
 					json.put("user",rs.getString("valuser"));
 				} else {
