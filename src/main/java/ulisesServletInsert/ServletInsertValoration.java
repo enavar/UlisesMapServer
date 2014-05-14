@@ -76,6 +76,7 @@ private static final long serialVersionUID = 1L;
 		}
 		sin.close();
 		String recievedString = new String(input);
+		System.out.println(recievedString);
 		// convert String into JSONObject and recuperate keys
 		String result = "";
 		try {
@@ -95,6 +96,7 @@ private static final long serialVersionUID = 1L;
 		        
 		// output data
 		va.close();
+		System.out.println(result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();
