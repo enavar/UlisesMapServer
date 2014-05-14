@@ -68,7 +68,7 @@ public class ServletRelationRP extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
-		
+		System.out.println(routeName);
 		// response dates
         // type of response dates
      	response.setContentType("text/html");
@@ -88,6 +88,7 @@ public class ServletRelationRP extends HttpServlet {
 		String result = arrPoints.toString();
 		// send dates converted in string
 		re.close();
+		System.out.println(result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 
