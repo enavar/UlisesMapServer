@@ -59,11 +59,11 @@ public class Valoration extends DAOconection {
 	
 	/**
 	 * Insert new valoration in database
-	 * @param valoracio int number of valoration
+	 * @param valoracio double number of valoration
 	 * @param user String name of user who valorated
 	 * @param route String name of valorated route
 	 */
-	public boolean insertValoration(int valoracio,String user,String route) {
+	public boolean insertValoration(double valoracio,String user,String route) {
 		Statement stm;
 		String insert = "insert into valoration values (" + valoracio + ",'" + route + "','" + user + "');";
 		try {

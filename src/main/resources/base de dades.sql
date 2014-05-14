@@ -2,7 +2,7 @@ create table users (name varchar(20),password text,email varchar(30),PRIMARY KEY
 create table city (ref varchar(5),name varchar(30),country varchar(30),PRIMARY KEY (ref));
 create table routes (name varchar(50),description text,fk_ref varchar(5) references city(ref),PRIMARY KEY(name));
 create table points (name varchar(50),lat numeric(12,9),lon numeric(12,9),street text, description text, image text, url text,fk_ref varchar(5) references city(ref),PRIMARY KEY(name));
-create table valoration (def int,fk_route varchar(50) references routes(name),fk_user varchar(20) references users(name),PRIMARY KEY (fk_user,fk_route));
+create table valoration (def numeric,fk_route varchar(50) references routes(name),fk_user varchar(20) references users(name),PRIMARY KEY (fk_user,fk_route));
 create table comments (def text,fk_route varchar(50) references routes(name),fk_user varchar(20) references users(name),PRIMARY KEY (fk_user,fk_route));
 create table relationRP (routeName varchar(50) references routes(name),pointName varchar(50) references points(name),position integer);
 

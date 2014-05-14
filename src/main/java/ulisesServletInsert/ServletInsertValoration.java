@@ -81,7 +81,7 @@ private static final long serialVersionUID = 1L;
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			int valoracio = json.getInt("def");
+			double valoracio = json.getDouble("def");
 			String route = json.getString("fk_route");
 			String user = json.getString("fk_user");
 			boolean exist = va.insertValoration(valoracio, user, route);
