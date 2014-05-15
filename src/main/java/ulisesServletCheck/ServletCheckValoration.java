@@ -100,6 +100,7 @@ public class ServletCheckValoration extends HttpServlet {
 
 		// output data
 		val.close();
+		System.out.println(result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();
