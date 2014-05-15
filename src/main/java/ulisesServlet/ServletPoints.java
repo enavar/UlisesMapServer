@@ -75,7 +75,7 @@ public class ServletPoints extends HttpServlet {
 			try {
 				City city = new City();
 				JSONObject json = city.selectCityCountry(in);
-				imagePath = Values.IMAGE_PATH + json.getString("country") + "/" + json.getString("name") + "/";	
+				imagePath = Values.IMAGE_PATH + json.getString(Values.CITY_COUNTRY_KEY) + "/" + json.getString(Values.CITY_NAME_KEY) + "/";	
 			} catch (ClassNotFoundException e2) {
 				e2.printStackTrace();
 			} catch (SQLException e) {

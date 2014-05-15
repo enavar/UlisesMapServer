@@ -73,7 +73,8 @@ public class ServletRelationRP extends HttpServlet {
 		JSONArray arrPoints = null;
 		try {
 			re = new RelationRP();
-			arrPoints = re.selectRoutePoints(routeName);
+			String imgPath = re.imgpathFromRoute(routeName);
+			arrPoints = re.selectRoutePoints(routeName,imgPath);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
