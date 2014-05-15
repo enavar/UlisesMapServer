@@ -15,7 +15,7 @@ public class Values {
 	public static final String EXIST_DB = "true";
 	public static final String NO_EXIST_DB = "false";
 	
-	public static final String COMMENTS_ROUTES_KEY = "fk_routes";
+	public static final String COMMENTS_ROUTES_KEY = "fk_route";
 	public static final String COMMENTS_USER_KEY = "fk_user";
 	public static final String COMMENTS_DEFINITION_KEY = "def";
 	
