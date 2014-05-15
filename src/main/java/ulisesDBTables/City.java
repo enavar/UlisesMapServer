@@ -9,8 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ulisesDB.DAOconection;
-
-
+import ulisesDB.Values;
 
 /*
  * City    
@@ -45,7 +44,7 @@ public class City extends DAOconection {
 					.executeQuery("Select distinct country from city;");
 			while (rs.next()) {
 				 JSONObject json = new JSONObject();
-				 json.put("country",rs.getString("country"));
+				 json.put(Values.CITY_COUNTRY_KEY,rs.getString(Values.CITY_COUNTRY_KEY));
 				 arr.put(json);
 			}
 		} catch (SQLException e) {
@@ -71,8 +70,8 @@ public class City extends DAOconection {
 					.executeQuery("Select * from city where country='" + country + "';");
 			while (rs.next()) {
 				 JSONObject json = new JSONObject();
-				 json.put("ref",rs.getString("ref"));
-				 json.put("name",rs.getString("name"));
+				 json.put(Values.CITY_REFERENCE_KEY,rs.getString(Values.CITY_REFERENCE_KEY));
+				 json.put(Values.CITY_NAME_KEY,rs.getString(Values.CITY_NAME_KEY));
 				 arr.put(json);
 			}
 		} catch (SQLException e) {
@@ -96,8 +95,8 @@ public class City extends DAOconection {
 			ResultSet rs = stm
 					.executeQuery("Select * from city where ref='" + ref + "';");
 			while (rs.next()) {
-				 json.put("name",rs.getString("name"));
-				 json.put("country",rs.getString("country"));
+				 json.put(Values.CITY_NAME_KEY,rs.getString(Values.CITY_NAME_KEY));
+				 json.put(Values.CITY_COUNTRY_KEY,rs.getString(Values.CITY_COUNTRY_KEY));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

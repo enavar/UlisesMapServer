@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesDB.Values;
 import ulisesDBTables.Users;
 
 /*
@@ -78,27 +79,25 @@ public class ServletInsertUser extends HttpServlet {
 		}
 		sin.close();
 		String recievedString = new String(input);
-		System.out.println(recievedString);
 		// convert String into JSONObject and recuperate keys
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			String user = json.getString("user");
-			String pass = json.getString("password");
-			String email = json.getString("email");
+			String user = json.getString(Values.USERS_NAME_KEY);
+			String pass = json.getString(Values.USERS_PASSWORD_KEY);
+			String email = json.getString(Values.USERS_EMAIL_KEY);
 			boolean exist = u.insertUser(user, pass,email);
 			if (exist) {
-				result = "true";
+				result = Values.EXIST_DB;
 			} else {
-				result = "false";
+				result = Values.NO_EXIST_DB;
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
-			result = "false";
+			result = Values.NO_EXIST_DB;
 		}
 		        
 		// output data
-		System.out.print(result);
 		u.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);

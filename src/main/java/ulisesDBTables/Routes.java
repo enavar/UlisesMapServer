@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ulisesDB.DAOconection;
+import ulisesDB.Values;
 
 /*
  * Routes    
@@ -47,11 +48,11 @@ public class Routes extends DAOconection {
 			ResultSet rs = stm.executeQuery("Select * from routes where fk_ref='" + ref + "';");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
-				String routeName = rs.getString("name");
-				json.put("name", routeName);
-				json.put("description", rs.getString("description"));
-				json.put("fk_ref", rs.getString("fk_ref"));
-				json.put("avg", val.averageValoration(routeName));
+				String routeName = rs.getString(Values.ROUTES_NAME_KEY);
+				json.put(Values.ROUTES_NAME_KEY, routeName);
+				json.put(Values.ROUTES_DESCRIPTION_KEY, rs.getString(Values.ROUTES_DESCRIPTION_KEY));
+				json.put(Values.ROUTES_REFERENCE_KEY, rs.getString(Values.ROUTES_REFERENCE_KEY));
+				json.put(Values.ROUTES_AVERAGE_KEY, val.averageValoration(routeName));
 				arr.put(json);
 			}
 		} catch (SQLException e) {
@@ -61,7 +62,16 @@ public class Routes extends DAOconection {
 		return arr;
 	}
 	
-	
+
+	/**
+	 * Select relation query for obtain comments and valorations from determinated user and route
+	 * 
+	 * @param routeName the name of a selected route 
+	 * @return JSONArray result of query
+	 * @throws SQLException
+	 * @throws JSONException
+	 * @throws ClassNotFoundException 
+	 */
 	public JSONArray selectCommentValoration(String routeName) throws JSONException {
 		Statement stm;
 		JSONArray arr = new JSONArray();
@@ -70,12 +80,12 @@ public class Routes extends DAOconection {
 			ResultSet rs = stm.executeQuery("Select v.def as valoration,v.fk_user as valuser,c.def as comment,c.fk_user as comuser from (Select * from comments where fk_route = '" + routeName + "') as c full outer join (Select * from valoration where fk_route ='" + routeName + "') as v on c.fk_route=v.fk_route and v.fk_user=c.fk_user;");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
-				json.put("valoration", rs.getInt("valoration"));
-				json.put("comment", rs.getString("comment"));
+				json.put(Values.COMMENTVALORATION_VALORATION_KEY, rs.getDouble(Values.COMMENTVALORATION_VALORATION_KEY));
+				json.put(Values.COMMENTVALORATION_COMMENT_KEY, rs.getString(Values.COMMENTVALORATION_COMMENT_KEY));
 				if (rs.getString("valuser") != null) {
-					json.put("user",rs.getString("valuser"));
+					json.put(Values.USERS_NAME_KEY,rs.getString(Values.COMMENTVALORATION_USERVALORATION_KEY));
 				} else {
-					json.put("user",rs.getString("comuser"));
+					json.put(Values.USERS_NAME_KEY,rs.getString(Values.COMMENTVALORATION_USERCOMMENT_KEY));
 				}
 				arr.put(json);
 			}

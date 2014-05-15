@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import ulisesDB.Values;
 import ulisesDBTables.City;
 
 
@@ -67,14 +68,13 @@ public class ServletCities extends HttpServlet {
 	        }
 	        sin.close();
 	        String in = new String(input);
-			System.out.print(in);
 			// response dates
 	        City ci = null;
 	        JSONArray arr = null;
 			try {
 				ci = new City();
 				arr = new JSONArray();
-				if (in.equals("false")) {
+				if (in.equals(Values.NEGATIVE_INPUT)) {
 		        	arr = ci.selectCountry();
 		        } else {
 		        	arr = ci.selectCities(in);
@@ -88,7 +88,6 @@ public class ServletCities extends HttpServlet {
 			}
 			
 			String result = arr.toString();
-			System.out.println(result);
 			// send dates converted in string
 			ci.close();
 			PrintWriter out = response.getWriter();

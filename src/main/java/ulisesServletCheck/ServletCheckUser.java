@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesDB.Values;
 import ulisesDBTables.Users;
 
 /*
@@ -82,13 +83,13 @@ public class ServletCheckUser extends HttpServlet {
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			String user = json.getString("user");
-			String pass = json.getString("password");
+			String user = json.getString(Values.USERS_NAME_KEY);
+			String pass = json.getString(Values.USERS_PASSWORD_KEY);
 			boolean exist = u.selectUserByName(user, pass);
 			if (exist) {
-				result = "true";
+				result = Values.EXIST_DB;
 			} else {
-				result = "false";
+				result = Values.NO_EXIST_DB;
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

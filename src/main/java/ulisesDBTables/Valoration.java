@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ulisesDB.DAOconection;
+import ulisesDB.Values;
 
 
 
@@ -46,8 +47,8 @@ public class Valoration extends DAOconection {
 					.executeQuery("Select * from valoration where fk_route='" + routeName + "';");
 			while (rs.next()) {
 				 JSONObject json = new JSONObject();
-				 json.put("def", rs.getString("def"));
-				 json.put("fk_user",rs.getString("fk_user"));
+				 json.put(Values.COMMENTS_DEFINITION_KEY, rs.getString(Values.COMMENTS_DEFINITION_KEY));
+				 json.put(Values.COMMENTS_USER_KEY,rs.getString(Values.COMMENTS_USER_KEY));
 				 arr.put(json);
 			}
 		} catch (SQLException e) {
@@ -102,7 +103,7 @@ public class Valoration extends DAOconection {
 	/**
 	 * average of a valorations in determinated route
 	 * @param routeName string the name of a route
-	 * @return int a value of an average valoration
+	 * @return double a value of an average valoration
 	 */
 	public double averageValoration(String routeName) {
 		double result = 0;

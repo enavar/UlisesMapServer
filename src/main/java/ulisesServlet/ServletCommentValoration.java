@@ -66,7 +66,6 @@ public class ServletCommentValoration extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
-		System.out.print(routeName);
 		// response dates
 		Routes r = null;
 		JSONArray arr = null;
@@ -82,7 +81,6 @@ public class ServletCommentValoration extends HttpServlet {
 		String result = arr.toString();
 		// send dates converted in string
 		r.close();
-		System.out.println(result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

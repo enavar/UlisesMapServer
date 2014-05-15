@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesDB.Values;
 import ulisesDBTables.City;
 import ulisesDBTables.Points;
 
@@ -74,7 +75,7 @@ public class ServletPoints extends HttpServlet {
 			try {
 				City city = new City();
 				JSONObject json = city.selectCityCountry(in);
-				imagePath = "http://ulises-ulisesmap.rhcloud.com/images/" + json.getString("country") + "/" + json.getString("name") + "/";	
+				imagePath = Values.IMAGE_PATH + json.getString("country") + "/" + json.getString("name") + "/";	
 			} catch (ClassNotFoundException e2) {
 				e2.printStackTrace();
 			} catch (SQLException e) {

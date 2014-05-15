@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ulisesDB.DAOconection;
+import ulisesDB.Values;
 
 /*
  * RelationRP    
@@ -42,8 +43,8 @@ public class RelationRP extends DAOconection {
 			ResultSet rs = stm.executeQuery("Select lat,lon from points where name in(Select pointName from relationRP where routeName='" + routeName + "')");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
-				json.put("lat", rs.getString("lat"));
-				json.put("lon", rs.getString("lon"));
+				json.put(Values.POINTS_LATITUDE_KEY, rs.getString(Values.POINTS_LATITUDE_KEY));
+				json.put(Values.POINTS_LONGITUDE_KEY, rs.getString(Values.POINTS_LONGITUDE_KEY));
 				arr.put(json);
 			}
 		} catch (SQLException e) {

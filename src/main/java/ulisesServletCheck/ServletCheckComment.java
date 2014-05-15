@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesDB.Values;
 import ulisesDBTables.Comments;
 
 /*
@@ -84,13 +85,13 @@ public class ServletCheckComment extends HttpServlet {
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			String routeName = json.getString("routeName");
-			String userName = json.getString("userName");
+			String routeName = json.getString(Values.COMMENTS_ROUTES_KEY);
+			String userName = json.getString(Values.COMMENTS_USER_KEY);
 			boolean exist = com.checkComment(routeName, userName);
 			if (exist) {
-				result = "true";
+				result = Values.EXIST_DB;;
 			} else {
-				result = "false";
+				result = Values.NO_EXIST_DB;
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ulisesDB.DAOconection;
+import ulisesDB.Values;
 
 /*
  * Points
@@ -46,14 +47,14 @@ public class Points extends DAOconection {
 			ResultSet rs = stm.executeQuery("Select * from points where fk_ref='" + ref + "';");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
-				json.put("name", rs.getString("name"));
-				json.put("lat", rs.getDouble("lat"));
-				json.put("lon", rs.getDouble("lon"));
-				json.put("street", rs.getString("street"));
-				json.put("description", rs.getString("description"));
-				json.put("url", rs.getString("url"));
-				json.put("image", "" + imgPath + rs.getString("image"));
-				json.put("fk_ref", rs.getString("fk_ref"));
+				json.put(Values.POINTS_NAME_KEY, rs.getString(Values.POINTS_NAME_KEY));
+				json.put(Values.POINTS_LATITUDE_KEY, rs.getDouble(Values.POINTS_LATITUDE_KEY));
+				json.put(Values.POINTS_LONGITUDE_KEY, rs.getDouble(Values.POINTS_LONGITUDE_KEY));
+				json.put(Values.POINTS_STREET_KEY, rs.getString(Values.POINTS_STREET_KEY));
+				json.put(Values.POINTS_DESCRIPTION_KEY, rs.getString(Values.POINTS_DESCRIPTION_KEY));
+				json.put(Values.POINTS_URL_KEY, rs.getString(Values.POINTS_URL_KEY));
+				json.put(Values.POINTS_IMAGE_KEY, "" + imgPath + rs.getString(Values.POINTS_IMAGE_KEY));
+				json.put(Values.POINTS_REFERENCE_KEY, rs.getString(Values.POINTS_REFERENCE_KEY));
 				arr.put(json);
 			}
 		} catch (SQLException e) {

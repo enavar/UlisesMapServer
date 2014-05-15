@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ulisesDB.Values;
 import ulisesDBTables.Valoration;
 
 /*
@@ -76,19 +77,18 @@ private static final long serialVersionUID = 1L;
 		}
 		sin.close();
 		String recievedString = new String(input);
-		System.out.println(recievedString);
 		// convert String into JSONObject and recuperate keys
 		String result = "";
 		try {
 			JSONObject json = new JSONObject(recievedString);
-			double valoracio = json.getDouble("def");
-			String route = json.getString("fk_route");
-			String user = json.getString("fk_user");
+			double valoracio = json.getDouble(Values.COMMENTS_DEFINITION_KEY);
+			String route = json.getString(Values.COMMENTS_ROUTES_KEY);
+			String user = json.getString(Values.COMMENTS_USER_KEY);
 			boolean exist = va.insertValoration(valoracio, user, route);
 			if (exist) {
-				result = "true";
+				result = Values.EXIST_DB;
 			} else {
-				result = "false";
+				result = Values.NO_EXIST_DB;
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -96,7 +96,6 @@ private static final long serialVersionUID = 1L;
 		        
 		// output data
 		va.close();
-		System.out.println(result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();
