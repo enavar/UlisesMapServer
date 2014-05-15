@@ -70,7 +70,7 @@ public class RelationRP extends DAOconection {
 		Statement stm;
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select country,name from city where ref in (Select fk_ref from points where name in(Select pointName from relationRP where routeName='" + routeName + "')");
+			ResultSet rs = stm.executeQuery("Select country,name from city where ref in (Select fk_ref from points where name in(Select pointName from relationRP where routeName='" + routeName + "'))");
 			while (rs.next()) {
 				imagePath = Values.IMAGE_PATH + rs.getString(Values.CITY_COUNTRY_KEY) + "/" + rs.getString(Values.CITY_NAME_KEY) + "/";
 			}
