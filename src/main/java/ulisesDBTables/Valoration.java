@@ -113,7 +113,7 @@ public class Valoration extends DAOconection {
 			ResultSet rs = stm
 					.executeQuery("Select avg(def) from valoration where fk_route='" + routeName + "';"); 	 
 			while (rs.next()) {
-				
+				result = rs.getDouble(Values.ROUTES_AVERAGE_KEY);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
