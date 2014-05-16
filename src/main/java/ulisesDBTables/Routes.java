@@ -24,8 +24,6 @@ import ulisesDB.Values;
 
 public class Routes extends DAOconection {
 
-	private Valoration val = new Valoration();
-
 	public Routes() throws ClassNotFoundException {
 		connect();
 	}
@@ -41,6 +39,7 @@ public class Routes extends DAOconection {
 	 */
 
 	public JSONArray selectRoutesInfo(String ref) throws SQLException,JSONException, ClassNotFoundException {
+		Valoration val = new Valoration();
 		Statement stm;
 		JSONArray arr = new JSONArray();
 		try {
@@ -53,7 +52,7 @@ public class Routes extends DAOconection {
 				json.put(Values.ROUTES_DESCRIPTION_KEY, rs.getString(Values.ROUTES_DESCRIPTION_KEY));
 				json.put(Values.ROUTES_REFERENCE_KEY, rs.getString(Values.ROUTES_REFERENCE_KEY));
 				json.put(Values.ROUTES_AVERAGE_KEY, val.averageValoration(routeName));
-				System.out.println("average" + val.averageValoration(routeName));
+				System.out.println("average: " + routeName + val.averageValoration(routeName));
 				arr.put(json);
 			}
 		} catch (SQLException e) {
