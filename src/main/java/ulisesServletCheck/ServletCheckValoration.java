@@ -80,6 +80,7 @@ public class ServletCheckValoration extends HttpServlet {
 		}
 		sin.close();
 		String recievedString = new String(input);
+		System.out.println("Servlet checkvaloration input : " + recievedString);
 		// convert String into JSONObject and recuperate keys
 		String result = "";
 		try {
@@ -100,7 +101,7 @@ public class ServletCheckValoration extends HttpServlet {
 
 		// output data
 		val.close();
-		System.out.println(result);
+		System.out.println("Servlet checkvaloration result : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();

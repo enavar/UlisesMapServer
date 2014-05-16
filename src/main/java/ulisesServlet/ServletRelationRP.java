@@ -68,13 +68,13 @@ public class ServletRelationRP extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
-        System.out.println(routeName);
+        System.out.println("Servlet relationrp input : " + routeName);
 		RelationRP re = null;
 		JSONArray arrPoints = null;
 		try {
 			re = new RelationRP();
 			String imgPath = re.imgpathFromRoute(routeName);
-			System.out.println(imgPath);
+			System.out.println("construct relationrp imagepath : " + imgPath);
 			arrPoints = re.selectRoutePoints(routeName,imgPath);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -87,7 +87,7 @@ public class ServletRelationRP extends HttpServlet {
 		String result = arrPoints.toString();
 		// send dates converted in string
 		re.close();
-		System.out.println(result);
+		System.out.println("Servlet relationrp response : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

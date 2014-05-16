@@ -79,6 +79,7 @@ public class ServletInsertUser extends HttpServlet {
 		}
 		sin.close();
 		String recievedString = new String(input);
+		System.out.println("Servlet insertuser input : " + recievedString);
 		// convert String into JSONObject and recuperate keys
 		String result = "";
 		try {
@@ -99,6 +100,7 @@ public class ServletInsertUser extends HttpServlet {
 		        
 		// output data
 		u.close();
+		System.out.println("Servlet insertuser result : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush();

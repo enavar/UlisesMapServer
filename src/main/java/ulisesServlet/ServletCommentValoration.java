@@ -2,6 +2,7 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
@@ -66,6 +67,7 @@ public class ServletCommentValoration extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
+        System.out.println("Servlet commentvaloration input : " + routeName);
 		// response dates
 		Routes r = null;
 		JSONArray arr = null;
@@ -81,6 +83,7 @@ public class ServletCommentValoration extends HttpServlet {
 		String result = arr.toString();
 		// send dates converted in string
 		r.close();
+		System.out.println("Servlet commentvaloration result : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

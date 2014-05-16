@@ -68,6 +68,7 @@ public class ServletRoutes extends HttpServlet {
 		}
 		sin.close();
 		String in = new String(input);
+		System.out.println("Servlet routes input : " + in);
 		// output data
 		Routes r = null;
 		JSONArray arr = null;
@@ -83,7 +84,7 @@ public class ServletRoutes extends HttpServlet {
 		}
 		
 		String result = arr.toString();
-		System.out.println(result);
+		System.out.println("Servlet routes result : " + result);
 		// send points converted in string
 		r.close();
 		PrintWriter out = response.getWriter();

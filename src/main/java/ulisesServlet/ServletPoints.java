@@ -70,6 +70,7 @@ public class ServletPoints extends HttpServlet {
 			}
 			sin.close();
 			String in = new String(input);
+			System.out.println("Servlet points input : " + in);
 			// set image path 
 			String imagePath = ""; 
 			try {
@@ -101,6 +102,7 @@ public class ServletPoints extends HttpServlet {
 			String result = arr.toString();
 			// send points converted in string
 			p.close();
+			System.out.println("Servlet points result : " + result);
 			PrintWriter out = response.getWriter();
 			out.print(result);
 			out.flush(); 
