@@ -10,7 +10,7 @@ insert into users values ('admin', md5('admin'),'admin@admin.es');
 
 insert into city values ('BCNES','Barcelona','Spain');
 insert into city values ('MADES','Madrid','Spain');
-insert into city values ('LONUK','London','United Kingdom');
+insert into city values ('LONUK','London','United_Kingdom');
 
 insert into points values (
 	'Museu d’Art Contemporani de Barcelona', 
@@ -179,7 +179,7 @@ insert into points values (
 	41.391011100,
 	2.180732199,
 	'Passeig de Lluís Companys',
-	'The Arc de Triomf is an arch in the manner of a memorial or triumphal arch in Barcelona (Catalonia, Spain). It was built as the main access gate for the 1888 Barcelona World Fair by architect Josep Vilaseca i Casanovas. The arch is built in reddish brickwork in the Neo-Mudéjar style. The front frieze contains the stone sculpture Barcelona rep les nacions (Catalan for "Barcelona welcomes the nations") by Josep Reynés. The opposite frieze contains a stone carving entitled Recompensa (Recompense), a work from Josep Llimona’s the earliest period, representing the granting of awards to the participants in the World Exposition. Sant Joan. Similar structures, though with other uses or aims, can be found in Paris (France), London (England), Brooklyn (New York, USA) and Bucharest (Romania), among many others.',
+	'The Arc de Triomf is an arch in the manner of a memorial or triumphal arch in Barcelona (Catalonia, Spain). It was built as the main access gate for the 1888 Barcelona World Fair by architect Josep Vilaseca i Casanovas. The arch is built in reddish brickwork in the Neo-Mudéjar style. The front frieze contains the stone sculpture Barcelona rep les nacions (Catalan for "Barcelona welcomes the nations") by Josep Reynés. The opposite frieze contains a stone carving entitled Recompensa (Recompense), a work from Josep Llimona’s the earliest period, representing the granting of awards to the participants in the World Exposition.Similar structures, though with other uses or aims, can be found in Paris (France), London (England), Brooklyn (New York, USA) and Bucharest (Romania), among many others.',
 	'arc.jpg',
 	null,
 	'BCNES');
@@ -259,24 +259,57 @@ insert into points values (
 	'british_museum.jpg',
 	null,
 	'LONUK');
+	
+insert into points values (
+	'Escola del treball de Barcelona',
+	41.389135,
+	2.14803000,
+	'Carrer del Comte Urgell 187',
+	'Escola del treball de Barcelona is a group of modernistic buldings. Many years later was a textile factory built between 1868 to 1869 who was closed in 1889. In 1914 will inaugurate Escola Elemental Treball.',
+	'escola_treball.jpg',
+	'http://www.escoladeltreball.org',
+	'BCNES');
+insert into points values (
+	'Plaça de Catalunya',
+	41.387000,
+	2.17007203,
+	null,
+	'Plaça de Catalunya is considered the center of Barcelona and link the Old Centre of city with new. Plaça Catalunya connect Passeig de Gràcia, Rambla de Catalunya, the Rambla and the Portal de Angel, most touristic streets. Plaça Catalunya has shops, restaurants and banks.',
+	null,
+	'BCNES');
 
 	
-insert into routes values('murder route','a terrifing trip for most famous and espactacular killings in bcn','BCNES');
-insert into routes values('museum route','instructing trip for most interesting museum in bcn','BCNES');
-insert into routes values('FC Barcelona route','amazing route for soccer fans','BCNES');
+insert into routes values('Imprescindible views','interesting trip for most popular points of interes in Barcelona city. Start your visit in Plaça Catalunya, the center of city and visit de greatest places.','BCNES');
+insert into routes values('Museum route','instructing trip for most interesting museum in Barcelona. Start your visit in Museu d’Art Contemporani de Barcelona and discover the culture secrets','BCNES');
+insert into routes values('Antoni Gaudi','amazing route for discover the secrets of Antoni Gaudi famous architect!, Start your trip in Plaça de Catalunya and see her gratest hits.','BCNES');
+insert into routes values('London tour','visit the imprescindible places for discover this old city.','LONUK');
+ 
+insert into valoration values(5,'Antoni Gaudi','admin');
+insert into valoration values(3,'Museum route','admin');
+insert into valoration values(5,'Imprescindible views','admin');
+
+insert into comments values ('We are a fans of Gaudi only a genius can create this kind of structures','Antoni Gaudi','admin');
+insert into comments values ('Oh my good! I feel update my intelligence skills.','Museum route','admin');
+insert into comments values ('Amazing you can’t go if you don’t see this places.','Imprescindible views','admin');
+
+insert into relationRP values('Museum route','Museu d’Art Contemporani de Barcelona',1);
+insert into relationRP values('Museum route','Museu Picasso',2);
+insert into relationRP values('Museum route','Museu Nacional d’Art de Catalunya',3);
+insert into relationRP values('Museum route','Museu Blau',4);
+insert into relationRP values('Museum route','Museu de la Xocolata',5);
+
+insert into relationRP values('Antoni Gaudi','Plaça de Catalunya',1);
+insert into relationRP values('Antoni Gaudi','Casa Milà - La Pedrera',2);
+insert into relationRP values('Antoni Gaudi','Casa Batlló',3);
+insert into relationRP values('Antoni Gaudi','Park Güell',4);
+insert into relationRP values('Antoni Gaudi','Sagrada Família',5);
+
+insert into relationRP values('Imprescindible views','Plaça de Catalunya',1);
 
 
-insert into valoration values(5,'FC Barcelona route','admin');
-insert into valoration values(1,'FC Barcelona route','castorp');
-insert into valoration values(2,'murder route','ponyo');
 
-insert into comments values ('amazing,fabulous','FC Barcelona route','admin');
-insert into comments values ('terrible,boring and sobrevalorated','FC Barcelona route','castorp');
-insert into comments values ('horrible','murder route','ponyo');
+insert into relationRP values('London tour','London tower',1);
+insert into relationRP values('London tour','British museum',2);
+insert into relationRP values('London tour','Natural history museum',3);
 
 
-insert into relationRP values('museum route','Museu d’Art Contemporani de Barcelona',1);
-insert into relationRP values('museum route','Museu Picasso',2);
-insert into relationRP values('museum route','Museu Nacional d’Art de Catalunya',3);
-insert into relationRP values('museum route','Museu Blau',4);
-insert into relationRP values('museum route','Museu de la Xocolata',5);
