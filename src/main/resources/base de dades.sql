@@ -7,30 +7,6 @@ create table comments (def text,fk_route varchar(50) references routes(name),fk_
 create table relationRP (routeName varchar(50) references routes(name),pointName varchar(50) references points(name),position integer);
 
 insert into users values ('admin', md5('admin'),'admin@admin.es');
-insert into users values ('castorp', md5('buscargrial'),null);
-insert into users values ('settembrini', md5('burgues'),null);
-insert into users values ('leoNaphta', md5('jesuita'),null);
-insert into users values ('clawdia_Chaychat', md5('femmefatal'),null);
-insert into users values ('mynheerPeeperkorn', md5('gerhart'),null);
-insert into users values ('Joachim.Ziemssen', md5('omirp'),null);
-insert into users values ('Heraclit', md5('fire'),null);
-insert into users values ('Parmenides', md5('aparences'),null);
-insert into users values ('Ulises', md5('odisea'),null);
-insert into users values ('penelope', md5('araña'),null);
-insert into users values ('atenea', md5('guerra'),null);
-insert into users values ('poseidon', md5('marea'),null);
-insert into users values ('afrodita', md5('amor'),null);
-insert into users values ('hera', md5('familia'),null);
-insert into users values ('CharlesDarwin', md5('origen'),null);
-insert into users values ('Jean-BaptisteLamarck', md5('girafa'),null);
-insert into users values ('VladimirNabokob', md5('ninfulas'),null);
-insert into users values ('MaryShelley', md5('frankenstein'),null);
-insert into users values ('HayaoMiyazaki', md5('Totoro'),null);
-insert into users values ('Arrietty', md5('diminuta'),null);
-insert into users values ('jiroHirikoshi', md5('aviones'),null);
-insert into users values ('ponyo', md5('sirena'),null);
-insert into users values ('janeGoodall', md5('monos'),null);
-insert into users values ('margaretAtwood', md5('oryzandcrake'),null);
 
 insert into city values ('BCNES','Barcelona','Spain');
 insert into city values ('MADES','Madrid','Spain');
@@ -50,7 +26,7 @@ insert into points values (
 	41.385216000,
 	2.180892700,
 	'Carrer Montcada, 15-23',
-	'The Museu Picasso, located in Barcelona, Spain, houses one of the most extensive collections of artworks by the 20th-century Spanish artist Pablo Picasso. With more than 3,500 works by the painter, the museum has the most complete collection of works. The museum is housed in five adjoining medieval palaces in Barcelona’s La Ribera and is located on Montcada Street in the (Bank District) of Barcelona. It opened to the public on March 9 in 1963, becoming the first museum dedicated to Picasso’s work and the only one created during the artist’s life. It has since been declared a (museum of national interest) by the Government of Catalonia.',
+	'The Museu Picasso, located in Barcelona, Spain, houses one of the most extensive collections of artworks by the 20th-century Spanish artist Pablo Picasso. With more than 3,500 works by the painter, the museum has the most complete collection of works. The museum is housed in five adjoining medieval palaces in Barcelona’s La Ribera and is located on Montcada Street in the (Bank District) of Barcelona.',
 	'Museu_Picasso.jpg',
 	'http://www.museupicasso.bcn.cat/',
 	'BCNES');
@@ -59,7 +35,7 @@ insert into points values (
 	41.368439900,
 	2.153570000,
 	'Parc de Montjuïc, s/n',
-	'The Museu Nacional d’Art de Catalunya, abbreviated as MNAC, is the national museum of Catalan visual art located in Barcelona, Catalonia, Spain. Situated on Montjuïc hill at the end of Avinguda de la Reina Maria Cristina, near Pl Espanya. The museum is especially notable for its outstanding collection of romanesque church paintings, and for Catalan art and design from the late 19th and early 20th centuries, including modernisme and noucentisme. The Museum is housed in the Palau Nacional, a huge, Italian-style building dating to 1929. The Palau Nacional, which has housed the Museu d’Art de Catalunya since 1934, was declared a national museum in 1990 under the Museums Law passed by the Catalan Government. That same year, a thorough renovation process was launched to refurbish the site, based on plans drawn up by the architects Gae Aulenti and Enric Steegmann, who were later joined in the undertaking by Josep Benedito. The Oval Hall was reopened in 1992 on the occasion of the Olympic Games, and the various collections were installed and opened over the period from 1995 (when the Romanesque Art section was reopened) to 2004. The Museu Nacional d’Art de Catalunya (Museu Nacional) was officially inaugurated on 16 December 2004.',
+	'The Museu Nacional d’Art de Catalunya, abbreviated as MNAC, is the national museum of Catalan visual art located in Barcelona, Catalonia, Spain. Situated on Montjuïc hill at the end of Avinguda de la Reina Maria Cristina, near Pl Espanya. The museum is especially notable for its outstanding collection of romanesque church paintings, and for Catalan art and design from the late 19th and early 20th centuries, including modernisme and noucentisme. The Museum is housed in the Palau Nacional, a huge, Italian-style building dating to 1929.',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 	'MNAC.jpg',
 	'http://museunacional.cat',
 	'BCNES');
@@ -77,7 +53,7 @@ insert into points values (
 	41.380842400,
 	2.122879900,
 	'Av.Arístides Maillol, s/n',
-	'The FC Barcelona museum was inaugurated on 24 September 1984 under the presidency of Josep Lluís Nuñez. In 2000 the museum was renamed President Nuñez museum under the presidency of his successor, Joan Gaspart. On 15 June 2010 the museum was reopened after a long restructuring. The restructuring saw the museum split in three separate sections with a 3D cinema, audiovisual touch-screen, and information on the history of FC Barcelona. The first section includes a collection of photos, documents and trophies detailing the club’s history on an interactive glass wall, allowing visitors to touch the screens and see information wall. The glass wall, equipped with laser technology, allows the exhibition of video, images and music through user-feedback. The second section is a private art collection on permanent display at the museum which exhibits works by local artists as Dalí, Miró and Tàpies. In the third section is the Futbolart Collection displays various football memorabilia from throughout the history of the club including a trophy-room with every trophy, or a replica thereof, that the club has ever won.',
+	'The FC Barcelona museum was inaugurated on 24 September 1984 under the presidency of Josep Lluís Nuñez. In 2000 the museum was renamed President Nuñez museum under the presidency of his successor, Joan Gaspart. On 15 June 2010 the museum was reopened after a long restructuring. The restructuring saw the museum split in three separate sections with a 3D cinema, audiovisual touch-screen, and information on the history of FC Barcelona.',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 	'Trophies_FCBarcelona_museum.jpg',
 	'http://www.fcbarcelona.es/camp-nou/camp-nou-experience',
 	'BCNES');
@@ -104,7 +80,7 @@ insert into points values (
 	41.383764000,
 	2.166495300,
 	'Carrer Montalegre, 5',
-	'The Centre de Cultura Contemporània de Barcelona is one of the most visited exhibition and arts centres in the city of Barcelona, Spain. Situated in the Raval district, the Centre’s core theme is the city and urban culture. Its success is based on quality, its rather eclectic approach, attention to a broad cross section of publics and the unique way it addresses issues with the aim of linking the academic world with creative processes and citizens in general. The CCCB organizes and produces exhibitions, debates, festivals and concerts; programmes film cycles, courses and lectures; encourages creation using new technologies and languages, explores and promotes the ongoing fusion of languages and different genres, and takes in-house productions to other national and international arts centres, museums and institutions. The underlying aim of these activities is to generate debate, thinking and reflection on the theme of the city and public space, and other issues that define current affairs. The CCCB is also an open space for creators, associations and freelance programmers with whom it has forged links over the years.',
+	'The Centre de Cultura Contemporània de Barcelona is one of the most visited exhibition and arts centres in the city of Barcelona, Spain. Situated in the Raval district, the Centre’s core theme is the city and urban culture. Its success is based on quality, its rather eclectic approach, attention to a broad cross section of publics and the unique way it addresses issues with the aim of linking the academic world with creative processes and citizens in general. The CCCB organizes and produces exhibitions, debates, festivals and concerts; programmes film cycles, courses and lectures; encourages creation using new technologies and languages, explores and promotes the ongoing fusion of languages and different genres, and takes in-house productions to other national and international arts centres, museums and institutions.',
 	'CCCB_20070408.jpg',
 	'http://www.cccb.org',
 	'BCNES');
@@ -149,7 +125,7 @@ insert into points values (
 	41.410789000,
 	2.220654000,
 	'Carrer de Leonardo Da Vinci, 4',
-	'The Natural History Museum of Barcelona consists of four centres located in three strategic parts of the city: Ciutadella Park, Montjuïc Mountain and the Forum. Ciutadella Park houses two museums, the Martorell Museum (the former geology building) and the Laboratory of Nature (the former zoology building, called El Castell dels tres Dragons, or the Castle of the Three Dragons). Montjuïc Mountain is home to the Botanical Garden, the Botanical Institute, a research centre now under the combined auspices of the CSIC (the Scientific Research Council) and Barcelona City Council) and the Historic Botanical Garden, recently re-opened to the public. The Forum houses the Museu Blau (the Blue Museum), a centre with excellent modern facilities specifically designed for public use (exhibitions, workshops, conferences, media libraries, etc.).',
+	'The Natural History Museum of Barcelona consists of four centres located in three strategic parts of the city: Ciutadella Park, Montjuïc Mountain and the Forum. The Forum houses the Museu Blau (the Blue Museum), a centre with excellent modern facilities specifically designed for public use (exhibitions, workshops, conferences, media libraries, etc.).',
 	'Museu_Blau.jpg',
 	'http://www.museuciencies.cat/',
 	'BCNES');
@@ -192,7 +168,7 @@ insert into points values (
 insert into points values (
 	'La Catedral de Santa Eulalia de Barcelona',
 	41.383962000,
-	2.176199099,
+	2.186199099,
 	'Pla de la Seu, s/n',
 	'The Cathedral of Barcelona is comprised of three naves, but just a single apse and ambulatory. The naves have five sections: that closest to the façade is the longest in order to accommodate the dimensions of the cimborio, which is adjacent to the main entrance.The typical structure used in Catalan Gothic constructions, arranged to permit use of the spaces within the buttresses, allowed rows of secondary chapels to be opened up in the Cathedral. There are two chapels in each section of the naves, encircling the entire basilica.',
 	'catedral.jpg',
@@ -203,7 +179,7 @@ insert into points values (
 	41.391011100,
 	2.180732199,
 	'Passeig de Lluís Companys',
-	'The Arc de Triomf is an arch in the manner of a memorial or triumphal arch in Barcelona (Catalonia, Spain). It was built as the main access gate for the 1888 Barcelona World Fair by architect Josep Vilaseca i Casanovas. The arch is built in reddish brickwork in the Neo-Mudéjar style. The front frieze contains the stone sculpture Barcelona rep les nacions (Catalan for "Barcelona welcomes the nations") by Josep Reynés. The opposite frieze contains a stone carving entitled Recompensa (Recompense), a work from Josep Llimona’s the earliest period, representing the granting of awards to the participants in the World Exposition. The friezes along the sides of the arch include allegories of Agriculture and Industry, works by Antoni Vilanova, and of Trade and Art by Torquat Tassó. The arch presides over Passeig de Lluís Companys, a wide promenade leading to the Ciutadella Park. It is located at the top of the promenade, where it meets Passeig de Sant Joan. Similar structures, though with other uses or aims, can be found in Paris (France), London (England), Brooklyn (New York, USA) and Bucharest (Romania), among many others.',
+	'The Arc de Triomf is an arch in the manner of a memorial or triumphal arch in Barcelona (Catalonia, Spain). It was built as the main access gate for the 1888 Barcelona World Fair by architect Josep Vilaseca i Casanovas. The arch is built in reddish brickwork in the Neo-Mudéjar style. The front frieze contains the stone sculpture Barcelona rep les nacions (Catalan for "Barcelona welcomes the nations") by Josep Reynés. The opposite frieze contains a stone carving entitled Recompensa (Recompense), a work from Josep Llimona’s the earliest period, representing the granting of awards to the participants in the World Exposition. Sant Joan. Similar structures, though with other uses or aims, can be found in Paris (France), London (England), Brooklyn (New York, USA) and Bucharest (Romania), among many others.',
 	'arc.jpg',
 	null,
 	'BCNES');
@@ -230,14 +206,14 @@ insert into points values (
 	41.4033333,
 	2.189444399,
 	'Avinguda Diagonal, 211',
-	'The Torre Agbar is a 38-story skyscraper / tower located between Avinguda Diagonal and Carrer Badajoz, near Plaça de les Glòries Catalanes, which marks the gateway to the new technological district of Barcelona, Catalonia, Spain. It was designed by French architect Jean Nouvel in association with the Spanish firm b720 Fermin Vazquez Arquitectos and built by Dragados. The Torre Agbar is located in the Poblenou neighbourhood of Barcelona and is named after its owners, the Agbar Group, a holding company whose interests include the Barcelona water company Aigües de Barcelona. The tower measures a total of 50,693 square metres, of which 30,000 are offices, 3,210 technical facilities, 8,132 services, including an auditorium, and 9,132 square metres for parking. It opened in June 2005 and was officially opened by King Juan Carlos I on 16 September 2005 and at a cost of 130 million euro. It is one in a collection of High-tech architecture examples in Barcelona.',
+	'The Torre Agbar is a 38-story skyscraper / tower located between Avinguda Diagonal and Carrer Badajoz, near Plaça de les Glòries Catalanes, which marks the gateway to the new technological district of Barcelona, Catalonia, Spain. It was designed by French architect Jean Nouvel in association with the Spanish firm b720 Fermin Vazquez Arquitectos and built by Dragados. The Torre Agbar is located in the Poblenou neighbourhood of Barcelona and is named after its owners, the Agbar Group, a holding company whose interests include the Barcelona water company Aigües de Barcelona. The tower measures a total of 50,693 square metres, of which 30,000 are offices, 3,210 technical facilities, 8,132 services, including an auditorium, and 9,132 square metres for parking.',
 	'torreAgbar.jpg',
 	'http://www.torreagbar.com/',
 	'BCNES');
 insert into points values (
 	'El Parc del Laberint d’Horta',
 	41.4398348,
-	2.14627530,
+	2.15627530,
 	'Passeig dels Castanyers, 1',
 	'The Parc del Laberint d’Horta is an historical garden in the Horta-Guinardó district in Barcelona, and the oldest of its kind in the city. Located in the former estate of the Desvalls family, next to the Collserola ridge, the park comprises an 18th-century neoclassical garden and a 19th-century romantic garden.',	
 	'Parc_del_Laberint.jpg',
