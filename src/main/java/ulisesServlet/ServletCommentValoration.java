@@ -2,7 +2,6 @@ package ulisesServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -14,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import wiamDB.Comments;
-import wiamDB.Valoration;
+import ulisesDBTables.Routes;
 
 
 
@@ -56,6 +54,9 @@ public class ServletCommentValoration extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+		// type of response dates
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		// input client dates
 		int length = request.getContentLength();
         byte[] input = new byte[length];
@@ -66,39 +67,23 @@ public class ServletCommentValoration extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
-		
+        System.out.println("Servlet commentvaloration input : " + routeName);
 		// response dates
-		Comments co = new Comments();
-		Valoration va = new Valoration();
+		Routes r = null;
+		JSONArray arr = null;
 		try {
-			co.connect();
-			va.connect();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// type of response dates
-		response.setContentType("text/html");
-		// capture comments and valorations
-		JSONArray arrComments = null;
-		JSONArray arrValor = null;
-		try {
-			arrComments = co.selectComments(routeName);
-			arrValor = va.selectValoration(routeName);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			r = new Routes();
+			// capture comments and valorations
+			arr = r.selectCommentValoration(routeName);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// put all the dates in one JSONArray object
-		JSONArray arr = new JSONArray();
-		arr.put(arrComments);
-		arr.put(arrValor);
-		
 		String result = arr.toString();
 		// send dates converted in string
+		r.close();
+		System.out.println("Servlet commentvaloration result : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

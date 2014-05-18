@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import wiamDB.RelationRP;
+import ulisesDBTables.RelationRP;
 
 
 
@@ -55,6 +55,9 @@ public class ServletRelationRP extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+		// type of response dates
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		// input client dates
 		int length = request.getContentLength();
         byte[] input = new byte[length];
@@ -65,30 +68,26 @@ public class ServletRelationRP extends HttpServlet {
         }
         sin.close();
         String routeName = new String(input);
-		
-		// response dates
-		RelationRP re = new RelationRP();
-		try {
-			re.connect();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// type of response dates
-		response.setContentType("text/html");
-		// capture points/comments and valorations
+        System.out.println("Servlet relationrp input : " + routeName);
+		RelationRP re = null;
 		JSONArray arrPoints = null;
 		try {
-			arrPoints = re.selectRoutePoints(routeName);
+			re = new RelationRP();
+			String imgPath = re.imgpathFromRoute(routeName);
+			System.out.println("construct relationrp imagepath : " + imgPath);
+			arrPoints = re.selectRoutePoints(routeName,imgPath);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		String result = arrPoints.toString();
 		// send dates converted in string
+		re.close();
+		System.out.println("Servlet relationrp response : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import wiamDB.Routes;
+import ulisesDBTables.Routes;
 
 
 
@@ -54,31 +55,38 @@ public class ServletRoutes extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-		Routes r = new Routes();
-		try {
-			r.connect();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		// type of response dates
-		response.setContentType("text/html");
-		// capture all of interest points to db
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		// input client dates
+		int length = request.getContentLength();
+		byte[] input = new byte[length];
+		ServletInputStream sin = request.getInputStream();
+		int c, count = 0;
+		while ((c = sin.read(input, count, input.length - count)) != -1) {
+			count += c;
+		}
+		sin.close();
+		String in = new String(input);
+		System.out.println("Servlet routes input : " + in);
+		// output data
+		Routes r = null;
 		JSONArray arr = null;
 		try {
-			arr = r.selectRoutesInfo();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			r = new Routes();
+			arr = r.selectRoutesInfo(in);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		String result = arr.toString();
+		System.out.println("Servlet routes result : " + result);
 		// send points converted in string
+		r.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
 		out.flush(); 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Welcome to OpenShift</title>
+  <title>Welcome to UlisesMap</title>
   
 <style>
 
@@ -200,6 +200,8 @@ pre {
   overflow: auto;
   font-family: Menlo,Monaco,"Liberation Mono",Consolas,monospace !important;
 }
+li img {width: 50px; height: 50px;}
+img {width: 100px; height: 100px;}
 
 </style>
 
@@ -208,33 +210,23 @@ pre {
 
 <section class='container'>
           <hgroup>
-            <h1>Welcome to your JBossEWS (Apache/Tomcat) application on OpenShift</h1>
+            <div class="logo"><a href="http://ulises-ulisesmap.rhcloud.com/images/web/logo_ulises.png"></a></div>
+            <h1>Welcome to UlisesMap tourist guide</h1>
           </hgroup>
 
 
         <div class="row">
           <section class='col-xs-12 col-sm-6 col-md-6'>
             <section>
-              <h2>Deploying code changes</h2>
-                <p>OpenShift uses the <a href="http://git-scm.com/">Git version control system</a> for your source code, and grants you access to it via the Secure Shell (SSH) protocol. In order to upload and download code to your application you need to give us your <a href="https://www.openshift.com/developers/remote-access">public SSH key</a>. You can upload it within the web console or install the <a href="https://www.openshift.com/developers/rhc-client-tools-install">RHC command line tool</a> and run <code>rhc setup</code> to generate and upload your key automatically.</p>
+              <h2>Create your own city tour!</h2>
+                <p>UlisesMap uses gps technology to enable you to create your own tour, creating a custom path to improve your experience in the city.
+                Select a country, a city and prepare to discover its most emblematic points as well as the most amazing tours.</p>
 
-                <h3>Working in your local Git repository</h3>
-                <p>If you created your application from the command line and uploaded your SSH key, rhc will automatically download a copy of that source code repository (Git calls this 'cloning') to your local system.</p>
-
-                <p>If you created the application from the web console, you'll need to manually clone the repository to your local system. Copy the application's source code Git URL and then run:</p>
-
-<pre>$ git clone &lt;git_url&gt; &lt;directory_to_create&gt;
-
-# Within your project directory
-# Commit your changes and push to OpenShift
-
-$ git commit -a -m 'Some commit message'
-$ git push</pre>
-
-
+                <h3>Choose a point of interest</h3>
                   <ul>
-                    <li><a href="https://www.openshift.com/developers/deploying-and-building-applications">Learn more about deploying and building your application</a></li>
-                    <li>See the README file in your local application Git repository for more information on the options for deploying applications.</li>
+                    <li><p>Sagrada Familia, Barcelona, Spain</p><img src="http://ulises-ulisesmap.rhcloud.com/images/Spain/Barcelona/Sagrada_Familia.jpg" alt="Sagrada Familia" class="img-circle"></li>
+                    <li><p>Plaza del sol, Madrid, Spain</p><img src="http://ulises-ulisesmap.rhcloud.com/images/Spain/Madrid/sol.jpg" alt="Plaza del sol" class="img-circle"></li>
+                    <li><p>British museum, London, United Kingdom</p><img src="http://ulises-ulisesmap.rhcloud.com/images/UnitedKingdom/London/british_museum.jpg" alt="British museum" class="img-circle"></li>
                   </ul>
 
             </section>
@@ -242,40 +234,22 @@ $ git push</pre>
           </section>
           <section class="col-xs-12 col-sm-6 col-md-6">
 
-                <h2>Managing your application</h2>
+                <h2>Discover a fantastic city tour!</h2>
+                <p>You just have to select a tour that fits your interests and we will guide you throughout the city. An experience that will allow you to discover a city on your own.</p>
 
-                <h3>Web Console</h3>
-                <p>You can use the OpenShift web console to enable additional capabilities via cartridges, add collaborator access authorizations, designate custom domain aliases, and manage domain memberships.</p>
+                <h3>FCBarcelona tour</h3>
+                <img src="http://ulises-ulisesmap.rhcloud.com/images/web/fcbarcelona.png" alt="FCBarcelona route" class="img-circle">
+                
 
-                <h3>Command Line Tools</h3>
-                <p>Installing the <a href="https://www.openshift.com/developers/rhc-client-tools-install">OpenShift RHC client tools</a> allows you complete control of your cloud environment. Read more on how to manage your application from the command line in our <a href="https://www.openshift.com/user-guide">User Guide</a>.
-                </p>
-
-                <h2>Development Resources</h2>
-                  <h3>JBoss Developer Studio</h3>
-                  <p>
-                    The JBoss Developer Studio is a full featured IDE with OpenShift integration built in.
-                    It gives you the ability to create, edit and deploy applications without having to
-                    leave the IDE.  Links to download, install and use the JBoss Developer Studio for Linux,
-                    Mac OS X, or Windows can be found on the
-                    <a href="https://www.openshift.com/developers/tools">JBoss Developer Studio tools page.</a>
-                  </p>
-                  <h3>Debugging</h3>
-                  <p><a href="snoop.jsp">View debugging information</a> about the server environment including memory pools.</p>
-                  <ul>
-                    <li><a href="https://www.openshift.com/developers">Developer Center</a></li>
-                    <li><a href="https://www.openshift.com/user-guide">User Guide</a></li>
-                    <li><a href="https://www.openshift.com/support">OpenShift Support</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/openshift">Stack Overflow questions for OpenShift</a></li>
-                    <li><a href="http://webchat.freenode.net/?randomnick=1&channels=openshift&uio=d4">IRC channel at #openshift on freenode.net</a></li>
-                    <li><a href="http://git-scm.com/documentation">Git documentation</a></li>
-                  </ul>
+                
+                <h3>Barcelona Modernistic tour</h3>
+                <img src="http://ulises-ulisesmap.rhcloud.com/images/web/modernistic.png" alt="Barcelona modernistic tour" class="img-circle">
 
           </section>
         </div>
 
         <footer>
-          <div class="logo"><a href="https://www.openshift.com/"></a></div>
+          <span class="glyphicon glyphicon-envelope"><a href="">Contact us</a></span>
         </footer>
 </section>
 </body>

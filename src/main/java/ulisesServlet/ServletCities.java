@@ -13,15 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import ulisesDB.Values;
 import ulisesDBTables.City;
-import ulisesDBTables.Points;
 
 
 /*
- * ServletPoints   
+ * ServletCities   
  *
  * @Author: Oleksander Dovbysh
  * 			Elisabet Navarro
@@ -34,14 +32,14 @@ import ulisesDBTables.Points;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/ServletPoints")
-public class ServletPoints extends HttpServlet {
+@WebServlet("/ServletCities")
+public class ServletCities extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-		
-	public ServletPoints() {
+	
+	public ServletCities() {
 		      super();
-		    }
+	}
 		/**
 		 * Iniciar la conexion
 		 */
@@ -62,37 +60,28 @@ public class ServletPoints extends HttpServlet {
 			response.setCharacterEncoding("UTF-8");
 			// input client dates
 			int length = request.getContentLength();
-			byte[] input = new byte[length];
-			ServletInputStream sin = request.getInputStream();
-			int c, count = 0 ;
-			while ((c = sin.read(input, count, input.length-count)) != -1) {
-				 count +=c;
-			}
-			sin.close();
-			String in = new String(input);
-			System.out.println("Servlet points input : " + in);
-			// set image path 
-			String imagePath = ""; 
+	        byte[] input = new byte[length];
+	        ServletInputStream sin = request.getInputStream();
+	        int c, count = 0 ;
+	        while ((c = sin.read(input, count, input.length-count)) != -1) {
+	            count +=c;
+	        }
+	        sin.close();
+	        String in = new String(input);
+	        System.out.println("Servlet cities input : " + in);
+			// response dates
+	        City ci = null;
+	        JSONArray arr = null;
 			try {
-				City city = new City();
-				JSONObject json = city.selectCityCountry(in);
-				imagePath = Values.IMAGE_PATH + json.getString(Values.CITY_COUNTRY_KEY) + "/" + json.getString(Values.CITY_NAME_KEY) + "/";	
-			} catch (ClassNotFoundException e2) {
-				e2.printStackTrace();
-			} catch (SQLException e) {
+				ci = new City();
+				arr = new JSONArray();
+				if (in.equals(Values.NEGATIVE_INPUT)) {
+		        	arr = ci.selectCountry();
+		        } else {
+		        	arr = ci.selectCities(in);
+		        }
+			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			
-			// output data
-			Points p = null;
-			JSONArray arr = null;
-			try {
-				p = new Points();
-				arr = p.selectPoints(in,imagePath);
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (JSONException e) {
@@ -100,12 +89,11 @@ public class ServletPoints extends HttpServlet {
 			}
 			
 			String result = arr.toString();
-			// send points converted in string
-			p.close();
-			System.out.println("Servlet points result : " + result);
+			// send dates converted in string
+			ci.close();
+			System.out.println("Servlet cities result : " + result);
 			PrintWriter out = response.getWriter();
 			out.print(result);
 			out.flush(); 
 		}
-
 }
