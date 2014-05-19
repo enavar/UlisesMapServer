@@ -280,7 +280,7 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Museu dali',
-	41.38459,
+	41.3846,
 	2.17459,
 	'Carrer arcs',
 	'Discober this fantastic artist in a singular museum in the center of Barcelona',
@@ -289,7 +289,7 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Singular arch',
-	41.386206,
+	41.386,
 	2.1721195,
 	'Portal de angel',
 	'discober fantastic architecture forms in the secret places',
@@ -298,7 +298,7 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Generalitat palace',
-	41.3832953,
+	41.3833,
 	2.1769570,
 	'Plaça sant jaume',
 	'The Palau de la Generalitat is a historic palace in Barcelona, Catalonia, northern Spain. It houses the offices of the Presidency of the Generalitat de Catalunya. It is one of the few buildings of medieval origin in Europe that still functions as a seat of government and houses the institution that originally built it.',
@@ -316,8 +316,8 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Colon sculture',
-	41.386206,
-	2.1721195,
+	41.375799,
+	2.177762,
 	'',
 	'the gratest famous sculture of American explorer',
 	'colon.jpg',
@@ -325,12 +325,12 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Maremagnum',
-	41.3753515,
-	2.180168,
+	41.37575,
+	2.1824294,
 	'Port vell',
-	' is a waterfront harbour in Barcelona, Catalonia, Spain, and part of the Port of Barcelona. It was built as part of an urban renewal program prior to the 1992 Barcelona Olympics. Before this, it was a run-down area of empty warehouses, railroad yards, and factories. 16 million people visit the complex each year.It is now a focal point of the city and tourist attraction, containing the Maremàgnum (a mall containing shops, a multiplex cinema, bars and restaurants)',
+	'Is a waterfront harbour in Barcelona, Catalonia, Spain, and part of the Port of Barcelona. It was built as part of an urban renewal program prior to the 1992 Barcelona Olympics. Before this, it was a run-down area of empty warehouses, railroad yards, and factories. 16 million people visit the complex each year.It is now a focal point of the city and tourist attraction, containing the Maremàgnum (a mall containing shops, a multiplex cinema, bars and restaurants)',
 	'maremagnum.jpg',
-	null,
+	'www.maremagnum.es',
 	'BCNES');
 insert into points values (
 	'Aquarium',
@@ -339,12 +339,12 @@ insert into points values (
 	'Port vell',
 	'Is a Europe largest aquarium containing 8000 Fish and 11 sharks contained in 22 basins filled with 6 million litres (1.5 million gallons) of sea water.',
 	'aquarium.jpg',
-	null,
+	'www.aquariumbcn.com',
 	'BCNES');
 insert into points values (
 	'Palau de mar',
-	41.3788914,
-	2.1812895,
+	41.380952,
+	2.185873,
 	'Port vell',
 	'Is a Europe largest aquarium containing 8000 Fish and 11 sharks contained in 22 basins filled with 6 million litres (1.5 million gallons) of sea water.',
 	'palau_mar.jpg',
@@ -352,8 +352,8 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Barceloneta',
-	41.3770285,
-	2.1910002,
+	41.37589,
+	2.1908082,
 	'Barceloneta',
 	'The most famous beach in Barcelona.',
 	'barceloneta.jpg',
@@ -361,8 +361,8 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Olimpic frendship sculture',
-	41.3770285,
-	2.1910002,
+	41.388180,
+	2.19680067,
 	'Salvador espriu',
 	'The monument for a voluntears in Olimpic games of Barcelona.',
 	'abracada.jpg',
@@ -370,8 +370,8 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Carles I Park',
-	41.3770285,
-	2.1910002,
+	41.3889091,
+	2.1935712,
 	'Salvador espriu',
 	'The monument for a voluntears in Olimpic games of Barcelona.',
 	'carlesI_park.jpg',
@@ -379,12 +379,12 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Barcelona Zoo',
-	41.3879361,
-	2.19146619,
+	41.387587,
+	2.1917348,
 	'',
 	'The unique zoo in Barcelona city, The zoo used to be internationally known as the home of Snowflake, the only known albino gorilla, who died in 2003.',
 	'zoo.jpg',
-	null,
+	'www.zoobarcelona.cat',
 	'BCNES');
 
 
@@ -422,15 +422,16 @@ insert into relationRP values('Antoni Gaudi','Sagrada Familia',5);
 
 insert into relationRP values('Imprescindible views','Plaça de Catalunya',1);
 insert into relationRP values('Imprescindible views','Museu dali',2);
-insert into relationRP values('Imprescindible views','Singular arch',3);
-insert into relationRP values('Imprescindible views','Generalitat palace',4);
-insert into relationRP values('Imprescindible views','plaça reial',5);
-insert into relationRP values('Imprescindible views','Museu de Cera de Barcelona',6);
-insert into relationRP values('Imprescindible views','Colon sculture',7);
-insert into relationRP values('Imprescindible views','Maremagnum',8);
-insert into relationRP values('Imprescindible views','Aquarium',9);
-insert into relationRP values('Imprescindible views','Palau de mar',10);
-insert into relationRP values('Imprescindible views','Barceloneta',11);
+insert into relationRP values('Imprescindible views','La Catedral de Santa Eulalia de Barcelona',3);
+insert into relationRP values('Imprescindible views','Singular arch',4);
+insert into relationRP values('Imprescindible views','Generalitat palace',5);
+insert into relationRP values('Imprescindible views','plaça reial',6);
+insert into relationRP values('Imprescindible views','Museu de Cera de Barcelona',7);
+insert into relationRP values('Imprescindible views','Colon sculture',8);
+insert into relationRP values('Imprescindible views','Maremagnum',9);
+insert into relationRP values('Imprescindible views','Aquarium',10);
+insert into relationRP values('Imprescindible views','Palau de mar',11);
+insert into relationRP values('Imprescindible views','Barceloneta',12);
 
 insert into relationRP values('Childrens route','Aquarium',1);
 insert into relationRP values('Childrens route','Palau de mar',2);
@@ -439,8 +440,8 @@ insert into relationRP values('Childrens route','Olimpic frendship sculture',4);
 insert into relationRP values('Childrens route','Carles I Park',5);
 insert into relationRP values('Childrens route','Barcelona Zoo',6);
 
-insert into relationRP values('London tour','London tower',1);
+insert into relationRP values('London tour','London tower',3);
 insert into relationRP values('London tour','British museum',2);
-insert into relationRP values('London tour','Natural history museum',3);
+insert into relationRP values('London tour','Natural history museum',1);
 
 
