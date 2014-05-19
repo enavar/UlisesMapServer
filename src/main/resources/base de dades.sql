@@ -393,7 +393,7 @@ insert into routes values('Imprescindible views','interesting trip for most popu
 insert into routes values('Museum route','instructing trip for most interesting museum in Barcelona. Start your visit in Museu d’Art Contemporani de Barcelona and discover the culture secrets','BCNES');
 insert into routes values('Antoni Gaudi','amazing route for discover the secrets of Antoni Gaudi famous architect!, Start your trip in Plaça de Catalunya and see her gratest hits.','BCNES');
 insert into routes values('London tour','visit the imprescindible places for discover this old city.','LONUK');
-insert into routes values('Childrens route ','visit the imprescindible places for childrens funny day.','BCNES');
+insert into routes values('Childrens route','visit the imprescindible places for childrens funny day.','BCNES');
  
 insert into valoration values(5,'Antoni Gaudi','admin');
 insert into valoration values(3,'Museum route','admin');
@@ -418,7 +418,7 @@ insert into relationRP values('Antoni Gaudi','Plaça de Catalunya',1);
 insert into relationRP values('Antoni Gaudi','Casa Milà - La Pedrera',2);
 insert into relationRP values('Antoni Gaudi','Casa Batlló',3);
 insert into relationRP values('Antoni Gaudi','Park Güell',4);
-insert into relationRP values('Antoni Gaudi','Sagrada Família',5);
+insert into relationRP values('Antoni Gaudi','Sagrada Familia',5);
 
 insert into relationRP values('Imprescindible views','Plaça de Catalunya',1);
 insert into relationRP values('Imprescindible views','Museu dali',2);
@@ -426,7 +426,7 @@ insert into relationRP values('Imprescindible views','Singular arch',3);
 insert into relationRP values('Imprescindible views','Generalitat palace',4);
 insert into relationRP values('Imprescindible views','plaça reial',5);
 insert into relationRP values('Imprescindible views','Museu de Cera de Barcelona',6);
-insert into relationRP values('Imprescindible views','Colon esculture',7);
+insert into relationRP values('Imprescindible views','Colon sculture',7);
 insert into relationRP values('Imprescindible views','Maremagnum',8);
 insert into relationRP values('Imprescindible views','Aquarium',9);
 insert into relationRP values('Imprescindible views','Palau de mar',10);
@@ -437,7 +437,7 @@ insert into relationRP values('Childrens route','Palau de mar',2);
 insert into relationRP values('Childrens route','Barceloneta',3);
 insert into relationRP values('Childrens route','Olimpic frendship sculture',4);
 insert into relationRP values('Childrens route','Carles I Park',5);
-insert into relationRP values('Childrens route','Barcelona zoo',6);
+insert into relationRP values('Childrens route','Barcelona Zoo',6);
 
 insert into relationRP values('London tour','London tower',1);
 insert into relationRP values('London tour','British museum',2);
