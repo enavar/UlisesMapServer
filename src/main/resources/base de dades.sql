@@ -72,7 +72,7 @@ insert into points values (
 	2.175954500,
 	'La Rambla, 7',
 	'Centre d’Art Santa Mònica, sometimes shortened as CASM, is a public museum of contemporary art in Barcelona (Catalonia) opened in 1988. It’s located in the Raval side of Rambla de Santa Mònica (Ciutat Vella district). It has no permanent collection but it hosts a number of travelling expositions of contemporary Spanish and international artists every year. Entrance is free.The building that hosts CASM is a 1626 Renaissance convent that became a monument of national interest in 1984.',
-	'Centre_Art_Santa_Monica.JPG',
+	'Centre_Art_Santa_Monica.jpg',
 	'http://www.artssantamonica.cat',
 	'BCNES');
 insert into points values (
@@ -130,12 +130,12 @@ insert into points values (
 	'http://www.museuciencies.cat/',
 	'BCNES');
 insert into points values (
-	'Sagrada Família',
+	'Sagrada Familia',
 	41.403570700,
 	2.174472199,
 	'Carrer de Mallorca, 401',
 	'The Basílica i Temple Expiatori de la Sagrada Família, is a large Roman Catholic church in Barcelona, Spain, designed by Catalan architect Antoni Gaudí (1852–1926). Although incomplete, the church is a UNESCO World Heritage Site, and in November 2010 Pope Benedict XVI consecrated and proclaimed it a minor basilica, as distinct from a cathedral which must be the seat of a bishop. Construction of Sagrada Família had commenced in 1882, Gaudí became involved in 1883, taking over the project and transforming it with his architectural and engineering style, combining Gothic and curvilinear Art Nouveau forms. Gaudí devoted his last years to the project, and at the time of his death at age 73 in 1926 less than a quarter of the project was complete. Sagrada Família’s construction progressed slowly, as it relied on private donations and was interrupted by the Spanish Civil War, only to resume intermittent progress in the 1950s. Construction passed the midpoint in 2010 with some of the project’s greatest challenges remaining and an anticipated completion date of 2026, the centenary of Gaudí’s death.',
-	'Sagrada_Família.jpg',
+	'Sagrada_Familia.jpg',
 	'www.sagradafamilia.cat/‎',
 	'BCNES');
 insert into points values (
@@ -275,22 +275,138 @@ insert into points values (
 	2.17007203,
 	null,
 	'Plaça de Catalunya is considered the center of Barcelona and link the Old Centre of city with new. Plaça Catalunya connect Passeig de Gràcia, Rambla de Catalunya, the Rambla and the Portal de Angel, most touristic streets. Plaça Catalunya has shops, restaurants and banks.',
+	'plc_catalunya.jpg',
 	null,
 	'BCNES');
+insert into points values (
+	'Museu dali',
+	41.38459,
+	2.17459,
+	'Carrer arcs',
+	'Discober this fantastic artist in a singular museum in the center of Barcelona',
+	'dali_museum.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Singular arch',
+	41.386206,
+	2.1721195,
+	'Portal de angel',
+	'discober fantastic architecture forms in the secret places',
+	'singular_arch.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Generalitat palace',
+	41.3832953,
+	2.1769570,
+	'Plaça sant jaume',
+	'The Palau de la Generalitat is a historic palace in Barcelona, Catalonia, northern Spain. It houses the offices of the Presidency of the Generalitat de Catalunya. It is one of the few buildings of medieval origin in Europe that still functions as a seat of government and houses the institution that originally built it.',
+	'generalitat.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'plaça reial',
+	41.3798406,
+	2.175473,
+	'Plaça reial',
+	'discober famous place for enjoying your time',
+	'reial_place.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Colon sculture',
+	41.386206,
+	2.1721195,
+	null,
+	'the gratest famous sculture of American explorer',
+	'colon.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Maremagnum',
+	41.3753515,
+	2.180168,
+	'Port vell',
+	' is a waterfront harbour in Barcelona, Catalonia, Spain, and part of the Port of Barcelona. It was built as part of an urban renewal program prior to the 1992 Barcelona Olympics. Before this, it was a run-down area of empty warehouses, railroad yards, and factories. 16 million people visit the complex each year.It is now a focal point of the city and tourist attraction, containing the Maremàgnum (a mall containing shops, a multiplex cinema, bars and restaurants)',
+	'maremagnum.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Aquarium',
+	41.37685,
+	2.184389,
+	'Port vell',
+	'Is a Europe largest aquarium containing 8000 Fish and 11 sharks contained in 22 basins filled with 6 million litres (1.5 million gallons) of sea water.',
+	'aquarium.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Palau de mar',
+	41.3788914,
+	2.1812895,
+	'Port vell',
+	'Is a Europe largest aquarium containing 8000 Fish and 11 sharks contained in 22 basins filled with 6 million litres (1.5 million gallons) of sea water.',
+	'palau_mar.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Barceloneta',
+	41.3770285,
+	2.1910002,
+	'Barceloneta',
+	'The most famous beach in Barcelona.',
+	'barceloneta.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Olimpic frendship sculture',
+	41.3770285,
+	2.1910002,
+	'Salvador espriu',
+	'The monument for a voluntears in Olimpic games of Barcelona.',
+	'abracada.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Carles I Park',
+	41.3770285,
+	2.1910002,
+	'Salvador espriu',
+	'The monument for a voluntears in Olimpic games of Barcelona.',
+	'carlesI_park.jpg',
+	null,
+	'BCNES');
+insert into points values (
+	'Barcelona Zoo',
+	41.3879361,
+	2.19146619,
+	null,
+	'The unique zoo in Barcelona city, The zoo used to be internationally known as the home of Snowflake, the only known albino gorilla, who died in 2003.',
+	'zoo.jpg',
+	null,
+	'BCNES');
+
 
 	
 insert into routes values('Imprescindible views','interesting trip for most popular points of interes in Barcelona city. Start your visit in Plaça Catalunya, the center of city and visit de greatest places.','BCNES');
 insert into routes values('Museum route','instructing trip for most interesting museum in Barcelona. Start your visit in Museu d’Art Contemporani de Barcelona and discover the culture secrets','BCNES');
 insert into routes values('Antoni Gaudi','amazing route for discover the secrets of Antoni Gaudi famous architect!, Start your trip in Plaça de Catalunya and see her gratest hits.','BCNES');
 insert into routes values('London tour','visit the imprescindible places for discover this old city.','LONUK');
+insert into routes values('Childrens route ','visit the imprescindible places for childrens funny day.','BCNES');
  
 insert into valoration values(5,'Antoni Gaudi','admin');
 insert into valoration values(3,'Museum route','admin');
 insert into valoration values(5,'Imprescindible views','admin');
+insert into valoration values(5,'Childrens route','admin');
+insert into valoration values(5,'London tour','admin');
 
 insert into comments values ('We are a fans of Gaudi only a genius can create this kind of structures','Antoni Gaudi','admin');
 insert into comments values ('Oh my good! I feel update my intelligence skills.','Museum route','admin');
 insert into comments values ('Amazing you can’t go if you don’t see this places.','Imprescindible views','admin');
+insert into comments values ('Incredible and misterious animals!.','Childrens route','admin');
+insert into comments values ('Amazing you can’t go if you don’t see this places.','London tour','admin');
+
 
 insert into relationRP values('Museum route','Museu d’Art Contemporani de Barcelona',1);
 insert into relationRP values('Museum route','Museu Picasso',2);
@@ -305,8 +421,23 @@ insert into relationRP values('Antoni Gaudi','Park Güell',4);
 insert into relationRP values('Antoni Gaudi','Sagrada Família',5);
 
 insert into relationRP values('Imprescindible views','Plaça de Catalunya',1);
+insert into relationRP values('Imprescindible views','Museu dali',2);
+insert into relationRP values('Imprescindible views','Singular arch',3);
+insert into relationRP values('Imprescindible views','Generalitat palace',4);
+insert into relationRP values('Imprescindible views','plaça reial',5);
+insert into relationRP values('Imprescindible views','Museu de Cera de Barcelona',6);
+insert into relationRP values('Imprescindible views','Colon esculture',7);
+insert into relationRP values('Imprescindible views','Maremagnum',8);
+insert into relationRP values('Imprescindible views','Aquarium',9);
+insert into relationRP values('Imprescindible views','Palau de mar',10);
+insert into relationRP values('Imprescindible views','Barceloneta',11);
 
-
+insert into relationRP values('Childrens route','Aquarium',1);
+insert into relationRP values('Childrens route','Palau de mar',2);
+insert into relationRP values('Childrens route','Barceloneta',3);
+insert into relationRP values('Childrens route','Olimpic frendship sculture',4);
+insert into relationRP values('Childrens route','Carles I Park',5);
+insert into relationRP values('Childrens route','Barcelona zoo',6);
 
 insert into relationRP values('London tour','London tower',1);
 insert into relationRP values('London tour','British museum',2);
