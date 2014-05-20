@@ -271,8 +271,8 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Plaça de Catalunya',
-	41.387000,
-	2.17007203,
+	41.385873,
+	2.170157,
 	'',
 	'Plaça de Catalunya is considered the center of Barcelona and link the Old Centre of city with new. Plaça Catalunya connect Passeig de Gràcia, Rambla de Catalunya, the Rambla and the Portal de Angel, most touristic streets. Plaça Catalunya has shops, restaurants and banks.',
 	'plc_catalunya.jpg',
@@ -316,8 +316,8 @@ insert into points values (
 	'BCNES');
 insert into points values (
 	'Colon sculture',
-	41.375799,
-	2.177762,
+	41.376036,
+	2.17747,
 	'',
 	'the gratest famous sculture of American explorer',
 	'colon.jpg',
@@ -415,10 +415,10 @@ insert into relationRP values('Museum route','Museu Blau',4);
 insert into relationRP values('Museum route','Museu de la Xocolata',5);
 
 insert into relationRP values('Antoni Gaudi','Plaça de Catalunya',1);
-insert into relationRP values('Antoni Gaudi','Casa Milà - La Pedrera',2);
-insert into relationRP values('Antoni Gaudi','Casa Batlló',3);
-insert into relationRP values('Antoni Gaudi','Park Güell',4);
-insert into relationRP values('Antoni Gaudi','Sagrada Familia',5);
+insert into relationRP values('Antoni Gaudi','Casa Milà - La Pedrera',3);
+insert into relationRP values('Antoni Gaudi','Casa Batlló',2);
+insert into relationRP values('Antoni Gaudi','Park Güell',5);
+insert into relationRP values('Antoni Gaudi','Sagrada Familia',4);
 
 insert into relationRP values('Imprescindible views','Plaça de Catalunya',1);
 insert into relationRP values('Imprescindible views','Museu dali',2);

@@ -39,9 +39,11 @@ public class RelationRP extends DAOconection {
 	public JSONArray selectRoutePoints(String routeName,String imgPath) throws SQLException,JSONException {
 		Statement stm;
 		JSONArray arr = new JSONArray();
+		JSONArray result = new JSONArray();
+		// obtener los puntos
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from points where name in(Select pointName from relationRP where routeName='" + routeName + "')");
+			ResultSet rs = stm.executeQuery("Select * from points where name in(Select pointName from relationRP where routeName='" + routeName + "' orderby position)");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
 				json.put(Values.POINTS_NAME_KEY, rs.getString(Values.POINTS_NAME_KEY));
@@ -53,11 +55,24 @@ public class RelationRP extends DAOconection {
 				json.put(Values.POINTS_IMAGE_KEY, "" + imgPath + rs.getString(Values.POINTS_IMAGE_KEY));
 				arr.put(json);
 			}
+			// ordenar los puntos
+			stm = con.createStatement();
+			ResultSet rs2 = stm.executeQuery("Select pointName from relationRP where routeName='" + routeName + "' order by position");
+			while (rs2.next()) {
+				String name = rs2.getString(Values.RELATIONRP_POINT_NAME_KEY);
+				for (int i = 0; i < arr.length(); i++) {
+					JSONObject json = arr.getJSONObject(i);
+					if (name.equals(json.get(Values.POINTS_NAME_KEY))) {
+						result.put(json);
+					}
+				}
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return arr;
+		return result;
 	}
 	
 	/**

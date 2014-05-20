@@ -50,4 +50,6 @@ public class Values {
 	public static final String CITY_COUNTRY_KEY = "country";
 	public static final String CITY_REFERENCE_KEY = "ref";
 	
+	public static final String RELATIONRP_POINT_NAME_KEY = "pointName";
+	
 }
