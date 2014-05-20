@@ -418,7 +418,7 @@ insert into points values (
 	'BCNES');
 
 insert into points values (
-	'Teatre del Liceu'
+	'Teatre del Liceu',
 	41.380253,
 	2.173469,
 	'Rambla, 51.65',
@@ -434,7 +434,7 @@ insert into points values (
 	'Avinguda Diagonal, 686',
 	'Behind a 250-m long wall overflowing with bougainvillea is one of the stateliest gardens in Barcelona: the gardens of the Pedralbes Royal Palace. Revealing both English and French influences, romantic bridges and verdant green areas, the truth is that a trip to this park will transport you to a time when serenity and majesty were determining elements of the landscape.',
 	'jardins_pedralbes.jpg',
-	null.
+	null,
 	'BCNES');
 	
 insert into routes values('Imprescindible views','imprescindibleViews.png','interesting trip for most popular points of interes in Barcelona city. Start your visit in Plaça Catalunya, the center of city and visit de greatest places.','BCNES');
@@ -473,7 +473,7 @@ insert into relationRP values('Imprescindible views','Museu dali',2);
 insert into relationRP values('Imprescindible views','La Catedral de Santa Eulalia de Barcelona',3);
 insert into relationRP values('Imprescindible views','Singular arch',4);
 insert into relationRP values('Imprescindible views','Generalitat palace',5);
-insert into relationRP values('Imprescindible views','plaça reial',6);
+insert into relationRP values('Imprescindible views','Plaça Reial',6);
 insert into relationRP values('Imprescindible views','Museu de Cera de Barcelona',7);
 insert into relationRP values('Imprescindible views','Colon sculture',8);
 insert into relationRP values('Imprescindible views','Maremagnum',9);

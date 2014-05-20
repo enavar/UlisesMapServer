@@ -24,10 +24,12 @@ public class Values {
 	public static final String USERS_EMAIL_KEY = "email";
 	
 	public static final String IMAGE_PATH = "http://ulises-ulisesmap.rhcloud.com/images/";
+	public static final String IMAGE_ROUTES_PATH = "http://ulises-ulisesmap.rhcloud.com/images/routes/";
 	
 	public static final String NEGATIVE_INPUT = "false";
 	
 	public static final String ROUTES_NAME_KEY = "name";
+	public static final String ROUTES_IMAGE_KEY = "image";
 	public static final String ROUTES_DESCRIPTION_KEY = "description";
 	public static final String ROUTES_REFERENCE_KEY = "fk_ref";
 	public static final String ROUTES_AVERAGE_KEY = "avg";

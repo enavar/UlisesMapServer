@@ -49,6 +49,7 @@ public class Routes extends DAOconection {
 				JSONObject json = new JSONObject();
 				String routeName = rs.getString(Values.ROUTES_NAME_KEY);
 				json.put(Values.ROUTES_NAME_KEY, routeName);
+				json.put(Values.ROUTES_IMAGE_KEY, Values.IMAGE_ROUTES_PATH + rs.getString(Values.ROUTES_IMAGE_KEY));
 				json.put(Values.ROUTES_DESCRIPTION_KEY, rs.getString(Values.ROUTES_DESCRIPTION_KEY));
 				json.put(Values.ROUTES_REFERENCE_KEY, rs.getString(Values.ROUTES_REFERENCE_KEY));
 				json.put(Values.ROUTES_AVERAGE_KEY, val.averageValoration(routeName));
