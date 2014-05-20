@@ -1,6 +1,6 @@
 create table users (name varchar(20),password text,email varchar(30),PRIMARY KEY(name));
 create table city (ref varchar(5),name varchar(30),country varchar(30),PRIMARY KEY (ref));
-create table routes (name varchar(50),description text,fk_ref varchar(5) references city(ref),PRIMARY KEY(name));
+create table routes (name varchar(50),image text,description text,fk_ref varchar(5) references city(ref),PRIMARY KEY(name));
 create table points (name varchar(50),lat numeric(12,9),lon numeric(12,9),street text, description text, image text, url text,fk_ref varchar(5) references city(ref),PRIMARY KEY(name));
 create table valoration (def numeric,fk_route varchar(50) references routes(name),fk_user varchar(20) references users(name),PRIMARY KEY (fk_user,fk_route));
 create table comments (def text,fk_route varchar(50) references routes(name),fk_user varchar(20) references users(name),PRIMARY KEY (fk_user,fk_route));
@@ -437,11 +437,11 @@ insert into points values (
 	null.
 	'BCNES');
 	
-insert into routes values('Imprescindible views','interesting trip for most popular points of interes in Barcelona city. Start your visit in Plaça Catalunya, the center of city and visit de greatest places.','BCNES');
-insert into routes values('Museum route','instructing trip for most interesting museum in Barcelona. Start your visit in Museu d’Art Contemporani de Barcelona and discover the culture secrets','BCNES');
-insert into routes values('Antoni Gaudi','amazing route for discover the secrets of Antoni Gaudi famous architect!, Start your trip in Plaça de Catalunya and see her gratest hits.','BCNES');
-insert into routes values('London tour','visit the imprescindible places for discover this old city.','LONUK');
-insert into routes values('Childrens route','visit the imprescindible places for childrens funny day.','BCNES');
+insert into routes values('Imprescindible views','imprescindibleViews.png','interesting trip for most popular points of interes in Barcelona city. Start your visit in Plaça Catalunya, the center of city and visit de greatest places.','BCNES');
+insert into routes values('Museum route','museumRoute.png','instructing trip for most interesting museum in Barcelona. Start your visit in Museu d’Art Contemporani de Barcelona and discover the culture secrets','BCNES');
+insert into routes values('Antoni Gaudi','antoniGaudi.png','amazing route for discover the secrets of Antoni Gaudi famous architect!, Start your trip in Plaça de Catalunya and see her gratest hits.','BCNES');
+insert into routes values('London tour','londonTour.png','visit the imprescindible places for discover this old city.','LONUK');
+insert into routes values('Childrens route','childrensRoute.png','visit the imprescindible places for childrens funny day.','BCNES');
  
 insert into valoration values(5,'Antoni Gaudi','admin');
 insert into valoration values(3,'Museum route','admin');
