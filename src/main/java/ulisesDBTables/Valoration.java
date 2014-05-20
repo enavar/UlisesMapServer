@@ -24,6 +24,11 @@ import ulisesDB.Values;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
+/**
+ * 
+ * Class to manage query on database table valoration
+ *
+ */
 public class Valoration extends DAOconection {
 	
 	public Valoration() throws ClassNotFoundException {

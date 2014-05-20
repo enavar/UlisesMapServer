@@ -22,6 +22,11 @@ import ulisesDB.Values;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
+/**
+ * 
+ * Class to manage query on database table city
+ *
+ */
 public class City extends DAOconection {
 	
 	public City() throws ClassNotFoundException {

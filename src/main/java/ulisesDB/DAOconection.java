@@ -15,6 +15,11 @@ import java.sql.SQLException;
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
 
+/**
+ * 
+ * This class manage the connection with database
+ *
+ */
 public class DAOconection {
 	
 	protected Connection con = null;
