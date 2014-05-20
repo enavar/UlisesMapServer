@@ -306,10 +306,10 @@ insert into points values (
 	null,
 	'BCNES');
 insert into points values (
-	'plaça reial',
+	'Plaça Reial',
 	41.3798406,
 	2.175473,
-	'Plaça reial',
+	'Plaça Reial',
 	'discober famous place for enjoying your time',
 	'reial_place.jpg',
 	null,
@@ -387,7 +387,55 @@ insert into points values (
 	'www.zoobarcelona.cat',
 	'BCNES');
 
+insert into points values (
+	'Parc de Joan Miró',
+	41.377823,
+	2.146961,
+	'Parc de Joan Miro',
+	'This large park with lots of open space is also known as the Parc l’Escorxador (so named because it stands on the site of the old municipal slaughterhouse: escorxador in Catalan) and is used by visitors and locals from Barcelona’s Eixample Esquerra to relax. This great urban “lung”, full of possibilities, is located at the south-west end of the neighbourhood and is the perfect appetiser before you begin exploring the monumental Plaça Espanya.',
+	'parc_miro.jpg',
+	null,
+	'BCNES');
 
+insert into points values (
+	'Fundació Joan Miró',
+	41.22070,
+	2.0935,
+	'Parc de Montjuïc',
+	'The Foundation holds an exceptionally comprehensive collection of works by Joan Miró.',
+	'Fundacio_joan_miro.jpg',
+	'http://fundaciomiro-bcn.org/',
+	'BCNES');
+
+insert into points values (
+	'Font de Canaletes',
+	41.385422,
+	2.170057,
+	'Rambla',
+	'The fountain is one of the symbols of Barcelona, a meeting place for locals and visitors alike where people also flock to celebrate the victories of the Catalan team, Futbol Club Barcelona, Barça. The Canaletes Fountain has become one of Barcelona’s most visited landmarks. It also conceals a history that is closely associated with the old town’s water supply.',
+	'font_de_Canaletes_a_la_Rambla.jpg',
+	null,
+	'BCNES');
+
+insert into points values (
+	'Teatre del Liceu'
+	41.380253,
+	2.173469,
+	'Rambla, 51.65',
+	'Barcelona’s theatre opera house, the Gran Teatre del Liceu, opened in 1847 on the Barcelona’s famous Rambla.  One of the key landmarks of Barcelona, it has been a major centre for culture and the performing arts for over 150 years. ',
+	'teatre_liceu.jpeg',
+	'http://www.liceubarcelona.cat/',
+	'BCNES');
+
+insert into points values (
+	'Jardins del Palau de Pedralbes',
+	41.387390,
+	2.118020,
+	'Avinguda Diagonal, 686',
+	'Behind a 250-m long wall overflowing with bougainvillea is one of the stateliest gardens in Barcelona: the gardens of the Pedralbes Royal Palace. Revealing both English and French influences, romantic bridges and verdant green areas, the truth is that a trip to this park will transport you to a time when serenity and majesty were determining elements of the landscape.',
+	'jardins_pedralbes.jpg',
+	null.
+	'BCNES');
 	
 insert into routes values('Imprescindible views','interesting trip for most popular points of interes in Barcelona city. Start your visit in Plaça Catalunya, the center of city and visit de greatest places.','BCNES');
 insert into routes values('Museum route','instructing trip for most interesting museum in Barcelona. Start your visit in Museu d’Art Contemporani de Barcelona and discover the culture secrets','BCNES');
