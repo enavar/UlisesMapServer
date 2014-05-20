@@ -43,7 +43,7 @@ public class RelationRP extends DAOconection {
 		// obtener los puntos
 		try {
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from points where name in(Select pointName from relationRP where routeName='" + routeName + "' orderby position)");
+			ResultSet rs = stm.executeQuery("Select * from points where name in(Select pointName from relationRP where routeName='" + routeName + "')");
 			while (rs.next()) {
 				JSONObject json = new JSONObject();
 				json.put(Values.POINTS_NAME_KEY, rs.getString(Values.POINTS_NAME_KEY));
