@@ -35,9 +35,8 @@ import ulisesDB.Values;
 import ulisesDBTables.City;
 import ulisesDBTables.Points;
 
-
 /**
- * Servlet for receibe and send data from points table; implementation class
+ * ServletPoints for receibe and send data from points table; implementation class
  * Servlet
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
@@ -45,76 +44,86 @@ import ulisesDBTables.Points;
  */
 @WebServlet("/ServletPoints")
 public class ServletPoints extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
-		
-	public ServletPoints() {
-		      super();
-		    }
-		/**
-		 * Iniciar la conexion
-		 */
-	    public void init() {
-			
-	    }
 
-	    /**
-		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	private static final long serialVersionUID = 1L;
+
+	public ServletPoints() {
+		super();
+	}
+
+	/**
+	 * Start the servlet
+	 */
+	public void init() {
+
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// type of response dates
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		// input client dates
+		int length = request.getContentLength();
+		byte[] input = new byte[length];
+		ServletInputStream sin = request.getInputStream();
+		int c, count = 0;
+		while ((c = sin.read(input, count, input.length - count)) != -1) {
+			count += c;
 		}
-		
-		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-			// type of response dates
-			response.setContentType("text/html; charset=UTF-8");
-			response.setCharacterEncoding("UTF-8");
-			// input client dates
-			int length = request.getContentLength();
-			byte[] input = new byte[length];
-			ServletInputStream sin = request.getInputStream();
-			int c, count = 0 ;
-			while ((c = sin.read(input, count, input.length-count)) != -1) {
-				 count +=c;
-			}
-			sin.close();
-			String in = new String(input);
-			System.out.println("Servlet points input : " + in);
-			// set image path 
-			String imagePath = ""; 
-			try {
-				City city = new City();
-				JSONObject json = city.selectCityCountry(in);
-				imagePath = Values.IMAGE_PATH + json.getString(Values.CITY_COUNTRY_KEY) + "/" + json.getString(Values.CITY_NAME_KEY) + "/";	
-			} catch (ClassNotFoundException e2) {
-				e2.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			
-			// output data
-			Points p = null;
-			JSONArray arr = null;
-			try {
-				p = new Points();
-				arr = p.selectPoints(in,imagePath);
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			
-			String result = arr.toString();
-			// send points converted in string
-			p.close();
-			System.out.println("Servlet points result : " + result);
-			PrintWriter out = response.getWriter();
-			out.print(result);
-			out.flush(); 
+		sin.close();
+		String in = new String(input);
+		System.out.println("Servlet points input : " + in);
+		// set image path
+		String imagePath = "";
+		try {
+			City city = new City();
+			JSONObject json = city.selectCityCountry(in);
+			imagePath = Values.IMAGE_PATH
+					+ json.getString(Values.CITY_COUNTRY_KEY) + "/"
+					+ json.getString(Values.CITY_NAME_KEY) + "/";
+		} catch (ClassNotFoundException e2) {
+			e2.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
+
+		// output data
+		Points p = null;
+		JSONArray arr = null;
+		try {
+			p = new Points();
+			arr = p.selectPoints(in, imagePath);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		String result = arr.toString();
+		// send points converted in string
+		p.close();
+		System.out.println("Servlet points result : " + result);
+		PrintWriter out = response.getWriter();
+		out.print(result);
+		out.flush();
+	}
 
 }

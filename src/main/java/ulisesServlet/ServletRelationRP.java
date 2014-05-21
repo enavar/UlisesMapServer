@@ -1,3 +1,19 @@
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ulisesServlet;
 
 import java.io.IOException;
@@ -16,66 +32,65 @@ import org.json.JSONException;
 
 import ulisesDBTables.RelationRP;
 
-
-
-/*
- * ServletRelationRP  
- *
- * @Author: Oleksander Dovbysh
- * 			Elisabet Navarro
- * 			Sheila Perez
- * 
- * This is free software, licensed under the GNU General Public License v3.
- * See http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * Servlet implementation class Servlet
+ * ServletRelationRP for receibe and send data from relationrp table; implementation class
+ * Servlet
+ * 
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 @WebServlet("/ServletRelationRP")
 public class ServletRelationRP extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
-		
+
 	public ServletRelationRP() {
-		      super();
-		    }
-		/**
-		 * Iniciar la conexion
-		 */
-	    public void init() {
-			
-	    }
-	
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		super();
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+
+	/**
+	 * Start the servlet
+	 */
+	public void init() {
+
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// type of response dates
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		// input client dates
 		int length = request.getContentLength();
-        byte[] input = new byte[length];
-        ServletInputStream sin = request.getInputStream();
-        int c, count = 0 ;
-        while ((c = sin.read(input, count, input.length-count)) != -1) {
-            count +=c;
-        }
-        sin.close();
-        String routeName = new String(input);
-        System.out.println("Servlet relationrp input : " + routeName);
+		byte[] input = new byte[length];
+		ServletInputStream sin = request.getInputStream();
+		int c, count = 0;
+		while ((c = sin.read(input, count, input.length - count)) != -1) {
+			count += c;
+		}
+		sin.close();
+		String routeName = new String(input);
+		System.out.println("Servlet relationrp input : " + routeName);
 		RelationRP re = null;
 		JSONArray arrPoints = null;
 		try {
 			re = new RelationRP();
 			String imgPath = re.imgpathFromRoute(routeName);
 			System.out.println("construct relationrp imagepath : " + imgPath);
-			arrPoints = re.selectRoutePoints(routeName,imgPath);
+			arrPoints = re.selectRoutePoints(routeName, imgPath);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -83,16 +98,14 @@ public class ServletRelationRP extends HttpServlet {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
+
 		String result = arrPoints.toString();
 		// send dates converted in string
 		re.close();
 		System.out.println("Servlet relationrp response : " + result);
 		PrintWriter out = response.getWriter();
 		out.print(result);
-		out.flush(); 
+		out.flush();
 	}
-	
-	
 
 }

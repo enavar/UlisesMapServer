@@ -1,3 +1,19 @@
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ulisesServlet;
 
 import java.io.IOException;
@@ -16,45 +32,43 @@ import org.json.JSONException;
 
 import ulisesDBTables.Routes;
 
-
-
-/*
- * ServletRoutes   
- *
- * @Author: Oleksander Dovbysh
- * 			Elisabet Navarro
- * 			Sheila Perez
- * 
- * This is free software, licensed under the GNU General Public License v3.
- * See http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * Servlet implementation class Servlet
+ * ServletRoutes for receibe and send data from routes; implementation class Servlet
+ * 
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 @WebServlet("/ServletRoutes")
 public class ServletRoutes extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
-		
+
 	public ServletRoutes() {
-		      super();
-		    }
-		/**
-		 * Iniciar la conexion
-		 */
-	    public void init() {
-			
-	    }
-	
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		super();
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+
+	/**
+	 * Start the servlet
+	 */
+	public void init() {
+
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// type of response dates
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -82,16 +96,14 @@ public class ServletRoutes extends HttpServlet {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
+
 		String result = arr.toString();
 		System.out.println("Servlet routes result : " + result);
 		// send points converted in string
 		r.close();
 		PrintWriter out = response.getWriter();
 		out.print(result);
-		out.flush(); 
+		out.flush();
 	}
-	
-	
 
 }

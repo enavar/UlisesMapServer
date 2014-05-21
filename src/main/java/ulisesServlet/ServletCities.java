@@ -34,7 +34,7 @@ import ulisesDB.Values;
 import ulisesDBTables.City;
 
 /**
- * Servlet for receibe and send data from city table; implementation class
+ * ServletCities for receibe and send data from city table; implementation class
  * Servlet
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez

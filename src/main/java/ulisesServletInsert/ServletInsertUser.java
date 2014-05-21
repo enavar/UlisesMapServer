@@ -1,3 +1,19 @@
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ulisesServletInsert;
 
 import java.io.IOException;
@@ -16,48 +32,44 @@ import org.json.JSONObject;
 import ulisesDB.Values;
 import ulisesDBTables.Users;
 
-/*
- * ServletInsertUser
- * 
- * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
- * 
- * This is free software, licensed under the GNU General Public License v3. See
- * http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * Servlet implementation class Servlet
+ * ServletInsertUsert for insert new user in database implementation class
+ * Servlet
+ * 
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 @WebServlet("/ServletInsertUser")
 public class ServletInsertUser extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public ServletInsertUser() {
 		super();
 	}
-	
+
 	/**
-	 * Iniciar la conexion
+	 * Start the servlet
 	 */
 	public void init() {
-		
+
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-			IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// type of response dates
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -67,15 +79,14 @@ public class ServletInsertUser extends HttpServlet {
 		} catch (ClassNotFoundException e2) {
 			e2.printStackTrace();
 		}
-				
-				
+
 		// input client dates
 		int length = request.getContentLength();
 		byte[] input = new byte[length];
 		ServletInputStream sin = request.getInputStream();
-		int c, count = 0 ;
-		while ((c = sin.read(input, count, input.length-count)) != -1) {
-		     count +=c;
+		int c, count = 0;
+		while ((c = sin.read(input, count, input.length - count)) != -1) {
+			count += c;
 		}
 		sin.close();
 		String recievedString = new String(input);
@@ -87,7 +98,7 @@ public class ServletInsertUser extends HttpServlet {
 			String user = json.getString(Values.USERS_NAME_KEY);
 			String pass = json.getString(Values.USERS_PASSWORD_KEY);
 			String email = json.getString(Values.USERS_EMAIL_KEY);
-			boolean exist = u.insertUser(user, pass,email);
+			boolean exist = u.insertUser(user, pass, email);
 			if (exist) {
 				result = Values.EXIST_DB;
 			} else {
@@ -97,7 +108,7 @@ public class ServletInsertUser extends HttpServlet {
 			e.printStackTrace();
 			result = Values.NO_EXIST_DB;
 		}
-		        
+
 		// output data
 		u.close();
 		System.out.println("Servlet insertuser result : " + result);
@@ -105,5 +116,5 @@ public class ServletInsertUser extends HttpServlet {
 		out.print(result);
 		out.flush();
 	}
-	
+
 }

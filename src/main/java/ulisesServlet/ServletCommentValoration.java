@@ -32,7 +32,7 @@ import org.json.JSONException;
 import ulisesDBTables.Routes;
 
 /**
- * Servlet for receibe and send data from comments and valoration table;
+ * ServletCommentValoration for receibe and send data from comments and valoration table;
  * implementation class Servlet
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez

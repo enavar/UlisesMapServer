@@ -1,5 +1,20 @@
-package ulisesServletCheck;
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package ulisesServletCheck;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,17 +33,12 @@ import org.json.JSONObject;
 import ulisesDB.Values;
 import ulisesDBTables.Comments;
 
-/*
- * ServletCheckComment
- * 
- * @Author: Oleksander Dovbysh Elisabet Navarro Sheila Perez
- * 
- * This is free software, licensed under the GNU General Public License v3. See
- * http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * Servlet implementation class Servlet
+ * ServletCheckComment for check if user has a comment in determinated route and send
+ * reponse implementation class Servlet
+ * 
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 @WebServlet("/ServletCheckComment")
 public class ServletCheckComment extends HttpServlet {
@@ -40,7 +50,7 @@ public class ServletCheckComment extends HttpServlet {
 	}
 
 	/**
-	 * Iniciar la conexion
+	 * Start the servlet
 	 */
 	public void init() {
 
@@ -59,18 +69,19 @@ public class ServletCheckComment extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// type of response dates
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		Comments com = null;
 		try {
 			com = new Comments();
 		} catch (ClassNotFoundException e2) {
 			e2.printStackTrace();
 		}
-		
+
 		// input client dates
 		int length = request.getContentLength();
 		byte[] input = new byte[length];
@@ -90,7 +101,8 @@ public class ServletCheckComment extends HttpServlet {
 			String userName = json.getString(Values.COMMENTS_USER_KEY);
 			boolean exist = com.checkComment(routeName, userName);
 			if (exist) {
-				result = Values.EXIST_DB;;
+				result = Values.EXIST_DB;
+				;
 			} else {
 				result = Values.NO_EXIST_DB;
 			}
