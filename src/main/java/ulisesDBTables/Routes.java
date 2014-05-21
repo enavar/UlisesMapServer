@@ -1,3 +1,19 @@
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ulisesDBTables;
 
 import java.sql.ResultSet;
@@ -11,21 +27,12 @@ import org.json.JSONObject;
 import ulisesDB.DAOconection;
 import ulisesDB.Values;
 
-/*
- * Routes    
- *
- * @Author: Oleksander Dovbysh
- * 			Elisabet Navarro
- * 			Sheila Perez 
- * 
- * This is free software, licensed under the GNU General Public License v3.
- * See http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * 
- * Class to manage query on database table routes
+ * Routes
+ * Class to manage query on database table routes   
  *
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 public class Routes extends DAOconection {
 
@@ -34,7 +41,7 @@ public class Routes extends DAOconection {
 	}
 
 	/**
-	 * Select query of table routes
+	 * Select all dates query of table routes
 	 * 
 	 * @param ref the id of selected city 
 	 * @return JSONObject result of query
@@ -42,7 +49,6 @@ public class Routes extends DAOconection {
 	 * @throws JSONException
 	 * @throws ClassNotFoundException 
 	 */
-
 	public JSONArray selectRoutesInfo(String ref) throws SQLException,JSONException, ClassNotFoundException {
 		Valoration val = new Valoration();
 		Statement stm;

@@ -1,4 +1,19 @@
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ulisesDBTables;
 
 import java.sql.ResultSet;
@@ -7,21 +22,12 @@ import java.sql.Statement;
 
 import ulisesDB.DAOconection;
 
-/*
- * Users
- * 
- * @Author: Oleksander Dovbysh
- * 			Elisabet Navarro
- * 			Sheila Perez
- * 
- * This is free software, licensed under the GNU General Public License v3. See
- * http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * 
- * Class to manage query on database table users
+ * Users
+ * Class to manage query on database table users    
  *
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 public class Users extends DAOconection {
 	
@@ -30,14 +36,13 @@ public class Users extends DAOconection {
 	}
 	
 	/**
-	 * Select query of table users
+	 * Select all dates query of table users
 	 * 
 	 * @param name the user name
 	 * @param pass the user password
 	 * @return true if user exists, false oterwhise
 	 * @throws SQLException
 	 */
-	
 	public boolean selectUserByName(String name, String pass) throws SQLException {
 		Statement stm;
 		try {
@@ -58,6 +63,7 @@ public class Users extends DAOconection {
 	 * @param name the String name of an user
 	 * @param password the String password for an user
 	 * @param email ths String email of an user
+	 * @return true if user has been insert, false otherwise
 	 */
 	public boolean insertUser(String name, String password, String email) {
 		Statement stm;

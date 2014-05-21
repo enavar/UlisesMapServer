@@ -1,3 +1,19 @@
+/**
+ * Copyright (c) 2014, Oleksander Dovbysh & Elisabet Navarro & Sheila Perez
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ulisesDBTables;
 
 import java.sql.ResultSet;
@@ -13,21 +29,12 @@ import ulisesDB.Values;
 
 
 
-/*
- * Valoration    
- *
- * @Author: Oleksander Dovbysh
- * 			Elisabet Navarro
- * 			Sheila Perez
- * 
- * This is free software, licensed under the GNU General Public License v3.
- * See http://www.gnu.org/licenses/gpl.html for more information.
- */
-
 /**
- * 
- * Class to manage query on database table valoration
+ * Valoration
+ * Class to manage query on database table valoration    
  *
+ * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
+ * @version: 1.0
  */
 public class Valoration extends DAOconection {
 	
@@ -42,7 +49,6 @@ public class Valoration extends DAOconection {
 	 * @throws SQLException
 	 * @throws JSONException 
 	 */
-	
 	public JSONArray selectValoration(String routeName) throws SQLException, JSONException {
 		Statement stm;
 		JSONArray arr = new JSONArray();
@@ -68,6 +74,7 @@ public class Valoration extends DAOconection {
 	 * @param valoracio double number of valoration
 	 * @param user String name of user who valorated
 	 * @param route String name of valorated route
+	 * @return true if valoration has been insert, false otherwise
 	 */
 	public boolean insertValoration(double valoracio,String user,String route) {
 		Statement stm;
@@ -106,7 +113,7 @@ public class Valoration extends DAOconection {
 	}
 	
 	/**
-	 * average of a valorations in determinated route
+	 * Average of a valorations in determinated route
 	 * @param routeName string the name of a route
 	 * @return double a value of an average valoration
 	 */
