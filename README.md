@@ -24,20 +24,12 @@ UlisesMap OpenShift cartridge
 
 Openshift uses a cartridge same as a library for use cartridge you can add in pom.xml file.
 UlisesMap Server use:
-<dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>3.0.1</version>
-        <scope>provided</scope>
-</dependency>
-<dependency>
-	<groupId>org.postgresql</groupId>
-	<artifactId>postgresql</artifactId>
-	<version>9.2-1003-jdbc4</version>
-</dependency>
-<dependency>
-	<groupId>org.json</groupId>
-	<artifactId>json</artifactId>
-	<version>20090211</version>
-</dependency>     
+<ul>
+        <li>javax.servlet-api</li>
+  
+	<li>postgresql</li>
+
+	<li>json</li>
+</ul>	
+  
 
