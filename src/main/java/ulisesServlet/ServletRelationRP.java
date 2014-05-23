@@ -33,8 +33,10 @@ import org.json.JSONException;
 import ulisesDBTables.RelationRP;
 
 /**
- * ServletRelationRP for receibe and send data from relationrp table; implementation class
- * Servlet
+ * ServletRelationRP for receibe and send data from relationrp table; implementation class Servlet.
+ * This servlet get point. Client send reference of points and
+ * servlet responds string with format JSONArray. The JSONArray has name, latitude,
+ * longitude, street, description, url, and image of points.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

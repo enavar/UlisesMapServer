@@ -33,8 +33,9 @@ import ulisesDB.Values;
 import ulisesDBTables.Comments;
 
 /**
- * ServletInsertComment for insert new comment in database implementation class
- * Servlet
+ * ServletInsertComment for insert new comment in database implementation class Servlet.
+ * This servlet check if exist a comment of user or not. Client send in JSON format and servlet
+ * responds if the comment of user exist or not. The JSON has name of route and name of user.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

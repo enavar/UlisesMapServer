@@ -35,6 +35,8 @@ import ulisesDBTables.Valoration;
 /**
  * ServletInsertValoration for insert new valoration in database implementation
  * class Servlet
+ * This servlet check if exist a valoration of user or not. Client send in JSON format and servlet
+ * responds if the valoration of user exist or not. The JSON has name of route and name of user.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

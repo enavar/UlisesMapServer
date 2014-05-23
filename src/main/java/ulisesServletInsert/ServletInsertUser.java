@@ -33,8 +33,10 @@ import ulisesDB.Values;
 import ulisesDBTables.Users;
 
 /**
- * ServletInsertUsert for insert new user in database implementation class
- * Servlet
+ * ServletInsertUsert for insert new user in database implementation class Servlet.
+ * This servlet inserts the users database. Client sends a user in JSON
+ * format and servlet responds if the user has inserted or not. The JSON has 
+ * name, password and email of user.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

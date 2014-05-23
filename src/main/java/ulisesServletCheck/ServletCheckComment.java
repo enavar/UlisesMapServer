@@ -36,6 +36,8 @@ import ulisesDBTables.Comments;
 /**
  * ServletCheckComment for check if user has a comment in determinated route and send
  * reponse implementation class Servlet
+ * This servlet insert the valoration database. Client send a comment in JSON format and servlet 
+ * responds if the valoration has inserted or not. The JSON has value ranking, user and route.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

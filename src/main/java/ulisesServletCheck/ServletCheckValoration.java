@@ -36,6 +36,8 @@ import ulisesDBTables.Valoration;
 /**
  * ServletCheckValoration for check if user has a valoration in determinated
  * route and send reponse; implementation class Servlet
+ * This servlet get all countries database. Client not send nothing and servlet responds string 
+ * with format JSONArray. The JSONArray has name of country.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

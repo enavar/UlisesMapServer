@@ -33,7 +33,9 @@ import ulisesDBTables.Routes;
 
 /**
  * ServletCommentValoration for receibe and send data from comments and valoration table;
- * implementation class Servlet
+ * implementation class Servlet.
+ * This servlet insert the comment database. Client send a comment in JSON format and servlet 
+ * responds if the comment has inserted or not. The JSON has definition, user and route.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

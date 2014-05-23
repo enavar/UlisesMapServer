@@ -36,8 +36,10 @@ import ulisesDBTables.City;
 import ulisesDBTables.Points;
 
 /**
- * ServletPoints for receibe and send data from points table; implementation class
- * Servlet
+ * ServletPoints for receibe and send data from points table; implementation class Servlet.
+ * This servlet get comment and valoration. Client send name of route and
+ * servlet responds string with format JSONArray. The JSONArray has comment and 
+ * valoration and for each comment or valoration has definition and user.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

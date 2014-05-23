@@ -33,7 +33,10 @@ import org.json.JSONException;
 import ulisesDBTables.Routes;
 
 /**
- * ServletRoutes for receibe and send data from routes; implementation class Servlet
+ * ServletRoutes for receibe and send data from routes; implementation class Servlet.
+ * This servlet get points of routes. Client send name route and servlet
+ * response string with format JSONArray. The JSONArray has name, latitude,
+ * longitude, street, description, url and image of points.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

@@ -34,8 +34,10 @@ import ulisesDB.Values;
 import ulisesDBTables.Users;
 
 /**
- * ServletCheckUser for check if user exist in database and send reponse
- * implementation class Servlet
+ * ServletCheckUser for check if user exist in database and send reponse implementation class Servlet.
+ * This servlet check if exist a user or not. Client sends a user in JSON
+ * format and servlet responds if the user exist or not. The JSON has name and 
+ * password of user.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0

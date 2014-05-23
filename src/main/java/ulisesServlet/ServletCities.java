@@ -35,7 +35,11 @@ import ulisesDBTables.City;
 
 /**
  * ServletCities for receibe and send data from city table; implementation class
- * Servlet
+ * Servlet.
+ * This servlet get all countries database. Client not send nothing and servlet responds string 
+ * with format JSONArray. The JSONArray has name of country.
+ * Client send name of country and servlet responds 
+ * string with format JSONArray. The JSONArray has name of city.
  * 
  * @Author: Oleksander Dovbysh, Elisabet Navarro, Sheila Perez
  * @version: 1.0
